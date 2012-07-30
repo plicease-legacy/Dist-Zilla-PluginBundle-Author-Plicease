@@ -47,5 +47,9 @@ Use cmd compatible format used by Windows.
 
 Display this help message.
 
+=head1 SEE ALSO
+
+L<App::Plicease::Dev>
+
 =cut
 

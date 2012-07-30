@@ -10,9 +10,11 @@ use Pod::Usage qw( pod2usage );
 use Cwd;
 
 # ABSTRACT: scripts used by plicease in Perl development.
+# VERSION
 
 sub main
 {
+  shift; # class
   local @ARGV = @_;
   
   my $shell;
