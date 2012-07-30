@@ -16,10 +16,8 @@ use File::Spec;
 use IO::Dir::Closure qw( opendir_read );
 use Pod::Perldoc;
 
+# FIXME this doesn't seem t do the trick.
 app->static->classes(['App::Plicease::Dev::Doc']);
-
-use YAML ();
-print YAML::Dump(app->static->classes);
 
 # ABSTRACT: script used by plicease in Perl development.
 # VERSION
@@ -33,10 +31,7 @@ sub App::Plicease::Dev::Doc::main
 {
   shift; #class;
   local @ARGV = @_;
-  
 
-  # Documentation browser under "/perldoc"
-  plugin 'PODRenderer';
 
   sub recurse
   {
@@ -87,13 +82,36 @@ sub App::Plicease::Dev::Doc::main
 
     my @modules;
 
-    do {
-      foreach my $lib (grep { -d $_ } map { File::Spec->catfile($root, $_, 'lib') } @distros)
-      {
-        push @modules, recurse $lib;
-      }
+    foreach my $lib (@distros)
+    {
+      my $dir = File::Spec->catdir($root, $lib);
 
-    };
+      opendir(my $dh, $dir);
+      my(@list) = grep /^$lib-\d+\.\d+$/, readdir $dh;
+      closedir $dh;
+
+      if(@list > 1)
+      {
+        die "more than one build for $dir";
+      }
+      elsif(@list == 1)
+      {
+        my $sub = File::Spec->catdir($root, $lib, $list[0], 'lib');
+        print "including $sub\n";
+        push @modules, recurse $sub;
+        eval qq{ use lib "$sub"; };
+        die $@ if $@;
+      }
+      elsif(-d File::Spec->catdir($root, $lib, 'lib'))
+      {
+        my $sub = File::Spec->catdir($root, $lib, 'lib');
+        print "including $sub\n";
+        push @modules, recurse $sub;
+      }
+    }
+
+    # Documentation browser under "/perldoc"
+    plugin 'PODRenderer';
 
     my %no_perldoc = map {
       my @location = Pod::Perldoc->new->grand_search_init([$_]);

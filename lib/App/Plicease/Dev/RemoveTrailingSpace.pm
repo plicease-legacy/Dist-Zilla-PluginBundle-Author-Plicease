@@ -17,7 +17,7 @@ sub main
 {
   shift; # class;
   local @ARGV = @_;
-  
+
   GetOptions(
     'help|h' => sub { pod2usage(-verbose => 2) },
   ) or pod2usage(2);
@@ -59,10 +59,10 @@ sub main
       {
         my $dir = File::Spec->catdir($filename, $type);
         next unless -d $dir;
-        system $^X, __FILE__, map { File::Spec->catfile($dir, $_) } grep !/^\./, opendir_read $dir;
+        __PACKAGE__->main(map { File::Spec->catfile($dir, $_) } grep !/^\./, opendir_read $dir);
       }
 
-      system $^X, __FILE__, recurse($filename);
+      __PACKAGE__->main(recurse($filename));
     }
     elsif(-w $filename)
     {

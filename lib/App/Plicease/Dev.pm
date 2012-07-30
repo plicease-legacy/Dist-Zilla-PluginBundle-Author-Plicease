@@ -16,7 +16,7 @@ sub main
 {
   shift; # class
   local @ARGV = @_;
-  
+
   my $shell;
 
  GetOptions(
