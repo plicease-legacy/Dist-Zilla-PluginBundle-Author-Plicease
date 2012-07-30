@@ -36,6 +36,12 @@ This Dist::Zilla plugin bundle is the equivalent to
  [GitHub::Update]
  [GitHub::Meta]
 
+=head1 SEE ALSO
+
+L<App::Plicease::Dev>,
+L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
+L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
+
 =cut
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
