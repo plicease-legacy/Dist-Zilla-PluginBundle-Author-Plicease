@@ -138,6 +138,6 @@ __END__
 
 =head1 SEE ALSO
 
-L<dev>, L<generate_manifest>, L<pmwhich>, L<proveall>, L<remove_trailing_space>
+L<dev>, L<pmwhich>, L<proveall>, L<remove_trailing_space>
 
 =cut
