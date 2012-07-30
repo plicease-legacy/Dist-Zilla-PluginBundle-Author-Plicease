@@ -8,6 +8,7 @@ use Dist::Zilla::Plugin::NextRelease;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::PluginBundle::Git;
 use Dist::Zilla::Plugin::Git;
+use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -22,7 +23,10 @@ In your dist.ini:
 
 This Dist::Zilla plugin bundle is the equivalent to
 
- [@Basic]
+ [@Filter]
+ -bundle = @Basic
+ -remove = UploadToCPAN
+ -remove = Readme
 
  [PodWeaver]
  [NextRelease]
@@ -42,7 +46,10 @@ sub configure
 {
   my($self) = @_;
 
-  $self->add_bundle('Basic' => {});
+  $self->add_bundle('Filer' => {
+    -bundle => '@Basic',
+    -remove => [ qw( UploadToCPAN Readme ) ],
+  });
 
   $self->add_plugins(qw(
 

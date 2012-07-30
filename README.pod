@@ -1,0 +1,42 @@
+=head1 NAME
+
+Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by Plicease
+
+=head1 VERSION
+
+version 0.1
+
+=head1 SYNOPSIS
+
+In your dist.ini:
+
+ [@Author::Plicease]
+
+=head1 DESCRIPTION
+
+This Dist::Zilla plugin bundle is the equivalent to
+
+ [@Filter]
+ -bundle = @Basic
+ -remove = UploadToCPAN
+ -remove = Readme
+
+ [PodWeaver]
+ [NextRelease]
+ [AutoPrereqs]
+
+ [@Git]
+ [GitHub::Update]
+ [GitHub::Meta]
+
+=head1 AUTHOR
+
+Graham Ollis <perl@wdlabs.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Graham Ollis.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
