@@ -48,6 +48,12 @@ sub main
 
 1;
 
+=head1 SEE ALSO
+
+L<App::Plicease::Dev>
+
+=cut
+
 __END__
 
 =head1 SEE ALSO
