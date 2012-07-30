@@ -3,6 +3,7 @@ package Dist::Zilla::MintingProfile::Plicease;
 use Moose;
 use v5.10;
 
+# ABSTRACT: Minting profile for Plicease
 # VERSION
 
 =head1 SYNOPSIS

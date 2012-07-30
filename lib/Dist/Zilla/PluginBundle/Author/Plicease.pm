@@ -46,7 +46,7 @@ sub configure
 {
   my($self) = @_;
 
-  $self->add_bundle('Filer' => {
+  $self->add_bundle('Filter' => {
     -bundle => '@Basic',
     -remove => [ qw( UploadToCPAN Readme ) ],
   });
