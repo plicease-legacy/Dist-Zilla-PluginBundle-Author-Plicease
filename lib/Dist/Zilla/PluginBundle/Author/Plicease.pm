@@ -8,6 +8,7 @@ use Dist::Zilla::Plugin::NextRelease;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::PluginBundle::Git;
 use Dist::Zilla::Plugin::Git;
+use Dist::Zilla::Plugin::GitHub;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
