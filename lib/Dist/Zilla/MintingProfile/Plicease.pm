@@ -8,7 +8,7 @@ use v5.10;
 
 =head1 SYNOPSIS
 
- dzil new -P Plicease
+ dzil new -P Plicease Module::Name
 
 =head1 DESCRIPTION
 
