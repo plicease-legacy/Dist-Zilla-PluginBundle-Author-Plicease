@@ -34,6 +34,10 @@ This Dist::Zilla plugin bundle is the equivalent to
  [AutoPrereqs]
 
  [@Git]
+ allow_dirty = dist.ini
+ allow_dirty = Changes
+ allow_dirty = README.pod
+
  [GitHub::Update]
  [GitHub::Meta]
 
@@ -66,7 +70,9 @@ sub configure
 
   ));
 
-  $self->add_bundle('Git' => {});
+  $self->add_bundle('Git' => {
+    allow_dirty => [ qw( dist.ini Changes README.pod ) ],
+  });
 
   $self->add_plugins(qw(
 
