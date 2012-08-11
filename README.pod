@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by 
 
 =head1 VERSION
 
-version 0.1
+version 0.2
 
 =head1 SYNOPSIS
 
@@ -26,6 +26,10 @@ This Dist::Zilla plugin bundle is the equivalent to
  [AutoPrereqs]
 
  [@Git]
+ allow_dirty = dist.ini
+ allow_dirty = Changes
+ allow_dirty = README.pod
+
  [GitHub::Update]
  [GitHub::Meta]
 
