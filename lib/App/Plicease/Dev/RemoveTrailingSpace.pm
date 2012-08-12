@@ -8,7 +8,7 @@ use Getopt::Long qw( GetOptions );
 use Pod::Usage qw( pod2usage );
 use Fcntl qw( :flock );
 use File::Spec;
-use IO::Dir::Closure qw( opendir_read );
+use Path::Class qw( dir );
 
 # ABSTRACT: script used by plicease in Perl development.
 # VERSION
@@ -24,18 +24,17 @@ sub main
 
   sub recurse
   {
-    my(@dir) = @_;
-    my $dir = File::Spec->catdir(@dir);
+    my $dir = dir(shift);
     my @list;
-    foreach my $filename (grep !/^\./, opendir_read $dir)
+    foreach my $child ($dir->children( no_hidden => 1 ))
     {
-      if(-d File::Spec->catdir($dir, $filename))
+      if($child->is_dir)
       {
-        push @list, recurse(@dir, $filename);
+        push @list, recurse($child);
       }
-      elsif($filename =~ /\.(pm|pod|pl|t|PL)$/)
+      elsif($child =~ /\.(.pm|pod|pl|t|PL)$/)
       {
-        push @list, File::Spec->catfile($dir, $filename);
+        push @list, $child;
       }
     }
     @list;
@@ -59,7 +58,7 @@ sub main
       {
         my $dir = File::Spec->catdir($filename, $type);
         next unless -d $dir;
-        __PACKAGE__->main(map { File::Spec->catfile($dir, $_) } grep !/^\./, opendir_read $dir);
+        __PACKAGE__->main(dir($dir)->children( no_hidden => 1));
       }
 
       __PACKAGE__->main(recurse($filename));
