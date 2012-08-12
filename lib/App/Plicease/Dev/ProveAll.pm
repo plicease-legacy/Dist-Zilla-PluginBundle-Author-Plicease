@@ -5,9 +5,9 @@ use warnings;
 use autodie;
 use File::HomeDir;
 use File::Spec;
-use IO::Dir::Closure qw( opendir_read );
 use Getopt::Long qw( GetOptions );
 use Pod::Usage qw( pod2usage );
+use Path::Class qw( dir );
 
 # ABSTRACT: script used by plicease in Perl development.
 # VERSION
@@ -21,9 +21,7 @@ sub main
     'help|h' => sub { pod2usage(-verbose => 2) },
   ) or pod2usage(2);
 
-  my $root = File::Spec->catdir(File::HomeDir->my_home, qw( dev ) );
-
-  my @distros = grep { -d File::Spec->catdir($_, 't') } map { File::Spec->catdir($root, $_) } grep !/^\./, opendir_read $root;
+  my @distros = grep { -d $_->subdir('t') } dir(File::HomeDir->my_home, 'dev')->children(no_hidden => 1);
 
   foreach my $dir (@distros)
   {
