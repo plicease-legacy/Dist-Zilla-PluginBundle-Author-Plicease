@@ -1,0 +1,12 @@
+---
+pod_spelling_system:
+  stopwords:
+    - profile.ini
+    - dist.ini
+
+pod_coverage:
+  private:
+    - #main
+    - #configure
+    - #after_mint
+    - #recurse
