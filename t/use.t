@@ -9,4 +9,3 @@ use_ok 'App::Plicease::Dev';
 use_ok 'App::Plicease::Dev::PMWhich';
 use_ok 'App::Plicease::Dev::ProveAll';
 use_ok 'App::Plicease::Dev::RemoveTrailingSpace';
-use_ok 'App::Plicease::Dev::Doc';
