@@ -28,6 +28,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  -bundle = @Basic
  -remove = UploadToCPAN
  -remove = Readme
+ -remove = ExtraTests
 
  [PodWeaver]
  [NextRelease]
@@ -59,7 +60,7 @@ sub configure
 
   $self->add_bundle('Filter' => {
     -bundle => '@Basic',
-    -remove => [ qw( UploadToCPAN Readme ) ],
+    -remove => [ qw( UploadToCPAN Readme ExtraTests ) ],
   });
 
   $self->add_plugins(qw(
