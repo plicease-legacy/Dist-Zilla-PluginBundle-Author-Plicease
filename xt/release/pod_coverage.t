@@ -22,56 +22,46 @@ $config = LoadFile($config_filename)
 
 chdir(File::Spec->catdir($FindBin::Bin, File::Spec->updir, File::Spec->updir));
 
-my %private_classes;
+my @private_classes;
 my %private_methods;
 
 foreach my $private (@{ $config->{pod_coverage}->{private} })
 {
-  my($class, $method) = split /#/, $private;
-  if(defined $class && defined $method
-  && $class && $method)
+  my($class,$method) = split /#/, $private;
+  if(defined $class && $class ne '')
   {
-    $private_classes{$class}->{$method} = 1;
+    my $regex = eval 'qr{^' . $class . '$}';
+    if(defined $method && $method ne '')
+    {
+      push @private_classes, { regex => $regex, method => $method };
+    }
+    else
+    {
+      push @private_classes, { regex => $regex, all => 1 };
+    }
   }
-  elsif(defined $method && $method && $class eq '')
+  elsif(defined $method && $method ne '')
   {
-    $private_methods{$method} = 1;
-  }
-  elsif(defined $class && $class)
-  {
-    $private_classes{$class} = 1;
+    $private_methods{$_} = 1 for split /,/, $method;
   }
 }
 
-my %also_private;
+my @classes = all_modules;
 
-while(my($class_name, $class_methods) = each %private_classes)
+plan tests => scalar @classes;
+
+foreach my $class (@classes)
 {
-  if(ref($class_methods) eq 'HASH')
-  {
-    my %private = map {; $_ => 1 } ((keys %$class_methods),(keys %private_methods));
-    $also_private{$class_name} = 
-      eval 'qr{^' . join('|', keys %private) . '$}';
-  }
-  else
-  {
-    $also_private{$class_name} = qr{.*};
-  }
+  SKIP: {
+    my($is_private_class) = map { 1 } grep { $class =~ $_->{regex} && $_->{all} } @private_classes;
+    skip "private class: $class", 1 if $is_private_class;
+    
+    my %methods = map {; $_ => 1 } map { split /,/, $_->{method} } grep { $class =~ $_->{regex} } @private_classes;
+    $methods{$_} = 1 for keys %private_methods;
+    
+    my $also_private = eval 'qr{^' . join('|', keys %methods ) . '$}';
+    
+    pod_coverage_ok $class, { also_private => [$also_private] };
+  };
 }
 
-my $global_also_private = eval 'qr{^' . join('|', keys %private_methods) . '$}';
-
-#diag YAML::Dump({
-#  private_classes => \%private_classes,
-#  private_methods => \%private_methods,
-#  also_private    => \%also_private,
-#});
-
-foreach my $class (all_modules())
-{
-  my $also_private = $also_private{$class} || $global_also_private;
-  #diag $also_private;
-  pod_coverage_ok $class, { also_private => [$also_private] };
-}
-
-done_testing;

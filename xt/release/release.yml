@@ -6,7 +6,7 @@ pod_spelling_system:
 
 pod_coverage:
   private:
-    - #main
-    - #configure
-    - #after_mint
-    - #recurse
+    - App::Plicease::Dev.*#main
+    - App::Plicease::Dev::RemoveTrailingSpace#recurse
+    - Dist::Zilla::PluginBundle::Author::Plicease#configure
+    - Dist::Zilla::Plugin::Author::Plicease::Init#after_mint
