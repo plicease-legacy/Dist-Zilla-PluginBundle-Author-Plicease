@@ -41,7 +41,7 @@ L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
 
 =head1 AUTHOR
 
-Graham Ollis <perl@wdlabs.com>
+Graham Ollis <perl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
