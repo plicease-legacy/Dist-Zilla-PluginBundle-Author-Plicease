@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add xt/release tests to skel
+  - update xt/release tests from profile
   - Removed use test for devdoc
 
 0.3       2012-08-12 15:36:35 America/New_York
