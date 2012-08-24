@@ -20,6 +20,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  -bundle = @Basic
  -remove = UploadToCPAN
  -remove = Readme
+ -remove = ExtraTests
 
  [PodWeaver]
  [NextRelease]

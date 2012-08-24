@@ -5,7 +5,7 @@ BEGIN {
   plan skip_all => 'test requires Test::EOL' 
     unless eval q{ use Test::Fixme; 1 };
 };
-use Test::Fixme;
+use Test::Fixme 0.07;
 use FindBin;
 use File::Spec;
 
