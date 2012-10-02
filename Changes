@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.6       2012-10-02 15:12:10 America/New_York
   - use OurPkgVersion when [@Author::Plicease] is used
 
 0.5       2012-10-02 15:07:25 America/New_York
