@@ -33,6 +33,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [PodWeaver]
  [NextRelease]
  [AutoPrereqs]
+ [OurPkgVersion]
 
  [@Git]
  allow_dirty = dist.ini
@@ -68,6 +69,7 @@ sub configure
     PodWeaver
     NextRelease
     AutoPrereqs
+    OurPkgVersion
 
   ));
 

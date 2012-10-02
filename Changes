@@ -1,8 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use OurPkgVersion when [@Author::Plicease] is used
 
 0.5       2012-10-02 15:07:25 America/New_York
+  - use OurPkgVersion for Dist::Zilla
 
 0.4       2012-08-29 08:01:22 America/New_York
   - add xt/release tests to skel
