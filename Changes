@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.5       2012-10-02 15:07:25 America/New_York
+
 0.4       2012-08-29 08:01:22 America/New_York
   - add xt/release tests to skel
   - update xt/release tests from profile
