@@ -6,6 +6,7 @@ use App::Plicease::Dev::ProveAll;
 
 # PODNAME: proveall
 # ABSTRACT: run prove on all tests in the dev directory.
+# VERSION
 
 App::Plicease::Dev::ProveAll->main(@ARGV);
 

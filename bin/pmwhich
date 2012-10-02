@@ -6,6 +6,7 @@ use App::Plicease::Dev::PMWhich;
 
 # PODNAME: pmwhich
 # ABSTRACT: Display information about installed Perl Modules.
+# VERSION
 
 App::Plicease::Dev::PMWhich->main(@ARGV);
 

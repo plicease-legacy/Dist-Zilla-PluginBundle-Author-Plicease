@@ -6,6 +6,7 @@ use App::Plicease::Dev;
 
 # PODNAME: dev
 # ABSTRACT: Update PATH and PERL5LIB for development distributions.
+# VERSION
 
 App::Plicease::Dev->main(@ARGV);
 

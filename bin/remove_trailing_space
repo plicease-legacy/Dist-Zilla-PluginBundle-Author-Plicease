@@ -6,6 +6,7 @@ use App::Plicease::Dev::RemoveTrailingSpace;
 
 # PODNAME: remove_trailing_space
 # ABSTRACT: remove the trailing space on each line of each file given.
+# VERSION
 
 App::Plicease::Dev::RemoveTrailingSpace->main(@ARGV);
 
