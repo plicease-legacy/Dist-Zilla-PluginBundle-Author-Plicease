@@ -34,6 +34,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [NextRelease]
  [AutoPrereqs]
  [OurPkgVersion]
+ [MetaJSON]
 
  [@Git]
  allow_dirty = dist.ini
@@ -70,6 +71,7 @@ sub configure
     NextRelease
     AutoPrereqs
     OurPkgVersion
+    MetaJSON
 
   ));
 
