@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.8       2012-10-10 08:54:47 EST5EDT
+
 0.7       2012-10-03 17:51:16 America/New_York
 
 0.6       2012-10-02 15:12:10 America/New_York
