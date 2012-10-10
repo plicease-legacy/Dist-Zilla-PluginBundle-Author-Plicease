@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
 
 0.8       2012-10-10 08:54:47 EST5EDT
+  - include META.json
 
 0.7       2012-10-03 17:51:16 America/New_York
 
