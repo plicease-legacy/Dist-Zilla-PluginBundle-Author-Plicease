@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use Shell::Guess instead of System::Shell::Detect
 
 0.8       2012-10-10 08:54:47 EST5EDT
   - include META.json

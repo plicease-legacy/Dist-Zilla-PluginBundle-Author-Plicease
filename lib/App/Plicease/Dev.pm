@@ -7,6 +7,7 @@ use File::HomeDir;
 use File::Spec;
 use Getopt::Long qw( GetOptions );
 use Pod::Usage qw( pod2usage );
+use Shell::Guess;
 use Cwd;
 
 # ABSTRACT: scripts used by plicease in Perl development.
@@ -28,8 +29,7 @@ sub main
 
   unless(defined $shell)
   {
-    require System::Shell::Detect;
-    $shell = System::Shell::Detect->running_shell;
+    $shell = Shell::Guess->running_shell;
   }
 
   my $root = shift @ARGV;
@@ -88,9 +88,9 @@ sub main
     @bins = File::Spec->catdir($root, 'bin')
   }
 
-  if($shell =~ /^csh|sh$/)
+  if($shell->is_unix)
   {
-    if($shell eq 'csh')
+    if($shell->is_c)
     {
       if(@bins > 0)
       {
@@ -105,7 +105,7 @@ sub main
         print "\n";
       }
     }
-    elsif($shell eq 'sh')
+    elsif($shell->is_bourne)
     {
       if(@bins > 0)
       {
@@ -120,11 +120,6 @@ sub main
         print "\n";
       }
     }
-  }
-  elsif($shell eq 'cmd')
-  {
-    # FIXME handle spaces in paths
-    # FIXME output cmd
   }
   else
   {
