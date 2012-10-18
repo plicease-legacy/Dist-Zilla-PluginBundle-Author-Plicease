@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.81      2012-10-18 00:08:03 EST5EDT
   - use Shell::Guess instead of System::Shell::Detect
 
 0.8       2012-10-10 08:54:47 EST5EDT
