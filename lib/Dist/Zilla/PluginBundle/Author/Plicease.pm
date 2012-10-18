@@ -43,6 +43,8 @@ This Dist::Zilla plugin bundle is the equivalent to
 
  [GitHub::Update]
  [GitHub::Meta]
+ 
+ [InstallGuide]
 
 =head1 SEE ALSO
 
@@ -83,6 +85,7 @@ sub configure
 
     GitHub::Update
     GitHub::Meta
+    InstallGuide
 
   ));
 }
