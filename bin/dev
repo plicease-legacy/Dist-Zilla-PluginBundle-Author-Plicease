@@ -21,7 +21,8 @@ __END__
  eval `dev`
 
  # from windows
- ## FIXME
+ dev > devconfig.bat
+ devconfig.bat
 
 =head1 DESCRIPTION
 

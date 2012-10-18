@@ -8,6 +8,7 @@ use File::Spec;
 use Getopt::Long qw( GetOptions );
 use Pod::Usage qw( pod2usage );
 use Shell::Guess;
+use Shell::Config::Generate;
 use Cwd;
 
 # ABSTRACT: scripts used by plicease in Perl development.
@@ -21,16 +22,13 @@ sub main
   my $shell;
 
  GetOptions(
-    'csh'    => sub { $shell = 'csh'           },
-    'sh'     => sub { $shell = 'sh'            },
-    'cmd'    => sub { $shell = 'cmd'           },
-    'help|h' => sub { pod2usage(-verbose => 2) },
+    'csh'    => sub { $shell = Shell::Guess->c_shell      },
+    'sh'     => sub { $shell = Shell::Guess->bourne_shell },
+    'cmd'    => sub { $shell = Shell::Guess->cmd_shell    },
+    'help|h' => sub { pod2usage(-verbose => 2)            },
   ) or pod2usage(2);
 
-  unless(defined $shell)
-  {
-    $shell = Shell::Guess->running_shell;
-  }
+  $shell = Shell::Guess->running_shell unless defined $shell;
 
   my $root = shift @ARGV;
   if(defined $root)
@@ -88,43 +86,11 @@ sub main
     @bins = File::Spec->catdir($root, 'bin')
   }
 
-  if($shell->is_unix)
-  {
-    if($shell->is_c)
-    {
-      if(@bins > 0)
-      {
-        print "setenv PATH \"", join(':', @bins), "\"";
-        print ':$PATH;' if defined $ENV{PATH};
-        print "\n";
-      }
-      if(@libs > 0)
-      {
-        print "setenv PERL5LIB \"", join(':', @libs), "\"";
-        print ':$PERL5LIB;' if defined $ENV{PERL5LIB};
-        print "\n";
-      }
-    }
-    elsif($shell->is_bourne)
-    {
-      if(@bins > 0)
-      {
-        print "export PATH=\"", join(':', @libs), "\"";
-        print ':$PATH;' if defined $ENV{PATH};
-        print "\n";
-      }
-      if(@libs > 0)
-      {
-        print "export PERL5LIB=\"", join(':', @libs), "\"";
-        print ':$PERL5LIB;' if defined $ENV{PERL5LIB};
-        print "\n";
-      }
-    }
-  }
-  else
-  {
-    die "unknown shell: $shell\n";
-  }
+  my $config = Shell::Config::Generate->new;
+  
+  $config->prepend_path( PATH => @bins );
+  $config->prepend_path( PERL5LIB => @libs );
+  print $config->generate($shell);
 }
 
 1;
