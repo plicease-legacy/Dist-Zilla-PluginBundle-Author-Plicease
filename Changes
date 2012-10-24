@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added [MakeMaker::Custom] to the required installs
 
 0.81      2012-10-18 00:08:03 EST5EDT
   - use Shell::Guess instead of System::Shell::Detect
