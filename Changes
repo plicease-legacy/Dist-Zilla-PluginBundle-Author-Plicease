@@ -1,8 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  - added [MinimumPerl] to the required installs
-  - added [MakeMaker::Custom] to the required installs
+  - added [MinimumPerl] as prereq
+  - added [MakeMaker::Custom] as prereq
+  - added Test::CPAN::Changes as prereq
 
 0.81      2012-10-18 00:08:03 EST5EDT
   - use Shell::Guess instead of System::Shell::Detect
