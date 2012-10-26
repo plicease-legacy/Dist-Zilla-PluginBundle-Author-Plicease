@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - modified default plugins to match what I am using now
   - added [MinimumPerl] as prereq
   - added [MakeMaker::Custom] as prereq
   - added Test::CPAN::Changes as prereq
