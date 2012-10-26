@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.82      2012-10-26 07:59:20 EST5EDT
   - modified default plugins to match what I am using now
   - added [MinimumPerl] as prereq
   - added [MakeMaker::Custom] as prereq
