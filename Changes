@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.84      2012-12-26 11:50:13 America/New_York
+  - added [CSS::Compressor]
+  - added [JavaScript::Minifier]
+  - added [Template::Tiny]
+
 0.83      2012-10-26 15:39:02 EST5EDT
 
 0.82      2012-10-26 07:59:20 EST5EDT
