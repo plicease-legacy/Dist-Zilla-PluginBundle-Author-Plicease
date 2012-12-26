@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.85      2012-12-26 14:25:33 America/New_York
   - added [Author::Plicease::Inc]
   - added [Author::Plicease::OSPrereqsNot]
   - added [Run::BeforeBuild]
