@@ -45,6 +45,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [GitHub::Meta]
  
  [InstallGuide]
+ [MinimumPerl]
 
 =head1 SEE ALSO
 
@@ -86,6 +87,7 @@ sub configure
     GitHub::Update
     GitHub::Meta
     InstallGuide
+    MinimumPerl
 
   ));
 }
