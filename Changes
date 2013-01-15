@@ -2,7 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.87      2013-01-15 17:12:36 America/New_York
+  - moved a couple of plugins from template into bundle
+
 0.86      2013-01-15 17:04:05 America/New_York
+  - remove scripts that aren't used anymore
 
 0.85      2012-12-26 14:25:33 America/New_York
   - added [Author::Plicease::Inc]

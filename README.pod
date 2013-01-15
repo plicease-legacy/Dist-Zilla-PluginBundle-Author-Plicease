@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by 
 
 =head1 VERSION
 
-version 0.86
+version 0.87
 
 =head1 SYNOPSIS
 
@@ -37,6 +37,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [GitHub::Meta]
  
  [InstallGuide]
+ [MinimumPerl]
 
 =head1 SEE ALSO
 
