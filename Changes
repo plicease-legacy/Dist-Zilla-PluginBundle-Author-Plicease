@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fixed test use.t to not use removed .pm files
 
 0.87      2013-01-15 17:12:36 America/New_York
   - moved a couple of plugins from template into bundle
