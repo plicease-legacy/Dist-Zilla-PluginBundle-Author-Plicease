@@ -1,3 +1,5 @@
+=pod
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by Plicease
