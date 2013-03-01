@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fix spacing problem in minted Changes
 
 0.89      2013-02-22 15:19:59 America/New_York
   - added [ModuleBuildDatabase]
