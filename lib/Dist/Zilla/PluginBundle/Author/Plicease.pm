@@ -49,7 +49,6 @@ This Dist::Zilla plugin bundle is the equivalent to
 
 =head1 SEE ALSO
 
-L<App::Plicease::Dev>,
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
 L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
 
