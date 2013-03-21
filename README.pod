@@ -6,7 +6,7 @@ Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by 
 
 =head1 VERSION
 
-version 0.90
+version 0.91
 
 =head1 SYNOPSIS
 
@@ -45,7 +45,6 @@ This Dist::Zilla plugin bundle is the equivalent to
 
 =head1 SEE ALSO
 
-L<App::Plicease::Dev>,
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
 L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
 

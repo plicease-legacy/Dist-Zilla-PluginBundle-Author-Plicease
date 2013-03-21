@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.91      2013-03-20 22:16:10 America/New_York
+
 0.90      2013-03-01 11:15:12 America/New_York
   - fix spacing problem in minted Changes
   - added prereq Dist::Zilla::MintingProfile::Clustericious
