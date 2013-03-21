@@ -3,13 +3,6 @@ package Dist::Zilla::PluginBundle::Author::Plicease;
 use Moose;
 use v5.10;
 use Dist::Zilla;
-use Dist::Zilla::Plugin::PodWeaver;
-use Dist::Zilla::Plugin::NextRelease;
-use Dist::Zilla::Plugin::AutoPrereqs;
-use Dist::Zilla::PluginBundle::Git;
-use Dist::Zilla::Plugin::Git;
-use Dist::Zilla::Plugin::GitHub;
-use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -41,8 +34,10 @@ This Dist::Zilla plugin bundle is the equivalent to
  allow_dirty = Changes
  allow_dirty = README.pod
 
- [GitHub::Update]
- [GitHub::Meta]
+ [AutoMetaResources]
+ bugtracker.github = user:plicease
+ repository.github = user:plicease
+ homepage = http://perl.wdlabs.com/%{dist}/
  
  [InstallGuide]
  [MinimumPerl]
@@ -82,10 +77,16 @@ sub configure
     allow_dirty => [ qw( dist.ini Changes README.pod ) ],
   });
 
+  $self->add_plugins([
+    AutoMetaResources => {
+      'bugtracker.github' => 'user:plicease',
+      'repository.github' => 'user:plicease',
+      homepage            => 'http://perl.wdlabs.com/%{dist}/',
+    }
+  ]);
+
   $self->add_plugins(qw(
 
-    GitHub::Update
-    GitHub::Meta
     InstallGuide
     MinimumPerl
 
