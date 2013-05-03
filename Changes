@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.93      2013-05-02 23:00:55 EST5EDT
   - rename D::Z::MP::Plicease to D::Z::MP::Author::Plicease
 
 0.92      2013-05-02 13:07:08 EST5EDT
