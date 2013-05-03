@@ -1,4 +1,4 @@
-package Dist::Zilla::MintingProfile::Plicease;
+package Dist::Zilla::MintingProfile::Author::Plicease;
 
 use Moose;
 use v5.10;
@@ -8,7 +8,7 @@ use v5.10;
 
 =head1 SYNOPSIS
 
- dzil new -P Plicease Module::Name
+ dzil new -P Author::Plicease Module::Name
 
 =head1 DESCRIPTION
 
