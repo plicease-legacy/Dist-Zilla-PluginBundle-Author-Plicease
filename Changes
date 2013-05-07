@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.94      2013-05-07 14:55:01 EST5EDT
   - minor diagnostic fix (Test::Fixme instead of Test::EOL)
 
 0.93      2013-05-02 23:00:55 EST5EDT
