@@ -3,8 +3,9 @@ package Dist::Zilla::Plugin::Author::Plicease::Tests;
 use strict;
 use warnings;
 use Moose;
+use File::chdir;
 use File::Path qw( make_path );
-use Dist::Zilla::MintingProfile::Plicease;
+use Dist::Zilla::MintingProfile::Author::Plicease;
 
 # ABSTRACT: add author only relese tests to xt/release
 # VERSION
@@ -18,6 +19,7 @@ use Dist::Zilla::MintingProfile::Plicease;
 =cut
 
 with 'Dist::Zilla::Role::BeforeBuild';
+with 'Dist::Zilla::Role::BeforeRelease';
 
 has source => (
   is      =>'ro',
@@ -44,7 +46,7 @@ sub before_build
   
   my $source = defined $self->source
   ? $self->zilla->root->subdir($self->source)
-  : Dist::Zilla::MintingProfile::Plicease->profile_dir->subdir(qw( default skel xt release ));
+  : Dist::Zilla::MintingProfile::Author::Plicease->profile_dir->subdir(qw( default skel xt release ));
 
   foreach my $t_file (grep { $_->basename =~ /\.t$/ } $source->children(no_hidden => 1))
   {
@@ -66,6 +68,18 @@ sub before_build
       $file->openw->print($t_file->slurp);
     }
   }
+}
+
+sub before_release
+{
+  my($self) = @_;
+  
+  my $build_root = $self->zilla->built_in;
+  $self->log("prove release tests in $build_root");
+  local $CWD = $build_root;
+  system 'prove', '-lr', 'xt';
+  
+  $self->log_fatal('release test failure') unless $? == 0;
 }
 
 1;

@@ -22,6 +22,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  -remove = UploadToCPAN
  -remove = Readme
  -remove = ExtraTests
+ -remove = ConfirmRelease
 
  [PodWeaver]
  [NextRelease]
@@ -41,11 +42,12 @@ This Dist::Zilla plugin bundle is the equivalent to
  
  [InstallGuide]
  [MinimumPerl]
+ [ConfirmRelease]
 
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
-L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
+L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Author::Plicease>
 
 =cut
 
@@ -59,7 +61,7 @@ sub configure
 
   $self->add_bundle('Filter' => {
     -bundle => '@Basic',
-    -remove => [ qw( UploadToCPAN Readme ExtraTests ) ],
+    -remove => [ qw( UploadToCPAN Readme ExtraTests ConfirmRelease ) ],
   });
 
   $self->add_plugins(qw(
@@ -84,10 +86,14 @@ sub configure
     }
   ]);
 
+  $self->add_plugins('Author::Plicease::Tests')
+    if $self->payload->{release_tests};
+    
   $self->add_plugins(qw(
 
     InstallGuide
     MinimumPerl
+    ConfirmRelease
 
   ));
 }

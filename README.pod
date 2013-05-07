@@ -1,3 +1,5 @@
+=pod
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by Plicease
@@ -21,6 +23,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  -remove = UploadToCPAN
  -remove = Readme
  -remove = ExtraTests
+ -remove = ConfirmRelease
 
  [PodWeaver]
  [NextRelease]
@@ -40,11 +43,12 @@ This Dist::Zilla plugin bundle is the equivalent to
  
  [InstallGuide]
  [MinimumPerl]
+ [ConfirmRelease]
 
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
-L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Plicease>
+L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Author::Plicease>
 
 =head1 AUTHOR
 
