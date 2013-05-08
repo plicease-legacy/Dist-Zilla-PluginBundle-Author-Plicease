@@ -3,6 +3,8 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - added [CheckChangeLog]
   - added [Homepage]
+  - added [Test::Compile]
+  - added [CheckChangeLog]
 
 0.94      2013-05-07 14:55:01 EST5EDT
   - minor diagnostic fix (Test::Fixme instead of Test::EOL)
