@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.95      2013-05-29 16:54:54 America/New_York
   - revamped minting process
   - rm [MakeMaker::Awesome]
   - rm [MakeMaker::Custom]
