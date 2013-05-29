@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - revamped minting process
   - added [CheckChangeLog]
   - added [Homepage]
   - added [Test::Compile]
