@@ -3,6 +3,9 @@ package Dist::Zilla::Plugin::Author::Plicease::UploadToCPAN;
 use Moose;
 use v5.10;
 
+# ABSTRACT: Upload dist to CPAN
+# VERSION
+
 extends 'Dist::Zilla::Plugin::UploadToCPAN';
 
 around release => sub {
