@@ -7,7 +7,7 @@ use Dist::Zilla::File::FromCode;
 use Dist::Zilla::MintingProfile::Author::Plicease;
 use JSON qw( to_json );
 
-# ABSTRACT: Dist::Zizilla initalization tasks for Plicease
+# ABSTRACT: Dist::Zilla initalization tasks for Plicease
 # VERSION
 
 =head1 DESCRIPTION
