@@ -78,7 +78,7 @@ sub before_build
 pod_spelling_system:
   # list of words that are spelled correctly
   # (regardless of what spell check thinks)
-  stop_words: []
+  stopwords: []
 
 pod_coverage:
   # format is "Class#method" or "Class", regex allowed

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fix typo in blank release.yml
 
 0.97      2013-05-30 05:51:27 EST5EDT
   - rm [Author::Plicease::Inc] as it was a mistake anyway
