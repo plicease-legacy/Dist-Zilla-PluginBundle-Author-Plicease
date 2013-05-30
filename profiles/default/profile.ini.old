@@ -1,5 +1,5 @@
 [TemplateModule/:DefaultModuleMaker]
-template = Module.pm
+template = Module.pm.old
 
 [DistINI]
 append_file = plugins.ini
