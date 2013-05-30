@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.96      2013-05-30 04:58:00 America/New_York
   - use prove -b instead of prove -l for release tests
 
 0.95      2013-05-29 16:54:54 America/New_York
