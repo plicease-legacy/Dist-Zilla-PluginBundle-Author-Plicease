@@ -68,6 +68,24 @@ sub before_build
       $file->openw->print($t_file->slurp);
     }
   }
+  
+  my $t_config = $self->zilla->root->file(qw( xt release release.yml ));
+  unless(-e $t_config)
+  {
+    $self->log("creating " . $t_config->stringify);
+    $t_config->openw->print(<<EOF);
+---
+pod_spelling_system:
+  # list of words that are spelled correctly
+  # (regardless of what spell check thinks)
+  stop_words: []
+
+pod_coverage:
+  # format is "Class#method" or "Class", regex allowed
+  # for either Class or method.
+  private: []
+EOF
+  }
 }
 
 sub test

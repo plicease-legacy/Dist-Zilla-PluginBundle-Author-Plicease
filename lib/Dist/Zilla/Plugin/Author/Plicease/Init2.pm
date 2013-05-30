@@ -181,7 +181,7 @@ sub gather_file_gitignore
   
   my $file = Dist::Zilla::File::InMemory->new({
     name    => '.gitignore',
-    content => "/$name-*",
+    content => "/$name-*\n/.build\n",
   });
   
   $self->add_file($file);
