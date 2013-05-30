@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot;
-# ABSTRACT: List prereqs conditional on operating system
+# ABSTRACT: List prerequisites conditional on operating system
 # VERSION
 
 use Moose;

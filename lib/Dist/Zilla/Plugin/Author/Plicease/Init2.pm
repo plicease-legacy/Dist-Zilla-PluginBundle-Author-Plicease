@@ -7,12 +7,12 @@ use Dist::Zilla::File::FromCode;
 use Dist::Zilla::MintingProfile::Author::Plicease;
 use JSON qw( to_json );
 
-# ABSTRACT: Dist::Zilla initalization tasks for Plicease
+# ABSTRACT: Dist::Zilla initialization tasks for Plicease
 # VERSION
 
 =head1 DESCRIPTION
 
-Fillout a dist in plicease style.
+Create a dist in plicease style.
 
 =cut
 

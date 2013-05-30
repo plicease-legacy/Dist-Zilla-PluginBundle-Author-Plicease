@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - rm [Author::Plicease::Inc] as it was a mistake anyway
   - provide a basic release.yml if doesn't already exist
+  - run release tests when releasing this dist
 
 0.96      2013-05-30 04:58:00 America/New_York
   - use prove -b instead of prove -l for release tests

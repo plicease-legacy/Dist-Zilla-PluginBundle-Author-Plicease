@@ -7,7 +7,7 @@ use File::chdir;
 use File::Path qw( make_path );
 use Dist::Zilla::MintingProfile::Author::Plicease;
 
-# ABSTRACT: add author only relese tests to xt/release
+# ABSTRACT: add author only release tests to xt/release
 # VERSION
 
 =head1 SYNOPSIS

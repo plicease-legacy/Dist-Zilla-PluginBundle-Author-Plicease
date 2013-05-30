@@ -3,6 +3,8 @@ pod_spelling_system:
   stopwords:
     - profile.ini
     - dist.ini
+    - CPAN
+    - ini
 
 pod_coverage:
   private:
