@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.97      2013-05-30 05:51:27 EST5EDT
   - rm [Author::Plicease::Inc] as it was a mistake anyway
   - provide a basic release.yml if doesn't already exist
   - run release tests when releasing this dist
