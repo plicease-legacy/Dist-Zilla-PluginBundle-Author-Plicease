@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.98      2013-05-30 14:19:23 America/New_York
   - fix typo in blank release.yml
 
 0.97      2013-05-30 05:51:27 EST5EDT
