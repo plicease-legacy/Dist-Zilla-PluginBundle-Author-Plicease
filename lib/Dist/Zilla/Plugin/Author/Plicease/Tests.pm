@@ -19,7 +19,7 @@ use Dist::Zilla::MintingProfile::Author::Plicease;
 =cut
 
 with 'Dist::Zilla::Role::BeforeBuild';
-with 'Dist::Zilla::Role::BeforeRelease';
+with 'Dist::Zilla::Role::TestRunner';
 
 has source => (
   is      =>'ro',
@@ -70,15 +70,10 @@ sub before_build
   }
 }
 
-sub before_release
+sub test
 {
-  my($self) = @_;
-  
-  my $build_root = $self->zilla->built_in;
-  $self->log("prove release tests in $build_root");
-  local $CWD = $build_root;
-  system 'prove', '-lr', 'xt';
-  
+  my($self, $target) = @_;
+  system 'prove', '-br', 'xt';
   $self->log_fatal('release test failure') unless $? == 0;
 }
 
