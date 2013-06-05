@@ -164,7 +164,7 @@ sub gather_files_tests
     name => 't/use.t',
     content => join("\n", q{use strict;},
                           q{use warnings;},
-                          q{use Test::More tests => 1},
+                          q{use Test::More tests => 1;},
                           q{},
                           qq{use_ok '$name';},
     ),
