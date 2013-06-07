@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.00      2013-06-07 14:52:43 EST5EDT
   - added [Author::Plicease::UloadToMatrix]
 
 0.99      2013-06-05 14:55:56 EST5EDT
