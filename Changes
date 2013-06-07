@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added [Author::Plicease::UloadToMatrix]
 
 0.99      2013-06-05 14:55:56 EST5EDT
   - fix syntax error in generated file
