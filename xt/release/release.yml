@@ -14,6 +14,7 @@ pod_coverage:
     - Dist::Zilla::PluginBundle::Author::Plicease#configure
     - Dist::Zilla::Plugin::Author::Plicease::.*#after_mint
     - Dist::Zilla::Plugin::Author::Plicease::.*#before_build
+    - Dist::Zilla::Plugin::Author::Plicease::.*#after_release
     - Dist::Zilla::Plugin::Author::Plicease::.*#make_module
     - Dist::Zilla::Plugin::Author::Plicease::.*#setup_installer
     - Dist::Zilla::Plugin::Author::Plicease::.*#test
