@@ -14,7 +14,7 @@ sub after_release
 {
   my($self, $archive) = @_;
   use autodie qw( :system );
-  my @cmd = ('scp', $archive, 'ollisg@matrix.wdlabs.com:web/sites/dist');
+  my @cmd = ('scp', '-q', $archive, 'ollisg@matrix.wdlabs.com:web/sites/dist');
   $self->zilla->log("% @cmd");
   eval { system @cmd };
   if(my $error = $@)

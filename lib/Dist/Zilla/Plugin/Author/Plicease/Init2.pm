@@ -108,10 +108,13 @@ sub gather_file_dist_ini
     
     $content .= ";[Prereqs]\n"
              .  ";Foo::Bar = 0\n"
-             . "\n";
+             .  "\n";
     
     $content .= ";[UploadToCPAN]\n"
-             . "\n";
+             .  "\n";
+             
+    $content .= ";[UploadToMatrix]\n"
+             .  "\n";
 
     $content;
   };
