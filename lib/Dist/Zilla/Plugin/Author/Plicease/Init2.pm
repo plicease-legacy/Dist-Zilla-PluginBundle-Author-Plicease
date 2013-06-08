@@ -161,7 +161,7 @@ sub gather_files_tests
   }
   
   my $name = $self->zilla->name;
-  $name =~ s{-}{::};
+  $name =~ s{-}{::}g;
 
   my $use_t_file = Dist::Zilla::File::InMemory->new({
     name => 't/use.t',
