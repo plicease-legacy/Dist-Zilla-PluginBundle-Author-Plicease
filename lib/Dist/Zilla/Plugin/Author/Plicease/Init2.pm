@@ -110,10 +110,10 @@ sub gather_file_dist_ini
              .  ";Foo::Bar = 0\n"
              .  "\n";
     
-    $content .= ";[UploadToCPAN]\n"
+    $content .= ";[Author::Plicease::UploadToCPAN]\n"
              .  "\n";
              
-    $content .= ";[UploadToMatrix]\n"
+    $content .= ";[Author::Plicease::UploadToMatrix]\n"
              .  "\n";
 
     $content;
