@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.01      2013-06-08 08:38:32 America/New_York
   - fixed use.t wheen More::Than::One::Double::Colen::Used
 
 1.00      2013-06-07 14:52:43 EST5EDT
