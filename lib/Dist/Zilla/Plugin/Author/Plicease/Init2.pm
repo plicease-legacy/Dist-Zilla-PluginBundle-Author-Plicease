@@ -66,6 +66,38 @@ sub gather_files
   $self->gather_file_changes($arg);
   $self->gather_files_tests($arg);
   $self->gather_file_gitignore($arg);
+  $self->gather_file_travis_yml($arg);
+}
+
+sub gather_file_travis_yml
+{
+  my($self, $arg) = @_;
+
+  my $file = Dist::Zilla::File::InMemory->new({
+    name    => '.travis.yml',
+    content => join("\n", q{language: perl},
+                          q{},
+                          q{#install:},
+                          q{#  - cpanm -n Foo::Bar},
+                          q{},
+                          q{perl:},
+                          (map { "  - \"5.$_\""} qw( 10 12 14 16 18 )),
+                          q{},
+                          q{#before_script:},
+                          q{},
+                          q{script: HARNESS_IS_VERBOSE=1 prove -lv t xt},
+                          q{},
+                          q{#after_script:},
+                          q{},
+                          q{branches:},
+                          q{  only:},
+                          q{    - master},
+                          q{},
+    ),
+  });
+
+  $self->add_file($file);
+
 }
 
 sub gather_file_dist_ini

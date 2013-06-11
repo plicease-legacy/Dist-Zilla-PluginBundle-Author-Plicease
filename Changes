@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - generate a .travis.yml when minting a new dist
 
 1.01      2013-06-08 08:38:32 America/New_York
   - fixed use.t wheen More::Than::One::Double::Colen::Used
