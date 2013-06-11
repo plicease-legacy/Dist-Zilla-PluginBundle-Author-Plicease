@@ -1,7 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.02      2013-06-11 06:38:33 EST5EDT
   - generate a .travis.yml when minting a new dist
+  - use the right version of [Auth::Plicease::UploadTo{CPAN,Matrix}]
 
 1.01      2013-06-08 08:38:32 America/New_York
   - fixed use.t wheen More::Than::One::Double::Colen::Used
