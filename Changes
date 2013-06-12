@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - set release_tests = 0 if user says so during mint
+  - include the .travis.yml file in the dist
 
 1.02      2013-06-11 06:38:33 EST5EDT
   - generate a .travis.yml when minting a new dist

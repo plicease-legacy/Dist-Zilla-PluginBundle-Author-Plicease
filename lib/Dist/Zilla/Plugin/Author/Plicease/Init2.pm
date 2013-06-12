@@ -32,6 +32,15 @@ has abstract => (
   },
 );
 
+has include_tests => (
+  is      => 'ro',
+  isa     => 'Int',
+  lazy    => 1,
+  default => sub {
+    shift->zilla->chrome->prompt_yn("include release tests?");
+  },
+);
+
 sub make_module
 {
   my($self, $arg) = @_;
@@ -89,10 +98,6 @@ sub gather_file_travis_yml
                           q{},
                           q{#after_script: /bin/true},
                           q{},
-                          q{branches:},
-                          q{  only:},
-                          q{    - master},
-                          q{},
     ),
   });
 
@@ -118,7 +123,7 @@ sub gather_file_dist_ini
     $content .= "\n";
     
     $content .= "[\@Author::Plicease]\n"
-             .  "release_tests = 1\n"
+             .  "release_tests = " . $self->include_tests ."\n"
              .  "\n";
     
     $content .= "[ReadmeAnyFromPod]\n"
@@ -179,7 +184,7 @@ sub gather_files_tests
 {
   my($self, $arg) = @_;
   
-  if($self->zilla->chrome->prompt_yn("include release tests?"))
+  if($self->include_tests)
   {
     my $source = Dist::Zilla::MintingProfile::Author::Plicease->profile_dir->subdir(qw( default skel xt release ));
     foreach my $test ($source->children)

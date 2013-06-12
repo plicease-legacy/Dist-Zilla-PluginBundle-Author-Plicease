@@ -17,12 +17,18 @@ In your dist.ini:
 
 This Dist::Zilla plugin bundle is the equivalent to
 
- [@Filter]
- -bundle = @Basic
- -remove = UploadToCPAN
- -remove = Readme
- -remove = ExtraTests
- -remove = ConfirmRelease
+ # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
+ [GatherDir]
+ [PruneCruft]
+ except = .travis.yml
+ [ManifestSkip]
+ [MetaYAML]
+ [License]
+ [ExecDir]
+ [ShareDir]
+ [MakeMaker]
+ [Manifest]
+ [TestRelease]
 
  [PodWeaver]
  [NextRelease]
@@ -40,9 +46,11 @@ This Dist::Zilla plugin bundle is the equivalent to
  repository.github = user:plicease
  homepage = http://perl.wdlabs.com/%{dist}/
  
+ [Author::Plicease::TransformTravis]
+ 
  [InstallGuide]
  [MinimumPerl]
- [ConfirmRelease]
+ [ConfirmRelease] 
 
 =head1 SEE ALSO
 
@@ -59,11 +67,20 @@ sub configure
 {
   my($self) = @_;
 
-  $self->add_bundle('Filter' => {
-    -bundle => '@Basic',
-    -remove => [ qw( UploadToCPAN Readme ExtraTests ConfirmRelease ) ],
-  });
-
+  $self->add_plugins(
+    'GatherDir',
+    [ PruneCruft => { except => '.travis.yml' } ],
+    'ManifestSkip',
+    'MetaYAML',
+    'License',
+    'ExecDir',
+    'ShareDir',
+    'MakeMaker',
+    'Manifest',
+    'TestRelease',
+  );
+  
+  
   $self->add_plugins(qw(
 
     PodWeaver
@@ -91,6 +108,7 @@ sub configure
     
   $self->add_plugins(qw(
 
+    Author::Plicease::TransformTravis
     InstallGuide
     MinimumPerl
     ConfirmRelease
