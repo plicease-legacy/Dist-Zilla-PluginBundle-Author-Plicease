@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.04      2013-06-14 17:42:07 EST5EDT
+  - documentation
+
 1.03      2013-06-12 09:41:04 EST5EDT
   - set release_tests = 0 if user says so during mint
   - include the .travis.yml file in the dist
