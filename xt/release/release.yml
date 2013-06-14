@@ -5,6 +5,10 @@ pod_spelling_system:
     - dist.ini
     - CPAN
     - ini
+    - MakeMaker
+    - deps
+    - travis
+    - yml
 
 pod_coverage:
   private:
