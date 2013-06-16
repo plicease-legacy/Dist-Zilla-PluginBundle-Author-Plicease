@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Fixed typo in Changes template
 
 1.04      2013-06-14 17:42:07 EST5EDT
   - documentation
