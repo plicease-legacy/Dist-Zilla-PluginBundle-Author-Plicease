@@ -6,7 +6,7 @@ Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by 
 
 =head1 VERSION
 
-version 1.06
+version 1.07
 
 =head1 SYNOPSIS
 
@@ -31,6 +31,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [Manifest]
  [TestRelease]
 
+ [Author::Plicease::PrePodWeaver]
  [PodWeaver]
  [NextRelease]
  [AutoPrereqs]

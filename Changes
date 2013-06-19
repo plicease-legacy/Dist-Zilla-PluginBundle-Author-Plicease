@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.07      2013-06-19 18:12:53 EST5EDT
   - added [Author::Plicease::PrePodWeaver]
 
 1.06      2013-06-19 09:27:36 EST5EDT
