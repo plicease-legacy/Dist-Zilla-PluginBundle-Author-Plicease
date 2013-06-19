@@ -6,12 +6,6 @@ use v5.10;
 # ABSTRACT: Dist::Zilla::Plugin::Author::Plicease::PrePodWeaver
 # VERSION
 
-=head1 SYNOPIS
-
- [Author::Plicease::PrePodWeaver]
-
-=cut
-
 with 'Dist::Zilla::Role::FileMunger';
 
 sub munge_files
