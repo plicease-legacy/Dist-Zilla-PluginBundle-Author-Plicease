@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added [Author::Plicease::PrePodWeaver]
 
 1.06      2013-06-19 09:27:36 EST5EDT
   - require specific version of some plugins

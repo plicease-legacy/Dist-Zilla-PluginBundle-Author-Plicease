@@ -30,6 +30,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [Manifest]
  [TestRelease]
 
+ [Author::Plicease::PrePodWeaver]
  [PodWeaver]
  [NextRelease]
  [AutoPrereqs]
@@ -83,6 +84,7 @@ sub configure
   
   $self->add_plugins(qw(
 
+    Author::Plicease::PrePodWeaver
     PodWeaver
     NextRelease
     AutoPrereqs
