@@ -172,7 +172,7 @@ sub gather_file_changes
     name    => 'Changes',
     content => join("\n", q{Revision history for {{$dist->name}}},
                           q{},
-                          q{{{$NEXXT}}},
+                          q{{{$NEXT}}},
                           q{  - initial version},
     ),
   });

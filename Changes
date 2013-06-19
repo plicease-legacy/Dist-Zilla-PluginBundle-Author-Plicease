@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.05      2013-06-16 12:56:21 America/New_York
+  - Fixed typo in Changes template
+
 1.04      2013-06-14 17:42:07 EST5EDT
   - documentation
 
