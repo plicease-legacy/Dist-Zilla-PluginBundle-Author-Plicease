@@ -9,6 +9,8 @@ pod_spelling_system:
     - deps
     - travis
     - yml
+    - ModuleBuildTiny
+    - ModuleBuildDatabase
 
 pod_coverage:
   private:
