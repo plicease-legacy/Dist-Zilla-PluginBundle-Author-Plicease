@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.08      2013-06-21 21:54:48 EST5EDT
+  - updated dep versions
+
 1.07      2013-06-19 18:12:53 EST5EDT
   - added [Author::Plicease::PrePodWeaver]
 
