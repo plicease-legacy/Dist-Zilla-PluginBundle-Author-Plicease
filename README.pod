@@ -6,7 +6,7 @@ Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by 
 
 =head1 VERSION
 
-version 1.08
+version 1.09
 
 =head1 SYNOPSIS
 
@@ -53,6 +53,15 @@ This Dist::Zilla plugin bundle is the equivalent to
  [InstallGuide]
  [MinimumPerl]
  [ConfirmRelease] 
+
+=head1 OPTIONS
+
+=head2 installer
+
+Specify an alternative to L<[MakeMaker]|Dist::Zilla::Plugin::MakeMaker>
+(L<[ModuleBuild]|Dist::Zilla::Plugin::ModuleBuild>,
+L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny>, or
+L<[ModuleBuildDatabase]|Dist::Zilla::Plugin::ModuleBuildDatabase> for example).
 
 =head1 SEE ALSO
 
