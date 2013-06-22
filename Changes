@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add an installer option for [@Author::Plicease]
 
 1.08      2013-06-21 21:54:48 EST5EDT
   - updated dep versions

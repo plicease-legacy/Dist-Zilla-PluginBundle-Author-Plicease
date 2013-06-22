@@ -53,6 +53,15 @@ This Dist::Zilla plugin bundle is the equivalent to
  [MinimumPerl]
  [ConfirmRelease] 
 
+=head1 OPTIONS
+
+=head2 installer
+
+Specify an alternative to L<[MakeMaker]|Dist::Zilla::Plugin::MakeMaker>
+(L<[ModuleBuild]|Dist::Zilla::Plugin::ModuleBuild>,
+L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny>, or
+L<[ModuleBuildDatabase]|Dist::Zilla::Plugin::ModuleBuildDatabase> for example).
+
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
@@ -76,7 +85,11 @@ sub configure
     'License',
     'ExecDir',
     'ShareDir',
-    'MakeMaker',
+  );
+  
+  $self->add_plugins($self->payload->{installer} // 'MakeMaker');
+  
+  $self->add_plugins(
     'Manifest',
     'TestRelease',
   );
