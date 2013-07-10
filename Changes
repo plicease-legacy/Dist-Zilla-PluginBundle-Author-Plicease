@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.11      2013-07-10 07:03:39 EST5EDT
+  - fix author section header in [Author::Plicease::Thanks]
+
 1.10      2013-07-10 06:48:50 EST5EDT
   - add [Author::Plicease::Thanks]
 
