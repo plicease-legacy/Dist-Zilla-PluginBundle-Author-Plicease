@@ -52,7 +52,7 @@ sub munge_file
   
   my $replacer = sub {
     my @list;
-    push @list, '=AUTHOR', '';
+    push @list, '=head1 AUTHOR', '';
     if($self->original)
     {
       push @list, 'original author: ' . $self->original,
