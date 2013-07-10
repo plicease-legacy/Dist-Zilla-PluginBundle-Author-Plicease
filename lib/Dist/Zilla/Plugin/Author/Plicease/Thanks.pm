@@ -6,6 +6,19 @@ with 'Dist::Zilla::Role::FileFinderUser' => {
   default_finders => [ ':InstallModules', ':ExecFiles' ],
 };
 
+# ABSTRACT: munge the AUTHOR section
+# VERSION
+
+=head1 SYNOPSIS
+
+ [Author::Plicease::Thanks]
+ original = Original Author
+ current = Current Maintainer
+ contributor = Contributor One
+ contributor = Contributor Two
+
+=cut
+
 has original => (
   is  => 'ro',
   isa => 'Str',
