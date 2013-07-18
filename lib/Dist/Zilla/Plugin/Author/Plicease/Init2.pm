@@ -147,12 +147,9 @@ sub gather_file_dist_ini
              .  ";Foo::Bar = 0\n"
              .  "\n";
     
-    $content .= ";[Author::Plicease::UploadToCPAN]\n"
+    $content .= ";[Author::Plicease::Upload]\n"
              .  "\n";
              
-    $content .= ";[Author::Plicease::UploadToMatrix]\n"
-             .  "\n";
-
     $content;
   };
   

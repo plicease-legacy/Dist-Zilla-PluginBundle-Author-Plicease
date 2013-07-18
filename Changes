@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update init2 to reflect previous upload merge
 
 1.12      2013-07-18 09:11:35 America/New_York
   - merge [Author::Plicease::UploadToCPAN] and [Author::Plicease::UploadToMatrix] into [Author::Plicease::Upload]
