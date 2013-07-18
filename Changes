@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add cpan option for [Author::Plicease::Upload]
   - update init2 to reflect previous upload merge
 
 1.12      2013-07-18 09:11:35 America/New_York

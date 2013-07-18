@@ -8,11 +8,16 @@ use v5.10;
 
 extends 'Dist::Zilla::Plugin::UploadToCPAN';
 
+has cpan => (
+  is      => 'ro',
+  default => sub { 1 },
+);
+
 around release => sub {
   my $orig = shift;
   my $self = shift;
   
-  if($self->zilla->chrome->prompt_yn("upload to CPAN?"))
+  if($self->cpan && $self->zilla->chrome->prompt_yn("upload to CPAN?"))
   {
     eval { $self->$orig(@_) };
     if(my $error = $@)
