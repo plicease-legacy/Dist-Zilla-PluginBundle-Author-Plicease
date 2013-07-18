@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - merge [Author::Plicease::UploadToCPAN] and [Author::Plicease::UploadToMatrix] into [Author::Plicease::Upload]
 
 1.11      2013-07-10 07:03:39 EST5EDT
   - fix author section header in [Author::Plicease::Thanks]
