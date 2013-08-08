@@ -33,6 +33,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [Author::Plicease::PrePodWeaver]
  [PodWeaver]
  [NextRelease]
+ format = %-9v %{yyyy-MM-dd}dT%{HH:mm:ssZ}d
  [AutoPrereqs]
  [OurPkgVersion]
  [MetaJSON]
@@ -99,7 +100,11 @@ sub configure
 
     Author::Plicease::PrePodWeaver
     PodWeaver
-    NextRelease
+  ));
+  
+  $self->add_plugins([ NextRelease => { format => '%-9v %{yyyy-MM-dd}dT%{HH:mm:ssZ}d' }]);
+    
+  $self->add_plugins(qw(
     AutoPrereqs
     OurPkgVersion
     MetaJSON
