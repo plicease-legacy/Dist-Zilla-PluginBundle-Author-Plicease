@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.15      2013-08-08T16:01:30-0400
   - use CPAN::Changes::Spec format for new entries in Changes
 
 1.14      2013-07-18 13:30:51 America/New_York
