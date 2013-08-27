@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.17      2013-08-27 12:33:01 -0400
   - update prereq plugins to latest versions
 
 1.16      2013-08-11 16:42:31 -0400
