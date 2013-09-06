@@ -126,18 +126,6 @@ sub gather_file_dist_ini
              .  "release_tests = " . $self->include_tests ."\n"
              .  "\n";
     
-    $content .= "[ReadmeAnyFromPod]\n"
-             .  "type     = text\n"
-             .  "filename = README\n"
-             .  "location = build\n"
-             .  "\n";
-    
-    $content .= "[ReadmeAnyFromPod / ReadMePodInRoot]\n"
-             .  "type     = pod\n"
-             .  "filename = README.pod\n"
-             .  "location = root\n"
-             .  "\n";
-    
     $content .= "[RemovePrereqs]\n"
              .  "remove = strict\n"
              .  "remove = warnings\n"

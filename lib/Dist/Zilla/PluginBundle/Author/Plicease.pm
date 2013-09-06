@@ -53,6 +53,16 @@ This Dist::Zilla plugin bundle is the equivalent to
  [InstallGuide]
  [MinimumPerl]
  [ConfirmRelease] 
+ 
+ [ReadmeAnyFromPod]
+ type     = text
+ filename = README
+ location = build
+ 
+ [ReadmeAnyFromPod / ReadMePodInRoot]
+ type     = markdown
+ filename = README.md
+ location = root
 
 =head1 OPTIONS
 
@@ -134,6 +144,22 @@ sub configure
     ConfirmRelease
 
   ));
+  
+  $self->add_plugins([
+    'ReadmeAnyFromPod' => {
+      type     => 'text',
+      filename => 'README',
+      location => 'build',
+    },
+  ]);
+  
+  $self->add_plugins([
+    'ReadmeAnyFromPod' => ReadMePodInRoot => {
+      type     => 'markdown',
+      filename => 'README.md',
+      location => 'root',
+    },
+  ]);
 }
 
 __PACKAGE__->meta->make_immutable;
