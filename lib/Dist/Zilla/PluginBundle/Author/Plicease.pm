@@ -29,7 +29,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [MakeMaker]
  [Manifest]
  [TestRelease]
-
+ 
  [Author::Plicease::PrePodWeaver]
  [PodWeaver]
  [NextRelease]
@@ -37,12 +37,12 @@ This Dist::Zilla plugin bundle is the equivalent to
  [AutoPrereqs]
  [OurPkgVersion]
  [MetaJSON]
-
+ 
  [@Git]
  allow_dirty = dist.ini
  allow_dirty = Changes
  allow_dirty = README.md
-
+ 
  [AutoMetaResources]
  bugtracker.github = user:plicease
  repository.github = user:plicease
