@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.19      2013-09-06 15:08:16 -0400
+
 1.18      2013-09-06 14:56:09 -0400
   - add [Author::Plicease::TravisStatus]
 
