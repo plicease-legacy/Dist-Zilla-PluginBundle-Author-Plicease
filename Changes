@@ -2,7 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.20      2013-09-06 15:24:02 -0400
+  - add [Author::Plicease::MarkDownCleanup] to [@Author::Plicease]
+
 1.19      2013-09-06 15:08:16 -0400
+  - renamed [Author::Plicease::TravisStatus] [Author::Plicease::MarkDownCleanup]
 
 1.18      2013-09-06 14:56:09 -0400
   - add [Author::Plicease::TravisStatus]
