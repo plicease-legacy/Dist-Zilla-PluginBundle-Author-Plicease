@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add [Author::Plicease::TravisStatus]
 
 1.17      2013-08-27 12:33:01 -0400
   - update prereq plugins to latest versions
