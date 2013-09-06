@@ -41,7 +41,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  [@Git]
  allow_dirty = dist.ini
  allow_dirty = Changes
- allow_dirty = README.pod
+ allow_dirty = README.md
 
  [AutoMetaResources]
  bugtracker.github = user:plicease
@@ -122,7 +122,7 @@ sub configure
   ));
 
   $self->add_bundle('Git' => {
-    allow_dirty => [ qw( dist.ini Changes README.pod ) ],
+    allow_dirty => [ qw( dist.ini Changes README.md ) ],
   });
 
   $self->add_plugins([
