@@ -63,6 +63,8 @@ This Dist::Zilla plugin bundle is the equivalent to
  type     = markdown
  filename = README.md
  location = root
+ 
+ [Author::Plicease::MarkDownCleanup]
 
 =head1 OPTIONS
 
@@ -158,6 +160,12 @@ sub configure
       type     => 'markdown',
       filename => 'README.md',
       location => 'root',
+    },
+  ]);
+  
+  $self->add_plugins([
+    'Author::Plicease::MarkDownCleanup' => {
+      travis_status => int($self->payload->{travis_status}),
     },
   ]);
 }

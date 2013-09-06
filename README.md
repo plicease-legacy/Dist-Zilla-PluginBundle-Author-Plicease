@@ -1,6 +1,6 @@
-# NAME
+# Dist::Zilla::PluginBundle::Author::Plicease
 
-Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by Plicease
+Dist::Zilla plugin bundle used by Plicease
 
 # VERSION
 
@@ -28,6 +28,7 @@ This Dist::Zilla plugin bundle is the equivalent to
     [MakeMaker]
     [Manifest]
     [TestRelease]
+    
 
     [Author::Plicease::PrePodWeaver]
     [PodWeaver]
@@ -36,11 +37,13 @@ This Dist::Zilla plugin bundle is the equivalent to
     [AutoPrereqs]
     [OurPkgVersion]
     [MetaJSON]
+    
 
     [@Git]
     allow_dirty = dist.ini
     allow_dirty = Changes
     allow_dirty = README.md
+    
 
     [AutoMetaResources]
     bugtracker.github = user:plicease
@@ -66,6 +69,9 @@ This Dist::Zilla plugin bundle is the equivalent to
     type     = markdown
     filename = README.md
     location = root
+    
+
+    [Author::Plicease::MarkDownCleanup]
 
 # OPTIONS
 

@@ -1,4 +1,4 @@
-package Dist::Zilla::Plugin::Author::Plicease::TravisStatus;
+package Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup;
 
 use strict;
 use warnings;
@@ -15,6 +15,10 @@ use Moose;
 
 with 'Dist::Zilla::Role::AfterBuild';
 
+has travis_status => (
+  is => 'ro',
+);
+
 # [![Build Status](https://secure.travis-ci.org/plicease/Yars.png)](http://travis-ci.org/plicease/Yars)
 
 sub after_build
@@ -24,9 +28,9 @@ sub after_build
   if(-r $readme)
   {
     my $name = $self->zilla->root->absolute->basename;
-    my $status = "[![Build Status](https://secure.travis-ci.org/plicease/$name.png)](http://travis-ci.org/plicease/$name)";
+    my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/plicease/$name.png)](http://travis-ci.org/plicease/$name)" : "";
     my $content = $readme->slurp;
-    $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1 $status\n\n$2}s;
+    $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
     $readme->spew($content);
   }
   else
