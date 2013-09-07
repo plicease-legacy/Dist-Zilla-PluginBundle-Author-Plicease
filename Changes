@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.22      2013-09-07 11:02:39 -0400
+  - remove extra space in markdown verbatim blocks
+
 1.21      2013-09-07 04:26:43 -0400
   - strip the version out of the README.md
 
