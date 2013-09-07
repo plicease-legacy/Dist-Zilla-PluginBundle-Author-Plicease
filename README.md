@@ -2,10 +2,6 @@
 
 Dist::Zilla plugin bundle used by Plicease
 
-# VERSION
-
-version 1.20
-
 # SYNOPSIS
 
 In your dist.ini:

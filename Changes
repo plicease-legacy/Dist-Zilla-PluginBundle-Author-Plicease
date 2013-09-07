@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - strip the version out of the README.md
 
 1.20      2013-09-06 15:24:02 -0400
   - add [Author::Plicease::MarkDownCleanup] to [@Author::Plicease]

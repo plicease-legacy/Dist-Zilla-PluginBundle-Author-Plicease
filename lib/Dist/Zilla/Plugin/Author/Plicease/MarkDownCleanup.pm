@@ -19,8 +19,6 @@ has travis_status => (
   is => 'ro',
 );
 
-# [![Build Status](https://secure.travis-ci.org/plicease/Yars.png)](http://travis-ci.org/plicease/Yars)
-
 sub after_build
 {
   my($self) = @_;
@@ -31,6 +29,7 @@ sub after_build
     my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/plicease/$name.png)](http://travis-ci.org/plicease/$name)" : "";
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
+    $content =~ s{# VERSION\s+version \d+\.\d+(_\d+|)\s+#}{#};
     $readme->spew($content);
   }
   else
