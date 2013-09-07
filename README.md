@@ -25,7 +25,6 @@ This Dist::Zilla plugin bundle is the equivalent to
     [Manifest]
     [TestRelease]
     
-
     [Author::Plicease::PrePodWeaver]
     [PodWeaver]
     [NextRelease]
@@ -34,19 +33,16 @@ This Dist::Zilla plugin bundle is the equivalent to
     [OurPkgVersion]
     [MetaJSON]
     
-
     [@Git]
     allow_dirty = dist.ini
     allow_dirty = Changes
     allow_dirty = README.md
     
-
     [AutoMetaResources]
     bugtracker.github = user:plicease
     repository.github = user:plicease
     homepage = http://perl.wdlabs.com/%{dist}/
     
-
     [Author::Plicease::TransformTravis]
     
 
@@ -54,19 +50,16 @@ This Dist::Zilla plugin bundle is the equivalent to
     [MinimumPerl]
     [ConfirmRelease] 
     
-
     [ReadmeAnyFromPod]
     type     = text
     filename = README
     location = build
     
-
     [ReadmeAnyFromPod / ReadMePodInRoot]
     type     = markdown
     filename = README.md
     location = root
     
-
     [Author::Plicease::MarkDownCleanup]
 
 # OPTIONS
