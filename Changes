@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - tweak the MarkDownCleanup module
 
 1.23      2013-09-09 20:20:02 -0400
   - silence annoying warning

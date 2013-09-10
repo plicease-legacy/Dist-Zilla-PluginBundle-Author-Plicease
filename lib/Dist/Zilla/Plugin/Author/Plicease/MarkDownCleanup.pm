@@ -30,7 +30,11 @@ sub after_build
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
     $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(_\d+|)\s+#}{#};
-    $content =~ s{^(    .*\n    \n)\n(    )}{$1$2}mg;
+    # do this twice because the pattern may overlap
+    # TODO: this is not actually enough I think a fix to Pod::Markdown
+    # or using a different converter all together may be required
+    $content =~ s{^(    .*\n    [ \t]*\n)\n(    )}{$1$2}mg;
+    $content =~ s{^(    .*\n    [ \t]*\n)\n(    )}{$1$2}mg;
     $readme->spew($content);
   }
   else
