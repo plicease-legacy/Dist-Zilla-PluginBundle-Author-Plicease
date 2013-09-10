@@ -165,7 +165,7 @@ sub configure
   
   $self->add_plugins([
     'Author::Plicease::MarkDownCleanup' => {
-      travis_status => int($self->payload->{travis_status}),
+      travis_status => int($self->payload->{travis_status}//0),
     },
   ]);
 }

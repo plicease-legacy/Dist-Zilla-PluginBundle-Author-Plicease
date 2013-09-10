@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - silence annoying warning
 
 1.22      2013-09-07 11:02:39 -0400
   - remove extra space in markdown verbatim blocks
