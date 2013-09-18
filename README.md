@@ -45,7 +45,6 @@ This Dist::Zilla plugin bundle is the equivalent to
     
     [Author::Plicease::TransformTravis]
     
-
     [InstallGuide]
     [MinimumPerl]
     [ConfirmRelease] 

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add dep on [TextTabs]
 
 1.24      2013-09-10 06:41:12 -0400
   - tweak the MarkDownCleanup module
