@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.26      2013-09-27 18:17:16 -0400
   - rm dep on use bytes (that was bad)
   - create t/00_diag.t and t/00_diag.txt as part of build
   - add [Author::Plicease::Recommend] and use it by default
