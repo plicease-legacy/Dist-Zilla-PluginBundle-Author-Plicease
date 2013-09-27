@@ -87,7 +87,9 @@ pod_coverage:
   private: []
 EOF
   }
-  
+
+  my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
+  $diag->spew(scalar $source->parent->parent->file('t', '00_diag.t')->absolute->slurp);
 }
 
 # not really an installer, but we have to create a list
@@ -111,12 +113,12 @@ sub setup_installer
     }
   }
   
-  my $content = join "\n", keys %list;
+  my $content = join "\n", sort keys %list;
   $content .= "\n";
   
-  $self->zilla->root->file('xt', 'release', 'modules.txt')->spew($content);
+  $self->zilla->root->file('t', '00_diag.txt')->spew($content);
   
-  my($file) = grep { $_->name eq 'xt/release/modules.txt' } @{ $self->zilla->files };
+  my($file) = grep { $_->name eq 't/00_diag.txt' } @{ $self->zilla->files };
   if($file)
   {
     $file->content($content);
@@ -124,7 +126,7 @@ sub setup_installer
   else
   {
     $file = Dist::Zilla::File::InMemory->new({
-      name    => 'xt/release/modules.txt',
+      name    => 't/00_diag.txt',
       content => $content,
     });
     $self->add_file($file);
