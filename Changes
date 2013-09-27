@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - rm dep on use bytes (that was bad)
   - create t/00_diag.t and t/00_diag.txt as part of build
+  - add [Author::Plicease::Recommend] and use it by default
 
 1.25      2013-09-18 15:56:41 -0400
   - add dep on [TextTabs]

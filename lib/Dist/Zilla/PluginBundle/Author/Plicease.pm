@@ -65,6 +65,7 @@ This Dist::Zilla plugin bundle is the equivalent to
  location = root
  
  [Author::Plicease::MarkDownCleanup]
+ [Author::Plicease::Recommend]
 
 =head1 OPTIONS
 
@@ -168,6 +169,8 @@ sub configure
       travis_status => int($self->payload->{travis_status}//0),
     },
   ]);
+  
+  $self->add_plugins(qw( Author::Plicease::Recommend ));
 }
 
 __PACKAGE__->meta->make_immutable;
