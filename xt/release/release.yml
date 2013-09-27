@@ -9,6 +9,7 @@ pod_spelling_system:
     - deps
     - travis
     - yml
+    - ModuleBuild
     - ModuleBuildTiny
     - ModuleBuildDatabase
     - munge
@@ -31,4 +32,5 @@ pod_coverage:
     - Dist::Zilla::Plugin::Author::Plicease::.*#setup_installer
     - Dist::Zilla::Plugin::Author::Plicease::.*#test
     - Dist::Zilla::Plugin::Author::Plicease::.*#gather.*
+    - Dist::Zilla::Plugin::Author::Plicease::.*#register_prereqs
     - Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot#metadata

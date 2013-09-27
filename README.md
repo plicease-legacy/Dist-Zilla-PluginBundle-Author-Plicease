@@ -60,6 +60,7 @@ This Dist::Zilla plugin bundle is the equivalent to
     location = root
     
     [Author::Plicease::MarkDownCleanup]
+    [Author::Plicease::Recommend]
 
 # OPTIONS
 

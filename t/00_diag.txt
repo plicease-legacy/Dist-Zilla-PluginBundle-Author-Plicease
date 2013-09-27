@@ -34,6 +34,7 @@ Dist::Zilla::Role::MetaProvider
 Dist::Zilla::Role::MintingProfile::ShareDir
 Dist::Zilla::Role::ModuleMaker
 Dist::Zilla::Role::PluginBundle::Easy
+Dist::Zilla::Role::PrereqSource
 Dist::Zilla::Role::TestRunner
 Encode
 ExtUtils::MakeMaker
