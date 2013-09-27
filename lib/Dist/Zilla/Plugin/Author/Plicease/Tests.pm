@@ -19,6 +19,7 @@ use Dist::Zilla::MintingProfile::Author::Plicease;
 =cut
 
 with 'Dist::Zilla::Role::BeforeBuild';
+with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TestRunner';
 
 has source => (
@@ -85,6 +86,48 @@ pod_coverage:
   # for either Class or method.
   private: []
 EOF
+  }
+  
+}
+
+# not really an installer, but we have to create a list
+# of the prereqs / suggested modules after the prereqs
+# have been calculated
+sub setup_installer
+{
+  my($self) = @_;
+  
+  my %list;
+  my $prereqs = $self->zilla->prereqs->as_string_hash;
+  foreach my $phase (keys %$prereqs)
+  {
+    foreach my $type (keys %{ $prereqs->{$phase} })
+    {
+      foreach my $module (keys %{ $prereqs->{$phase}->{$type} })
+      {
+        next if $module =~ /^(perl|strict|warnings|base)$/;
+        $list{$module}++;
+      }
+    }
+  }
+  
+  my $content = join "\n", keys %list;
+  $content .= "\n";
+  
+  $self->zilla->root->file('xt', 'release', 'modules.txt')->spew($content);
+  
+  my($file) = grep { $_->name eq 'xt/release/modules.txt' } @{ $self->zilla->files };
+  if($file)
+  {
+    $file->content($content);
+  }
+  else
+  {
+    $file = Dist::Zilla::File::InMemory->new({
+      name    => 'xt/release/modules.txt',
+      content => $content,
+    });
+    $self->add_file($file);
   }
 }
 
