@@ -71,6 +71,19 @@ Specify an alternative to [\[MakeMaker\]](http://search.cpan.org/perldoc?Dist::Z
 [\[ModuleBuildTiny\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuildTiny), or
 [\[ModuleBuildDatabase\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
 
+## readme\_from
+
+Which file to pull from for the Readme (must be POD format).  If not 
+specified, then the main module will be used.
+
+## release\_tests
+
+If set to true, then include release tests when building.
+
+## travis\_status
+
+if set to true, then include a link to the travis build page in the readme.
+
 # SEE ALSO
 
 [Author::Plicease::Init](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Author::Plicease::Init),
