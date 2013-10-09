@@ -3,6 +3,7 @@ package Dist::Zilla::PluginBundle::Author::Plicease;
 use Moose;
 use v5.10;
 use Dist::Zilla;
+use PerlX::Maybe qw( maybe );
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -75,6 +76,19 @@ Specify an alternative to L<[MakeMaker]|Dist::Zilla::Plugin::MakeMaker>
 (L<[ModuleBuild]|Dist::Zilla::Plugin::ModuleBuild>,
 L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny>, or
 L<[ModuleBuildDatabase]|Dist::Zilla::Plugin::ModuleBuildDatabase> for example).
+
+=head2 readme_from
+
+Which file to pull from for the Readme (must be POD format).  If not 
+specified, then the main module will be used.
+
+=head2 release_tests
+
+If set to true, then include release tests when building.
+
+=head2 travis_status
+
+if set to true, then include a link to the tranvis build page in the readme.
 
 =head1 SEE ALSO
 
@@ -150,17 +164,19 @@ sub configure
   
   $self->add_plugins([
     'ReadmeAnyFromPod' => {
-      type     => 'text',
-      filename => 'README',
-      location => 'build',
+            type            => 'text',
+            filename        => 'README',
+            location        => 'build', 
+      maybe source_filename => $self->payload->{readme_from},
     },
   ]);
   
   $self->add_plugins([
     'ReadmeAnyFromPod' => ReadMePodInRoot => {
-      type     => 'markdown',
-      filename => 'README.md',
-      location => 'root',
+      type                  => 'markdown',
+      filename              => 'README.md',
+      location              => 'root',
+      maybe source_filename => $self->payload->{readme_from},
     },
   ]);
   

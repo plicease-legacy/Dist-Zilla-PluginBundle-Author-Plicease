@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add readme_from option to [@Author::Plicease]
+  - documentation
 
 1.26      2013-09-27 18:17:16 -0400
   - rm dep on use bytes (that was bad)
