@@ -46,6 +46,7 @@ JSON
 List::AllUtils
 Moose
 Path::Class
+PerlX::Maybe
 Test::DZil
 Test::More
 YAML::XS

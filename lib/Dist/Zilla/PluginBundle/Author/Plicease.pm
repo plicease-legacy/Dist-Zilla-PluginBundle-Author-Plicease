@@ -88,7 +88,7 @@ If set to true, then include release tests when building.
 
 =head2 travis_status
 
-if set to true, then include a link to the tranvis build page in the readme.
+if set to true, then include a link to the travis build page in the readme.
 
 =head1 SEE ALSO
 
