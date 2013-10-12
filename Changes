@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.28      2013-10-12 14:31:26 -0400
   - use require instead of use in diagnostic
 
 1.27      2013-10-09 14:44:12 -0400
