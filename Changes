@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use require instead of use in diagnostic
 
 1.27      2013-10-09 14:44:12 -0400
   - add readme_from option to [@Author::Plicease]
