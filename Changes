@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.29      2013-10-14 14:57:46 -0400
   - add xt/release/version.t to skel and distro
 
 1.28      2013-10-12 14:31:26 -0400
