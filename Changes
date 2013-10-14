@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add xt/release/version.t to skel and distro
 
 1.28      2013-10-12 14:31:26 -0400
   - use require instead of use in diagnostic
