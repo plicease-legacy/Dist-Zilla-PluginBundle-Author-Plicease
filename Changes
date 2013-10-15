@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.30      2013-10-15 11:54:55 -0400
   - make xt/release/version.t less strict, so that test versions
     (eg. 0.01_01) are allowed
   - fix for the regex removing the version from README.md so that
