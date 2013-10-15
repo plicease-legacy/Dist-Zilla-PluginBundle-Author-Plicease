@@ -29,7 +29,7 @@ sub after_build
     my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/plicease/$name.png)](http://travis-ci.org/plicease/$name)" : "";
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
-    $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(_\d+|)\s+#}{#};
+    $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(\\_\d+|)\s+#}{#};
     # do this twice because the pattern may overlap
     # TODO: this is not actually enough I think a fix to Pod::Markdown
     # or using a different converter all together may be required

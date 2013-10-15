@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - make xt/release/version.t less strict, so that test versions
+    (eg. 0.01_01) are allowed
+  - fix for the regex removing the version from README.md so that
+    it works for test versions (eg. 0.01_01)
 
 1.29      2013-10-14 14:57:46 -0400
   - add xt/release/version.t to skel and distro
