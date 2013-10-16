@@ -43,10 +43,12 @@ File::ShareDir::Install
 File::chdir
 IPC::System::Simple
 JSON
+JSON::XS
 List::AllUtils
 Moose
 Path::Class
 PerlX::Maybe
+PerlX::Maybe::XS
 Test::DZil
 Test::More
 YAML::XS
