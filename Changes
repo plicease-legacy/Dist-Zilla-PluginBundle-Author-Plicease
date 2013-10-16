@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.31      2013-10-16 03:34:17 -0400
+  - use [Bootstrap::lib] and relatives for release more consistent
+    with my other distros
+
 1.30      2013-10-15 11:54:55 -0400
   - make xt/release/version.t less strict, so that test versions
     (eg. 0.01_01) are allowed
