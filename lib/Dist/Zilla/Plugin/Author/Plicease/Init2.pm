@@ -177,7 +177,7 @@ sub gather_files_tests
     {
       my $file = Dist::Zilla::File::FromCode->new({
         name => "xt/release/" . $test->basename,
-        code => sub { $test->slurp },
+        code => sub { $test->slurp(iomode => '<:encoding(UTF-8)') },
       });
       $self->add_file($file);
     }
