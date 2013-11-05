@@ -1,5 +1,8 @@
 package Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup;
 
+# TODO: this or parts of this may no longer be necessary as of
+# Pod::Markdown 1.400
+
 use strict;
 use warnings;
 use Moose;
