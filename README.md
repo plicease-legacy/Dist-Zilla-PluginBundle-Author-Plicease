@@ -66,10 +66,10 @@ This Dist::Zilla plugin bundle is the equivalent to
 
 ## installer
 
-Specify an alternative to [\[MakeMaker\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MakeMaker)
-([\[ModuleBuild\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuild),
-[\[ModuleBuildTiny\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuildTiny), or
-[\[ModuleBuildDatabase\]](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
+Specify an alternative to [[MakeMaker]](https://metacpan.org/pod/Dist::Zilla::Plugin::MakeMaker)
+([[ModuleBuild]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild),
+[[ModuleBuildTiny]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildTiny), or
+[[ModuleBuildDatabase]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
 
 ## readme\_from
 
@@ -86,8 +86,8 @@ if set to true, then include a link to the travis build page in the readme.
 
 # SEE ALSO
 
-[Author::Plicease::Init](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Author::Plicease::Init),
-[MintingProfile::Plicease](http://search.cpan.org/perldoc?Dist::Zilla::MintingProfile::Author::Plicease)
+[Author::Plicease::Init](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Init),
+[MintingProfile::Plicease](https://metacpan.org/pod/Dist::Zilla::MintingProfile::Author::Plicease)
 
 # AUTHOR
 
