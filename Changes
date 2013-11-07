@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update version test
 
 1.32      2013-11-07 11:28:33 -0500
   - support for [Alien] as the builder
