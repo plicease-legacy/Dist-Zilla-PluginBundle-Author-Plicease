@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.32      2013-11-07 11:28:33 -0500
+  - support for [Alien] as the builder
+
 1.31      2013-10-16 03:34:17 -0400
   - use [Bootstrap::lib] and relatives for release more consistent
     with my other distros
