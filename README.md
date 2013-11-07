@@ -71,6 +71,10 @@ Specify an alternative to [[MakeMaker]](https://metacpan.org/pod/Dist::Zilla::Pl
 [[ModuleBuildTiny]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildTiny), or
 [[ModuleBuildDatabase]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
 
+If installer is [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien), then any options 
+with the alien\_ prefix will be passed to [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien)
+(minus the alien\_ prefix).
+
 ## readme\_from
 
 Which file to pull from for the Readme (must be POD format).  If not 

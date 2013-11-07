@@ -77,6 +77,10 @@ Specify an alternative to L<[MakeMaker]|Dist::Zilla::Plugin::MakeMaker>
 L<[ModuleBuildTiny]|Dist::Zilla::Plugin::ModuleBuildTiny>, or
 L<[ModuleBuildDatabase]|Dist::Zilla::Plugin::ModuleBuildDatabase> for example).
 
+If installer is L<Alien|Dist::Zilla::Plugin::Alien>, then any options 
+with the alien_ prefix will be passed to L<Alien|Dist::Zilla::Plugin::Alien>
+(minus the alien_ prefix).
+
 =head2 readme_from
 
 Which file to pull from for the Readme (must be POD format).  If not 
@@ -115,7 +119,8 @@ sub configure
     'ShareDir',
   );
   
-  if($self->payload->{installer} eq 'Alien')
+  my $installer = $self->payload->{installer} // 'MakeMaker';
+  if($installer eq 'Alien')
   {
     my %args = 
       map { $_ => $self->payload->{"alien_$_"} }
@@ -125,7 +130,7 @@ sub configure
   }
   else
   {
-    $self->add_plugins($self->payload->{installer} // 'MakeMaker');
+    $self->add_plugins($installer);
   }
   
   $self->add_plugins(
