@@ -115,7 +115,18 @@ sub configure
     'ShareDir',
   );
   
-  $self->add_plugins($self->payload->{installer} // 'MakeMaker');
+  if($self->payload->{installer} eq 'Alien')
+  {
+    my %args = 
+      map { $_ => $self->payload->{"alien_$_"} }
+      map { s/^alien_//; $_ } 
+      grep /^alien_/, keys %{ $self->payload };
+    $self->add_plugins([ Alien => \%args ]);
+  }
+  else
+  {
+    $self->add_plugins($self->payload->{installer} // 'MakeMaker');
+  }
   
   $self->add_plugins(
     'Manifest',
