@@ -24,6 +24,7 @@ pod_coverage:
     - App::Plicease::Dev.*#main
     - App::Plicease::Dev::RemoveTrailingSpace#recurse
     - Dist::Zilla::PluginBundle::Author::Plicease#configure
+    - Dist::Zilla::PluginBundle::Author::Plicease#mvp_multivalue_args
     - Dist::Zilla::Plugin::Author::Plicease::.*#after_mint
     - Dist::Zilla::Plugin::Author::Plicease::.*#before_build
     - Dist::Zilla::Plugin::Author::Plicease::.*#after_build
