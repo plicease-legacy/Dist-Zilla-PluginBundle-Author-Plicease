@@ -105,6 +105,8 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use namespace::autoclean;
 
+sub mvp_multivalue_args { qw( alien_build_command alien_install_command ) }
+
 sub configure
 {
   my($self) = @_;

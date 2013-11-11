@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - [@Author::Plicease] alien_build_command and alien_install_command be mvp
 
 1.33      2013-11-07 12:03:21 -0500
   - update version test
