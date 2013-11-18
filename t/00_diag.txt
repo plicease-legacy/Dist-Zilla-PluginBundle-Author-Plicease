@@ -2,7 +2,6 @@ Dist::Zilla
 Dist::Zilla::File::FromCode
 Dist::Zilla::File::InMemory
 Dist::Zilla::MintingProfile::Clustericious
-Dist::Zilla::Plugin::Alien
 Dist::Zilla::Plugin::AutoMetaResources
 Dist::Zilla::Plugin::AutoPrereqs
 Dist::Zilla::Plugin::CSS::Compressor
