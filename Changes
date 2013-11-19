@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - mb_class option on [@Author::Plicease] passes to [ModuleBuild]
 
 1.35      2013-11-18 07:55:09 -0500
   - rm dep on [Alien]

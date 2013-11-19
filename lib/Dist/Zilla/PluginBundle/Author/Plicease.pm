@@ -81,6 +81,10 @@ If installer is L<Alien|Dist::Zilla::Plugin::Alien>, then any options
 with the alien_ prefix will be passed to L<Alien|Dist::Zilla::Plugin::Alien>
 (minus the alien_ prefix).
 
+If installer is L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>, then any
+options with the mb_ prefix will be passed to L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>
+(including the mb_ prefix).
+
 =head2 readme_from
 
 Which file to pull from for the Readme (must be POD format).  If not 
@@ -93,6 +97,11 @@ If set to true, then include release tests when building.
 =head2 travis_status
 
 if set to true, then include a link to the travis build page in the readme.
+
+=head2 mb_class
+
+if builder = ModuleBuild, this is the mb_class passed into the [ModuleBuild]
+plugin.
 
 =head1 SEE ALSO
 
@@ -129,6 +138,13 @@ sub configure
       map { s/^alien_//; $_ } 
       grep /^alien_/, keys %{ $self->payload };
     $self->add_plugins([ Alien => \%args ]);
+  }
+  elsif($installer eq 'ModuleBuild')
+  {
+    my %args = 
+      map { $_ => $self->payload->{$_} }
+      grep /^mb_/, keys %{ $self->payload };
+    $self->add_plugins([ ModuleBuild => \%args ]);
   }
   else
   {
