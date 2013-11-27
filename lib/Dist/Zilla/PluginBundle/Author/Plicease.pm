@@ -94,6 +94,11 @@ specified, then the main module will be used.
 
 If set to true, then include release tests when building.
 
+=head2 release_tests_skip
+
+Passed into the L<Author::Plicease::Tests|Dist::Zilla::Plugin::Author::Plicease::Tests>
+if C<release_tests> is true.
+
 =head2 travis_status
 
 if set to true, then include a link to the travis build page in the readme.
@@ -184,8 +189,17 @@ sub configure
     }
   ]);
 
-  $self->add_plugins('Author::Plicease::Tests')
-    if $self->payload->{release_tests};
+  if($self->payload->{release_tests})
+  {
+    if($self->payload->{release_tests_skip})
+    {
+      $self->add_plugins([ 'Author::Plicease::Tests' => { skip => $self->payload->{release_tests_skip} }])
+    }
+    else
+    {
+      $self->add_plugins('Author::Plicease::Tests')
+    }
+  }
     
   $self->add_plugins(qw(
 

@@ -88,6 +88,11 @@ specified, then the main module will be used.
 
 If set to true, then include release tests when building.
 
+## release\_tests\_skip
+
+Passed into the [Author::Plicease::Tests](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Tests)
+if `release_tests` is true.
+
 ## travis\_status
 
 if set to true, then include a link to the travis build page in the readme.
