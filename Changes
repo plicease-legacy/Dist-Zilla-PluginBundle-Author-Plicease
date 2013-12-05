@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.38      2013-12-05 18:29:39 -0500
   - added undocumented non_native_release option for [@Author::Plicease]
 
 1.37      2013-11-27 12:37:59 -0500
