@@ -125,6 +125,20 @@ sub configure
 {
   my($self) = @_;
 
+  # undocumented for a reason: sometimes I need to release on
+  # a different platform that where I do testing, (eg. MSWin32
+  # only modules, where Dist::Zilla is frequently not working
+  # right).
+  if($self->payload->{non_native_release})
+  {
+    eval q{
+      no warnings 'redefine';
+      use Dist::Zilla::Role::BuildPL;
+      sub Dist::Zilla::Role::BuildPL::build {};
+      sub Dist::Zilla::Role::BuildPL::test {};
+    };
+  }
+
   $self->add_plugins(
     'GatherDir',
     [ PruneCruft => { except => '.travis.yml' } ],

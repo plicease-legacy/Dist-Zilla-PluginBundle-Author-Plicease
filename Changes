@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added undocumented non_native_release option for [@Author::Plicease]
 
 1.37      2013-11-27 12:37:59 -0500
   - added release_tests_skip option for [@Author::Plicease]
