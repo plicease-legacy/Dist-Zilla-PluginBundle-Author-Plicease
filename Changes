@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - new dists use ModuleBuild
 
 1.38      2013-12-05 18:29:39 -0500
   - added undocumented non_native_release option for [@Author::Plicease]
