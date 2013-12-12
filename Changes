@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.39      2013-12-12 17:53:49 -0500
   - new dists use ModuleBuild
 
 1.38      2013-12-05 18:29:39 -0500
