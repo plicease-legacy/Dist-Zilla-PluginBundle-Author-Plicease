@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Don't allow release on MSWin32
+  - Don't allow release on Perl 5.8 (implemented, but not documented in 1.40)
 
 1.40      2013-12-13 22:16:55 -0500
   - Support Perl 5.8

@@ -191,7 +191,7 @@ sub configure
 
   ));
 
-  unless($] < 5.010000)
+  if($] >= 5.010000 && $^O ne 'MSWin32')
   {
     $self->add_bundle('Git' => {
       allow_dirty => [ qw( dist.ini Changes README.md ) ],
