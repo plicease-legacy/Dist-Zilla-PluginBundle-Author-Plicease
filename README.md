@@ -1,4 +1,4 @@
-# Dist::Zilla::PluginBundle::Author::Plicease
+# Dist::Zilla::PluginBundle::Author::Plicease [![Build Status](https://secure.travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease.png)](http://travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease)
 
 Dist::Zilla plugin bundle used by Plicease
 
