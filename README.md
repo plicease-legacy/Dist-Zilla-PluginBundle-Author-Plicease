@@ -10,7 +10,7 @@ In your dist.ini:
 
 # DESCRIPTION
 
-This Dist::Zilla plugin bundle is the equivalent to
+This Dist::Zilla plugin bundle is mostly equivalent to
 
     # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
     [GatherDir]
@@ -43,8 +43,6 @@ This Dist::Zilla plugin bundle is the equivalent to
     repository.github = user:plicease
     homepage = http://perl.wdlabs.com/%{dist}/
     
-    [Author::Plicease::TransformTravis]
-    
     [InstallGuide]
     [MinimumPerl]
     [ConfirmRelease] 
@@ -61,6 +59,20 @@ This Dist::Zilla plugin bundle is the equivalent to
     
     [Author::Plicease::MarkDownCleanup]
     [Author::Plicease::Recommend]
+
+Some exceptions:
+
+- Perl 5.8
+
+    [[@Git]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) does not support Perl 5.8, so it
+    is not a prereq there, and it isn't included in the bundle.  As a result
+    releasing from Perl 5.8 is not allowed.
+
+- MSWin32
+
+    Installing [[@Git]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) on MSWin32 is a pain
+    so it is also not a prereq on that platform, isn't used and as a result
+    releasing from MSWin32 is not allowed.
 
 # OPTIONS
 
