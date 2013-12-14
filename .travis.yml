@@ -3,6 +3,8 @@ language: perl
 install:
   - cpanm -n Dist::Zilla
   - cpanm -n `cat t/00_diag.txt`
+  - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
+  - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Test::CPAN::Changes Test::EOL Test::Fixme Test::NoTabs Test::Pod::Spelling::CommonMistakes Test::Spelling Test::Strict Test::Version || true
 
 perl:
