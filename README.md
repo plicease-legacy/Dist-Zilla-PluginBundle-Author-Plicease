@@ -75,6 +75,10 @@ If installer is [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien), th
 with the alien\_ prefix will be passed to [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien)
 (minus the alien\_ prefix).
 
+If installer is [ModuleBuild](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild), then any
+options with the mb\_ prefix will be passed to [ModuleBuild](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild)
+(including the mb\_ prefix).
+
 ## readme\_from
 
 Which file to pull from for the Readme (must be POD format).  If not 
@@ -84,9 +88,19 @@ specified, then the main module will be used.
 
 If set to true, then include release tests when building.
 
+## release\_tests\_skip
+
+Passed into the [Author::Plicease::Tests](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Tests)
+if `release_tests` is true.
+
 ## travis\_status
 
 if set to true, then include a link to the travis build page in the readme.
+
+## mb\_class
+
+if builder = ModuleBuild, this is the mb\_class passed into the \[ModuleBuild\]
+plugin.
 
 # SEE ALSO
 

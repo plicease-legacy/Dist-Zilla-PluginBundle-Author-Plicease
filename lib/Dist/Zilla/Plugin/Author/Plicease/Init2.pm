@@ -124,6 +124,7 @@ sub gather_file_dist_ini
     
     $content .= "[\@Author::Plicease]\n"
              .  "release_tests = " . $self->include_tests ."\n"
+             .  "installer     = ModuleBuild\n"
              .  "\n";
     
     $content .= "[RemovePrereqs]\n"
@@ -135,8 +136,8 @@ sub gather_file_dist_ini
              .  ";Foo::Bar = 0\n"
              .  "\n";
     
-    $content .= ";[Author::Plicease::Upload]\n"
-             .  "\n";
+    $content .= "[Author::Plicease::Upload]\n"
+             .  "cpan = 0\n";
              
     $content;
   };

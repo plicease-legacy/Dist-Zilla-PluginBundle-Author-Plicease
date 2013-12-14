@@ -3,6 +3,18 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - Support Perl 5.8
 
+1.39      2013-12-12 17:53:49 -0500
+  - new dists use ModuleBuild
+
+1.38      2013-12-05 18:29:39 -0500
+  - added undocumented non_native_release option for [@Author::Plicease]
+
+1.37      2013-11-27 12:37:59 -0500
+  - added release_tests_skip option for [@Author::Plicease]
+
+1.36      2013-11-19 10:27:13 -0500
+  - mb_class option on [@Author::Plicease] passes to [ModuleBuild]
+
 1.35      2013-11-18 07:55:09 -0500
   - rm dep on [Alien]
 

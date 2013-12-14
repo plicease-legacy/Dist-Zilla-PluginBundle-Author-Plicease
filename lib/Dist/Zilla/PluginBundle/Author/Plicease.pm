@@ -80,6 +80,10 @@ If installer is L<Alien|Dist::Zilla::Plugin::Alien>, then any options
 with the alien_ prefix will be passed to L<Alien|Dist::Zilla::Plugin::Alien>
 (minus the alien_ prefix).
 
+If installer is L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>, then any
+options with the mb_ prefix will be passed to L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>
+(including the mb_ prefix).
+
 =head2 readme_from
 
 Which file to pull from for the Readme (must be POD format).  If not 
@@ -89,9 +93,19 @@ specified, then the main module will be used.
 
 If set to true, then include release tests when building.
 
+=head2 release_tests_skip
+
+Passed into the L<Author::Plicease::Tests|Dist::Zilla::Plugin::Author::Plicease::Tests>
+if C<release_tests> is true.
+
 =head2 travis_status
 
 if set to true, then include a link to the travis build page in the readme.
+
+=head2 mb_class
+
+if builder = ModuleBuild, this is the mb_class passed into the [ModuleBuild]
+plugin.
 
 =head1 SEE ALSO
 
@@ -109,6 +123,20 @@ sub mvp_multivalue_args { qw( alien_build_command alien_install_command ) }
 sub configure
 {
   my($self) = @_;
+
+  # undocumented for a reason: sometimes I need to release on
+  # a different platform that where I do testing, (eg. MSWin32
+  # only modules, where Dist::Zilla is frequently not working
+  # right).
+  if($self->payload->{non_native_release})
+  {
+    eval q{
+      no warnings 'redefine';
+      use Dist::Zilla::Role::BuildPL;
+      sub Dist::Zilla::Role::BuildPL::build {};
+      sub Dist::Zilla::Role::BuildPL::test {};
+    };
+  }
 
   $self->add_plugins(
     'Author::Plicease::FiveEight',
@@ -129,6 +157,13 @@ sub configure
       map { s/^alien_//; $_ } 
       grep /^alien_/, keys %{ $self->payload };
     $self->add_plugins([ Alien => \%args ]);
+  }
+  elsif($installer eq 'ModuleBuild')
+  {
+    my %args = 
+      map { $_ => $self->payload->{$_} }
+      grep /^mb_/, keys %{ $self->payload };
+    $self->add_plugins([ ModuleBuild => \%args ]);
   }
   else
   {
@@ -171,8 +206,17 @@ sub configure
     }
   ]);
 
-  $self->add_plugins('Author::Plicease::Tests')
-    if $self->payload->{release_tests};
+  if($self->payload->{release_tests})
+  {
+    if($self->payload->{release_tests_skip})
+    {
+      $self->add_plugins([ 'Author::Plicease::Tests' => { skip => $self->payload->{release_tests_skip} }])
+    }
+    else
+    {
+      $self->add_plugins('Author::Plicease::Tests')
+    }
+  }
     
   $self->add_plugins(qw(
 
