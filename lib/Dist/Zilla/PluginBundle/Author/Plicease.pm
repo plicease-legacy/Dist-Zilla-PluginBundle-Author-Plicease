@@ -1,7 +1,6 @@
 package Dist::Zilla::PluginBundle::Author::Plicease;
 
 use Moose;
-use v5.10;
 use Dist::Zilla;
 use PerlX::Maybe qw( maybe );
 
@@ -112,6 +111,7 @@ sub configure
   my($self) = @_;
 
   $self->add_plugins(
+    'Author::Plicease::FiveEight',
     'GatherDir',
     [ PruneCruft => { except => '.travis.yml' } ],
     'ManifestSkip',
@@ -121,7 +121,7 @@ sub configure
     'ShareDir',
   );
   
-  my $installer = $self->payload->{installer} // 'MakeMaker';
+  my $installer = $self->payload->{installer} || 'MakeMaker';
   if($installer eq 'Alien')
   {
     my %args = 
@@ -156,9 +156,12 @@ sub configure
 
   ));
 
-  $self->add_bundle('Git' => {
-    allow_dirty => [ qw( dist.ini Changes README.md ) ],
-  });
+  unless($] < 5.010000)
+  {
+    $self->add_bundle('Git' => {
+      allow_dirty => [ qw( dist.ini Changes README.md ) ],
+    });
+  }
 
   $self->add_plugins([
     AutoMetaResources => {
@@ -200,7 +203,7 @@ sub configure
   
   $self->add_plugins([
     'Author::Plicease::MarkDownCleanup' => {
-      travis_status => int($self->payload->{travis_status}//0),
+      travis_status => int(defined $self->payload->{travis_status} ? $self->payload->{travis_status} : 0),
     },
   ]);
   

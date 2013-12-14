@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Init;
 
 use Moose;
-use v5.10;
 
 # ABSTRACT: Dist::Zilla initialization tasks for Plicease
 # VERSION

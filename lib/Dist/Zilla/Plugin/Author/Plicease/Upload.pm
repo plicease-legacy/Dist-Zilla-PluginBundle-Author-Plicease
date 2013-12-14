@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Upload;
 
 use Moose;
-use v5.10;
 
 # ABSTRACT: Upload dist to CPAN
 # VERSION

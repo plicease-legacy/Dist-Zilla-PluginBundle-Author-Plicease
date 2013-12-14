@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::PrePodWeaver;
 
 use Moose;
-use v5.10;
 
 # ABSTRACT: Dist::Zilla::Plugin::Author::Plicease::PrePodWeaver
 # VERSION

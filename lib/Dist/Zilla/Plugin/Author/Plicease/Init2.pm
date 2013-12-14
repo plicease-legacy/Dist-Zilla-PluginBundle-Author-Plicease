@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Init2;
 
 use Moose;
-use v5.10;
 use Dist::Zilla::File::InMemory;
 use Dist::Zilla::File::FromCode;
 use Dist::Zilla::MintingProfile::Author::Plicease;
