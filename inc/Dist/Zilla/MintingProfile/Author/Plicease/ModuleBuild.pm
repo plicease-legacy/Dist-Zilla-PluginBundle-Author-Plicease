@@ -9,7 +9,7 @@ sub new
   my $class = shift;
   my %args = @_;
 
-  unless($] < 5.010000)
+  if($] >= 5.010000 && $^O ne 'MSWin32')
   {
     $args{requires}->{$_} = 0 for qw( Dist::Zilla::PluginBundle::Git Dist::Zilla::Plugin::Git );
   }

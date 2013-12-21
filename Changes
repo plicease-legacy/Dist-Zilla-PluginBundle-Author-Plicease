@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - slim down the prereqs.
 
 1.41      2013-12-14 06:15:47 -0500
   - Don't allow release on MSWin32
