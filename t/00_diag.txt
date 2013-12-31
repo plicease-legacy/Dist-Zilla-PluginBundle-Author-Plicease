@@ -9,6 +9,7 @@ Dist::Zilla::Plugin::NextRelease
 Dist::Zilla::Plugin::OurPkgVersion
 Dist::Zilla::Plugin::PodWeaver
 Dist::Zilla::Plugin::ReadmeAnyFromPod
+Dist::Zilla::Plugin::Run::BeforeBuild
 Dist::Zilla::Plugin::UploadToCPAN
 Dist::Zilla::Role::AfterBuild
 Dist::Zilla::Role::AfterMint
