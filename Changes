@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - look for inc/run for scripted phase hooks
 
 1.42      2013-12-21 17:09:01 -0500
   - slim down the prereqs.

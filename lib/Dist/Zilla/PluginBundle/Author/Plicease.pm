@@ -154,6 +154,24 @@ sub configure
     };
   }
 
+  $self->add_plugins(['Run::AfterBuild'         => { run => "%x inc/run/after_build.pl      --name %n --version %v --dir %d" }])
+    if -r "inc/run/after_build.pl";
+
+  $self->add_plugins(['Run::AfterRelease'       => { run => "%x inc/run/after_release.pl    --name %n --version %v --dir %d --archive %a" }])
+    if -r "inc/run/after_release.pl";
+
+  $self->add_plugins(['Run::BeforeBuild'        => { run => "%x inc/run/before_build.pl     --name %n --version %v" }])
+    if -r "inc/run/before_build.pl";
+
+  $self->add_plugins(['Run::BeforeRelease'      => { run => "%x inc/run/before_release.pl   ---name %n --version %v --dir %d --archive %a" }])
+    if -r "inc/run/before_release.pl";
+
+  $self->add_plugins(['Run::Release'            => { run => "%x inc/run/release.pl          ---name %n --version %v --dir %d --archive %a" }])
+    if -r "inc/run/release.pl";
+
+  $self->add_plugins(['Run::Test'               => { run => "%x inc/run/test.pl             ---name %n --version %v --dir %d" }])
+    if -r "inc/run/test.pl";
+
   $self->add_plugins(
     'Author::Plicease::FiveEight',
     'GatherDir',
