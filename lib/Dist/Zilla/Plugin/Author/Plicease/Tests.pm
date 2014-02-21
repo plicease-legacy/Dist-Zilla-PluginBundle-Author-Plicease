@@ -131,6 +131,24 @@ sub setup_installer
     });
     $self->add_file($file);
   }
+  
+  if($list{EV})
+  {
+    $self->zilla->root->file('t', '00_diag.pre.txt')->spew("EV\n");
+    my($file) = grep { $_->name eq 't/00_diag.pre.txt' } @{ $self->zilla->files };
+    if($file)
+    {
+      $file->content("EV\n");
+    }
+    else
+    {
+      $file = Dist::Zilla::File::InMemory->new({
+        name    => '00_diag.pre.txt',
+        content => "EV\n",
+      });
+      $self->add_file($file);
+    }
+  }
 }
 
 sub test

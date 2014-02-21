@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - diagnostic doesn't preload EV unless it is a suggested prereq
 
 1.43      2013-12-31 12:28:13 -0500
   - look for inc/run for scripted phase hooks
