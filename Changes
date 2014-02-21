@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.44      2014-02-21 16:02:07 -0500
   - diagnostic doesn't preload EV unless it is a suggested prereq
 
 1.43      2013-12-31 12:28:13 -0500
