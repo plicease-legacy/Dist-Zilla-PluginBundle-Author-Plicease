@@ -3,6 +3,9 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - allow override of diagnostic reporter with [Test] diag = +/-module or [@ACPS] diag = +/-module
 
+1.44      2014-02-21 16:02:07 -0500
+  - diagnostic doesn't preload EV unless it is a suggested prereq
+
 1.43      2013-12-31 12:28:13 -0500
   - look for inc/run for scripted phase hooks
 
