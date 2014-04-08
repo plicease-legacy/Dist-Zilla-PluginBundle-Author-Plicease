@@ -37,4 +37,5 @@ pod_coverage:
     - Dist::Zilla::Plugin::Author::Plicease::.*#test
     - Dist::Zilla::Plugin::Author::Plicease::.*#gather.*
     - Dist::Zilla::Plugin::Author::Plicease::.*#register_prereqs
+    - Dist::Zilla::Plugin::Author::Plicease::.*#mvp_multivalue_args
     - Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot#metadata
