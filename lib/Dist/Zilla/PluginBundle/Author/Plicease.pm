@@ -134,7 +134,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use namespace::autoclean;
 
-sub mvp_multivalue_args { qw( alien_build_command alien_install_command ) }
+sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag ) }
 
 sub configure
 {
@@ -242,14 +242,12 @@ sub configure
 
   if($self->payload->{release_tests})
   {
-    if($self->payload->{release_tests_skip})
-    {
-      $self->add_plugins([ 'Author::Plicease::Tests' => { skip => $self->payload->{release_tests_skip} }])
-    }
-    else
-    {
-      $self->add_plugins('Author::Plicease::Tests')
-    }
+    $self->add_plugins([
+      'Author::Plicease::Tests' => {
+        maybe skip => $self->payload->{release_tests_skip},
+        maybe diag => $self->payload->{diag},
+      }
+    ]);
   }
     
   $self->add_plugins(qw(

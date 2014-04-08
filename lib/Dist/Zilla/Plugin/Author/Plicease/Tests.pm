@@ -15,12 +15,18 @@ use Dist::Zilla::MintingProfile::Author::Plicease;
  [Author::Plicease::Tests]
  source = foo/bar/baz ; source of tests
  skip = pod_.*
+ diag = +Acme::Override::INET
+ diag = +IO::Socket::INET
+ diag = +IO::SOCKET::IP
+ diag = -EV
 
 =cut
 
 with 'Dist::Zilla::Role::BeforeBuild';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TestRunner';
+
+sub mvp_multivalue_args { qw( diag ) }
 
 has source => (
   is      =>'ro',
@@ -31,6 +37,11 @@ has skip => (
   is      => 'ro',
   isa     => 'Str',
   default => '',
+);
+
+has diag => (
+  is      => 'ro',
+  default => sub { [] },
 );
 
 sub before_build
@@ -110,6 +121,22 @@ sub setup_installer
         next if $module =~ /^(perl|strict|warnings|base)$/;
         $list{$module}++;
       }
+    }
+  }
+  
+  foreach my $lib (@{ $self->diag })
+  {
+    if($lib =~ /^-(.*)$/)
+    {
+      delete $list{$1};
+    }
+    elsif($lib =~ /^\+(.*)$/)
+    {
+      $list{$1}++;
+    }
+    else
+    {
+      $self->log_fatal('diagnostic override must be prefixed with + or -');
     }
   }
   
