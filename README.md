@@ -64,13 +64,13 @@ Some exceptions:
 
 - Perl 5.8
 
-    [[@Git]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) does not support Perl 5.8, so it
+    [\[@Git\]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) does not support Perl 5.8, so it
     is not a prereq there, and it isn't included in the bundle.  As a result
     releasing from Perl 5.8 is not allowed.
 
 - MSWin32
 
-    Installing [[@Git]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) on MSWin32 is a pain
+    Installing [\[@Git\]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) on MSWin32 is a pain
     so it is also not a prereq on that platform, isn't used and as a result
     releasing from MSWin32 is not allowed.
 
@@ -78,10 +78,10 @@ Some exceptions:
 
 ## installer
 
-Specify an alternative to [[MakeMaker]](https://metacpan.org/pod/Dist::Zilla::Plugin::MakeMaker)
-([[ModuleBuild]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild),
-[[ModuleBuildTiny]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildTiny), or
-[[ModuleBuildDatabase]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
+Specify an alternative to [\[MakeMaker\]](https://metacpan.org/pod/Dist::Zilla::Plugin::MakeMaker)
+([\[ModuleBuild\]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild),
+[\[ModuleBuildTiny\]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildTiny), or
+[\[ModuleBuildDatabase\]](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuildDatabase) for example).
 
 If installer is [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien), then any options 
 with the alien\_ prefix will be passed to [Alien](https://metacpan.org/pod/Dist::Zilla::Plugin::Alien)
@@ -125,7 +125,7 @@ Graham Ollis <perl@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Graham Ollis.
+This software is copyright (c) 2012 by Graham Ollis.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
