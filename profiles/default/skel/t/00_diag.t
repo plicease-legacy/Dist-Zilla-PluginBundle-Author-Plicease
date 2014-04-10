@@ -43,7 +43,7 @@ our $format = "%-${max}s %s";
 
 spacer;
 
-my @keys = sort grep /(MOJO|PERL|\ALC_|\A(SHELL|LANG)\Z)/i, keys %ENV;
+my @keys = sort grep /(MOJO|PERL|\A(LC|HARNESS)_|\A(SHELL|LANG)\Z)/i, keys %ENV;
 
 if(@keys > 0)
 {
