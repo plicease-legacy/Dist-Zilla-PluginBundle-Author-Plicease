@@ -3,7 +3,6 @@ pod_spelling_system:
   stopwords:
     - profile.ini
     - dist.ini
-    - CPAN
     - ini
     - MakeMaker
     - deps
@@ -12,7 +11,6 @@ pod_spelling_system:
     - ModuleBuild
     - ModuleBuildTiny
     - ModuleBuildDatabase
-    - munge
     - README
     - Readme
     - readme
