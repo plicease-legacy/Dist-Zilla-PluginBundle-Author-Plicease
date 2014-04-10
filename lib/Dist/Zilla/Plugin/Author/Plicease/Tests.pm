@@ -96,6 +96,12 @@ pod_coverage:
   # format is "Class#method" or "Class", regex allowed
   # for either Class or method.
   private: []
+
+unused_vars:
+  global:
+    ignore_vars: []
+  module: []
+
 EOF
   }
 

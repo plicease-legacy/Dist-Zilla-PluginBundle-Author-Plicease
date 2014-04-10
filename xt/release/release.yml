@@ -37,3 +37,19 @@ pod_coverage:
     - Dist::Zilla::Plugin::Author::Plicease::.*#register_prereqs
     - Dist::Zilla::Plugin::Author::Plicease::.*#mvp_multivalue_args
     - Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot#metadata
+
+unused_vars:
+  global:
+    ignore_vars: []
+  module:
+    Dist::Zilla::Plugin::Author::Plicease::Init2: 
+      ignore_vars:
+        - $arg
+    Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot:
+      ignore_vars:
+        - $v
+        - $class
+    Dist::Zilla::Plugin::Author::Plicease::Tests:
+      ignore_vars:
+        - $target
+
