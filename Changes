@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.46      2014-04-10 13:27:07 -0400
   - add to standard diagnostic
   - assume installer = ModuleBuild and mb_class = My::ModuleBuild if inc/My/ModuleBuild.pm is found
   - whitelist some commonly used tech spellings to pod system spelling test
