@@ -2,6 +2,7 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
   - add to standard diagnostic
+  - assume installer = ModuleBuild and mb_class = My::ModuleBuild if inc/My/ModuleBuild.pm is found
 
 1.45      2014-04-08 11:04:49 -0400
   - allow override of diagnostic reporter with [Test] diag = +/-module or [@ACPS] diag = +/-module

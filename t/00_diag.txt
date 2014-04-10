@@ -35,6 +35,7 @@ List::AllUtils
 Module::Build
 Moose
 Path::Class
+Path::Class::File
 PerlX::Maybe
 PerlX::Maybe::XS
 Test::DZil

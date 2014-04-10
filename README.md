@@ -91,6 +91,9 @@ If installer is [ModuleBuild](https://metacpan.org/pod/Dist::Zilla::Plugin::Modu
 options with the mb\_ prefix will be passed to [ModuleBuild](https://metacpan.org/pod/Dist::Zilla::Plugin::ModuleBuild)
 (including the mb\_ prefix).
 
+If you have a `inc/My/ModuleBuild.pm` file in your dist, then this plugin bundle
+will assume `installer` is `ModuleBuild` and `mb_class` = `My::ModuleBuild`.
+
 ## readme\_from
 
 Which file to pull from for the Readme (must be POD format).  If not 

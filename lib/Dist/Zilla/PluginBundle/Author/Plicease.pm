@@ -3,6 +3,7 @@ package Dist::Zilla::PluginBundle::Author::Plicease;
 use Moose;
 use Dist::Zilla;
 use PerlX::Maybe qw( maybe );
+use Path::Class::File;
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -100,6 +101,9 @@ If installer is L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>, then any
 options with the mb_ prefix will be passed to L<ModuleBuild|Dist::Zilla::Plugin::ModuleBuild>
 (including the mb_ prefix).
 
+If you have a C<inc/My/ModuleBuild.pm> file in your dist, then this plugin bundle
+will assume C<installer> is C<ModuleBuild> and C<mb_class> = C<My::ModuleBuild>.
+
 =head2 readme_from
 
 Which file to pull from for the Readme (must be POD format).  If not 
@@ -182,27 +186,33 @@ sub configure
     'ExecDir',
     'ShareDir',
   );
-  
-  my $installer = $self->payload->{installer} || 'MakeMaker';
-  if($installer eq 'Alien')
-  {
-    my %args = 
-      map { $_ => $self->payload->{"alien_$_"} }
-      map { s/^alien_//; $_ } 
-      grep /^alien_/, keys %{ $self->payload };
-    $self->add_plugins([ Alien => \%args ]);
-  }
-  elsif($installer eq 'ModuleBuild')
-  {
-    my %args = 
-      map { $_ => $self->payload->{$_} }
-      grep /^mb_/, keys %{ $self->payload };
-    $self->add_plugins([ ModuleBuild => \%args ]);
-  }
-  else
-  {
-    $self->add_plugins($installer);
-  }
+
+  do { # installer stuff
+    my $installer = $self->payload->{installer} || 'MakeMaker';
+    my %mb = map { $_ => $self->payload->{$_} } grep /^mb_/, keys %{ $self->payload };
+    if(-e Path::Class::File->new('inc', 'My', 'ModuleBuild.pm'))
+    {
+      $installer = 'ModuleBuild';
+      $mb{mb_class} = 'My::ModuleBuild'
+        unless defined $mb{mb_class};
+    }
+    if($installer eq 'Alien')
+    {
+      my %args = 
+        map { $_ => $self->payload->{"alien_$_"} }
+        map { s/^alien_//; $_ } 
+        grep /^alien_/, keys %{ $self->payload };
+      $self->add_plugins([ Alien => \%args ]);
+    }
+    elsif($installer eq 'ModuleBuild')
+    {
+      $self->add_plugins([ ModuleBuild => \%mb ]);
+    }
+    else
+    {
+      $self->add_plugins($installer);
+    }
+  };
   
   $self->add_plugins(
     'Manifest',
