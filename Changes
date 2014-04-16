@@ -2,6 +2,7 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
   - update .travis.yml template to reflect my current usage
+  - fixed tempalte release.yml
 
 1.46      2014-04-10 13:27:07 -0400
   - add to standard diagnostic
