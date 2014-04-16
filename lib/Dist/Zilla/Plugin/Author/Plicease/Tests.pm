@@ -103,7 +103,7 @@ unused_vars:
   skip: 0
   global:
     ignore_vars: []
-  module: []
+  module: {}
 
 EOF
   }
