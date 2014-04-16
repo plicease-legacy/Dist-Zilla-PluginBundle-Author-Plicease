@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.47      2014-04-16 02:26:37 -0400
   - update .travis.yml template to reflect my current usage
   - fixed tempalte release.yml
 
