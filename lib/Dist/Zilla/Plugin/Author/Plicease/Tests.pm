@@ -123,6 +123,7 @@ sub setup_installer
   my $prereqs = $self->zilla->prereqs->as_string_hash;
   foreach my $phase (keys %$prereqs)
   {
+    next if $phase eq 'develop';
     foreach my $type (keys %{ $prereqs->{$phase} })
     {
       foreach my $module (keys %{ $prereqs->{$phase}->{$type} })
