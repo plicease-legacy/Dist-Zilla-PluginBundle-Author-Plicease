@@ -293,6 +293,9 @@ sub configure
   ]);
   
   $self->add_plugins(qw( Author::Plicease::Recommend ));
+  
+  if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
+  { $self->add_plugins(qw( ACPS::RPM )) }
 }
 
 __PACKAGE__->meta->make_immutable;
