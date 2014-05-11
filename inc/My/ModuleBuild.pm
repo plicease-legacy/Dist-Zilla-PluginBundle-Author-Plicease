@@ -1,4 +1,4 @@
-package Dist::Zilla::MintingProfile::Author::Plicease::ModuleBuild;
+package My::ModuleBuild;
 
 use strict;
 use warnings;
