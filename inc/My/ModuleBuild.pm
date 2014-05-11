@@ -6,15 +6,14 @@ use base qw( Module::Build );
 
 sub new
 {
-  my $class = shift;
-  my %args = @_;
+  my($class, %args) = @_;
 
-  if($] >= 5.010000 && $^O ne 'MSWin32')
-  {
-    $args{requires}->{$_} = 0 for qw( Dist::Zilla::PluginBundle::Git Dist::Zilla::Plugin::Git );
-  }
+  $args{requires}->{'Dist::Zilla::PluginBundle::Git'} = 0
+    if $] >= 5.010000 && $^O ne 'MSWin32';
+
+  my $self = $class->SUPER::new(%args);
   
-  $class->SUPER::new(%args);
+  return $self;
 }
 
 1;
