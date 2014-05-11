@@ -1,8 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - make this distribution properly dynamic
+  - include [ACPS::RPM] in bundle, if it is there
 
 1.48      2014-04-30 13:23:38 -0400
+  - don't include developer prereqs in diagnostic
 
 1.47      2014-04-16 02:26:37 -0400
   - update .travis.yml template to reflect my current usage
