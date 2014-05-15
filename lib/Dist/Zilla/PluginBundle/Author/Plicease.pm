@@ -296,6 +296,15 @@ sub configure
   
   if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
   { $self->add_plugins(qw( ACPS::RPM )) }
+  
+  if($^O eq 'MSWin32')
+  {
+    $self->add_plugins([
+      'Run::AfterBuild' => {
+        run => 'dos2unix README.md t/00_diag.*',
+      },
+    ]);
+  }
 }
 
 __PACKAGE__->meta->make_immutable;
