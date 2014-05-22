@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.49      2014-05-22 07:45:40 -0400
   - make this distribution properly dynamic
   - include [ACPS::RPM] in bundle, if it is there
   - turn off (by default) unused_vars.t for old dists
