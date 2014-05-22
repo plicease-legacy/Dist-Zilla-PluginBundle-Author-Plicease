@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - make this distribution properly dynamic
   - include [ACPS::RPM] in bundle, if it is there
+  - turn off (by default) unused_vars.t for old dists
 
 1.48      2014-04-30 13:23:38 -0400
   - don't include developer prereqs in diagnostic
