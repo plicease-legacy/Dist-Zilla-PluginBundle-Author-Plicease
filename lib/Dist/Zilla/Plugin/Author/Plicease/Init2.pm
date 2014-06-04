@@ -88,7 +88,7 @@ sub gather_file_travis_yml
                           q{},
                           q{install:},
                           q{  - cpanm -n Dist::Zilla},
-                          q{  - cpanm authordeps --missing | cpanm -n},
+                          q{  - dzil authordeps --missing | cpanm -n},
                           q{  - cpanm -n Test::CPAN::Changes Test::EOL Test::Fixme Test::NoTabs Test::Pod::Spelling::CommonMistakes Test::Spelling Test::Strict Test::Version Test::Vars || true},
                           q{#  - cpanm -n Foo::Bar},
                           q{},
