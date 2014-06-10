@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.50      2014-06-10 07:53:11 -0400
   - added [Author::Plicease::Resources] and am
     using it for [@Author::Plicease] now.  This was
     needed to allow the repo for Alien-Libarchive be
