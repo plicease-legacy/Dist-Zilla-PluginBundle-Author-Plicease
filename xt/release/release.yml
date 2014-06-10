@@ -37,6 +37,7 @@ pod_coverage:
     - Dist::Zilla::Plugin::Author::Plicease::.*#register_prereqs
     - Dist::Zilla::Plugin::Author::Plicease::.*#mvp_multivalue_args
     - Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot#metadata
+    - Dist::Zilla::Plugin::Author::Plicease::Resources#metadata
 
 unused_vars:
   global:

@@ -44,11 +44,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
  allow_dirty = Changes
  allow_dirty = README.md
  
- [AutoMetaResources]
- bugtracker.github = user:plicease
- repository.github = user:plicease
- homepage = http://perl.wdlabs.com/%{dist}/
- 
+ [Author::Plicease::Resources]
  [InstallGuide]
  [MinimumPerl]
  [ConfirmRelease] 
@@ -127,6 +123,14 @@ if set to true, then include a link to the travis build page in the readme.
 if builder = ModuleBuild, this is the mb_class passed into the [ModuleBuild]
 plugin.
 
+=head2 github_repo
+
+Set the GitHub repo name to something other than the dist name.
+
+=head2 github_user
+
+Set the GitHub user name.
+
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
@@ -143,7 +147,6 @@ sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag ) }
 sub configure
 {
   my($self) = @_;
-
   # undocumented for a reason: sometimes I need to release on
   # a different platform that where I do testing, (eg. MSWin32
   # only modules, where Dist::Zilla is frequently not working
@@ -243,11 +246,11 @@ sub configure
   }
 
   $self->add_plugins([
-    AutoMetaResources => {
-      'bugtracker.github' => 'user:plicease',
-      'repository.github' => 'user:plicease',
-      homepage            => 'http://perl.wdlabs.com/%{dist}/',
-    }
+    'Author::Plicease::Resources' => {
+      maybe github_user => $self->payload->{github_user},
+      maybe github_repo => $self->payload->{github_repo},
+      maybe homepage    => $self->payload->{homepage},
+    },
   ]);
 
   if($self->payload->{release_tests})

@@ -38,11 +38,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     allow_dirty = Changes
     allow_dirty = README.md
     
-    [AutoMetaResources]
-    bugtracker.github = user:plicease
-    repository.github = user:plicease
-    homepage = http://perl.wdlabs.com/%{dist}/
-    
+    [Author::Plicease::Resources]
     [InstallGuide]
     [MinimumPerl]
     [ConfirmRelease] 
@@ -116,6 +112,14 @@ if set to true, then include a link to the travis build page in the readme.
 
 if builder = ModuleBuild, this is the mb\_class passed into the \[ModuleBuild\]
 plugin.
+
+## github\_repo
+
+Set the GitHub repo name to something other than the dist name.
+
+## github\_user
+
+Set the GitHub user name.
 
 # SEE ALSO
 
