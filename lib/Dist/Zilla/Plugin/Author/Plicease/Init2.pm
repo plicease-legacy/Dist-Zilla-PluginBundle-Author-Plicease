@@ -55,7 +55,6 @@ sub make_module
                           qq{} ,
                           qq{use strict;} ,
                           qq{use warnings;} ,
-                          qq{use v5.10;} ,
                           qq{} ,
                           qq{# ABSTRACT: $abstract} ,
                           qq{# VERSION} ,
