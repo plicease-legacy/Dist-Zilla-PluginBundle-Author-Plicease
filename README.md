@@ -55,6 +55,11 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     
     [Author::Plicease::MarkDownCleanup]
     [Author::Plicease::Recommend]
+    
+    [Prereqs / NeedTestMore094]
+    ; for subtest
+    -phase     = test
+    Test::More = 0.94
 
 Some exceptions:
 

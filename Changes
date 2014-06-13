@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add prereq Test::More 0.94 to all dists
+    I use subtest a lot
 
 1.50      2014-06-10 07:53:11 -0400
   - added [Author::Plicease::Resources] and am

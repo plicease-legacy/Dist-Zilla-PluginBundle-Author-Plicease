@@ -61,6 +61,11 @@ This Dist::Zilla plugin bundle is mostly equivalent to
  
  [Author::Plicease::MarkDownCleanup]
  [Author::Plicease::Recommend]
+ 
+ [Prereqs / NeedTestMore094]
+ ; for subtest
+ -phase     = test
+ Test::More = 0.94
 
 Some exceptions:
 
@@ -294,8 +299,15 @@ sub configure
       travis_status => int(defined $self->payload->{travis_status} ? $self->payload->{travis_status} : 0),
     },
   ]);
-  
+
   $self->add_plugins(qw( Author::Plicease::Recommend ));
+  
+  $self->add_plugins([
+    'Prereqs' => 'NeedTestMore094' => {
+      '-phase'     => 'test',
+      'Test::More' => '0.94',
+    },
+  ]);
   
   if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
   { $self->add_plugins(qw( ACPS::RPM )) }
