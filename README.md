@@ -60,6 +60,8 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     ; for subtest
     -phase     = test
     Test::More = 0.94
+    
+    [SpecialPrereqs]
 
 Some exceptions:
 
