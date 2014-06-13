@@ -66,6 +66,8 @@ This Dist::Zilla plugin bundle is mostly equivalent to
  ; for subtest
  -phase     = test
  Test::More = 0.94
+ 
+ [SpecialPrereqs]
 
 Some exceptions:
 
@@ -307,6 +309,10 @@ sub configure
       '-phase'     => 'test',
       'Test::More' => '0.94',
     },
+  ]);
+  
+  $self->add_plugins([
+    'Author::Plicease::SpecialPrereqs',
   ]);
   
   if(eval { require Dist::Zilla::Plugin::ACPS::RPM })

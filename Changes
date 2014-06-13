@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added [Author::Plicease::SpecialPrereqs]
 
 1.51      2014-06-13 08:10:39 -0400
   - add prereq Test::More 0.94 to all dists
