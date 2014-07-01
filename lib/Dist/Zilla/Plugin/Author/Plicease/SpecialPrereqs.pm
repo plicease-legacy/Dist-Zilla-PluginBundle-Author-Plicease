@@ -46,6 +46,10 @@ Require 0.26 for spew
 
 Require 4.31
 
+=item Role::Tiny
+
+Require 1.003001.  See rt#83248
+
 =back
 
 =cut
@@ -59,6 +63,7 @@ my %upgrades = qw(
   AnyEvent::Open3::Simple               0.76
   Path::Class                           0.26
   Mojolicious                           4.31
+  Role::Tiny                            1.003001
 );
 
 sub register_prereqs
