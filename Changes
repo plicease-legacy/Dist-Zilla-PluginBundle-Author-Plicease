@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.53      2014-07-06 09:25:17 -0400
+  - require more recent Role::Tiny where used
+
 1.52      2014-06-13 11:21:43 -0400
   - added [Author::Plicease::SpecialPrereqs]
 
