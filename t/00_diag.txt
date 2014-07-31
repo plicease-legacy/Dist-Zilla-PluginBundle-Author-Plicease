@@ -38,8 +38,10 @@ Path::Class
 Path::Class::File
 PerlX::Maybe
 PerlX::Maybe::XS
+Term::ANSIColor
 Test::DZil
 Test::More
+YAML
 YAML::XS
 autodie
 namespace::autoclean

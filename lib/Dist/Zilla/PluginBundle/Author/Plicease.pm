@@ -4,6 +4,8 @@ use Moose;
 use Dist::Zilla;
 use PerlX::Maybe qw( maybe );
 use Path::Class::File;
+use YAML ();
+use Term::ANSIColor ();
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -325,6 +327,22 @@ sub configure
         run => 'dos2unix README.md t/00_diag.*',
       },
     ]);
+  }
+  
+  if(-e ".travis.yml")
+  {
+    my $travis = YAML::LoadFile(".travis.yml");
+    if(exists $travis->{perl} && grep /^5\.19$/, @{ $travis->{perl} })
+    {
+      die "travis is trying to test Perl 5.19";
+    }
+    unless(exists $travis->{perl} && grep /^5\.20$/, @{ $travis->{perl} })
+    {
+      print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
+      print STDERR "travis is not testing Perl 5.20";
+      print STDERR Term::ANSIColor::color('reset') if -t STDERR;
+      print STDERR "\n";
+    }
   }
 }
 

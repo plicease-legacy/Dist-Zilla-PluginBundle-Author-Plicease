@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::Author::Plicease::TransformTravis;
 
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
-use YAML::XS qw( Dump LoadFile );
+use YAML qw( Dump LoadFile );
 
 # ABSTRACT: transform .travis.yml so that it uses Module::Build or MakeMaker for deps
 # VERSION

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - check .travis.yml for Perl 5.19 or 5.20 as appropriate
 
 1.53      2014-07-06 09:25:17 -0400
   - require more recent Role::Tiny where used
