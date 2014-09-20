@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update default .travis.yml to use 5.20, and dzil instead of prove
 
 1.54      2014-07-31 09:30:24 -0400
   - check .travis.yml for Perl 5.19 or 5.20 as appropriate
