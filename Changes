@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.55      2014-09-20 07:25:48 -0400
   - update default .travis.yml to use 5.20, and dzil instead of prove
 
 1.54      2014-07-31 09:30:24 -0400
