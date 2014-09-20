@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update default .travis.yml to use verbose testing
 
 1.55      2014-09-20 07:25:48 -0400
   - update default .travis.yml to use 5.20, and dzil instead of prove
