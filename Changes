@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use Test::Fixme 0.14 and warn option
 
 1.56      2014-09-20 07:29:30 -0400
   - update default .travis.yml to use verbose testing
