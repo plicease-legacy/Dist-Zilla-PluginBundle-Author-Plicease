@@ -146,7 +146,11 @@ sub gather_file_dist_ini
              .  "\n";
     
     $content .= "[Author::Plicease::Upload]\n"
-             .  "cpan = 0\n";
+             .  "cpan = 0\n"
+             .  "\n";
+             
+    $content .= "[Author::Plicease::InstallerPerlVersion]\n"
+             .  "\n";
              
     $content;
   };
