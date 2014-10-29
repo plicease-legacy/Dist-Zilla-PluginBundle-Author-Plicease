@@ -46,4 +46,6 @@ sub after_build
   }
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;

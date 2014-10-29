@@ -195,4 +195,6 @@ sub test
   $self->log_fatal('release test failure') unless $? == 0;
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;

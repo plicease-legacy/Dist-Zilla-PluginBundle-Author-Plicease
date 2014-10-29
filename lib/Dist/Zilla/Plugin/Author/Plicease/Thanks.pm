@@ -82,4 +82,6 @@ sub munge_file
   return;
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;

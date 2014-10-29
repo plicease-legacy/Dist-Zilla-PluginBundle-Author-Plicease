@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added [Author::Plicease::InstallerPerlVersion]
 
 1.58      2014-10-14 07:35:02 -0400
   - release tests update

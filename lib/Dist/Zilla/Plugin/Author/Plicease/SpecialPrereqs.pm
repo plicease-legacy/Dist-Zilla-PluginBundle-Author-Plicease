@@ -91,4 +91,6 @@ sub register_prereqs
   }
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;

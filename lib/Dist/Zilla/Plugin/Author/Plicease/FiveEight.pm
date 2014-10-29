@@ -14,5 +14,7 @@ sub before_release
   $self->log_fatal('don\'t release via MSWin32')           if $^O eq 'MSWin32';
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;
 
