@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.60      2014-12-19 16:40:12 -0500
+  - option for skipping common spelling release test
+
 1.59      2014-10-29 08:00:04 -0400
   - added [Author::Plicease::InstallerPerlVersion]
 
