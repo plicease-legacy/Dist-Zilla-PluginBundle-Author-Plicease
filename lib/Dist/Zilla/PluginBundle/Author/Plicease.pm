@@ -22,6 +22,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
 
  # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
  [GatherDir]
+ exclude_match = Makefile.PL|Build.PL|cpanfile|META.json
  [PruneCruft]
  except = .travis.yml
  [ManifestSkip]
@@ -70,6 +71,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
  Test::More = 0.94
  
  [SpecialPrereqs]
+ [CPANFile]
 
 Some exceptions:
 
@@ -140,6 +142,14 @@ Set the GitHub repo name to something other than the dist name.
 
 Set the GitHub user name.
 
+=head2 copy_mb
+
+Copy Build.PL, cpanfile and META.json from the build into the git repository.
+Exclude them from gather.
+
+This allows other developers to use the dist from the git checkout, without needing
+to install L<Dist::Zilla> and L<Dist::Zilla::PluginBundle::Author::Plicease>.
+
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
@@ -190,7 +200,7 @@ sub configure
 
   $self->add_plugins(
     'Author::Plicease::FiveEight',
-    'GatherDir',
+    ['GatherDir' => { exclude_match => 'Makefile.PL|Build.PL|cpanfile|META.json' } ],
     [ PruneCruft => { except => '.travis.yml' } ],
     'ManifestSkip',
     'MetaYAML',
@@ -313,9 +323,19 @@ sub configure
     },
   ]);
   
-  $self->add_plugins([
+  $self->add_plugins(
     'Author::Plicease::SpecialPrereqs',
-  ]);
+    'CPANFile',
+  );
+
+  if($self->payload->{copy_mb})
+  {
+    $self->add_plugins([
+      'CopyFilesFromBuild' => {
+        copy => [ 'Build.PL', 'cpanfile', 'META.json' ],
+      },
+    ]);
+  }
   
   if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
   { $self->add_plugins(qw( ACPS::RPM )) }

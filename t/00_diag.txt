@@ -2,6 +2,7 @@ Dist::Zilla
 Dist::Zilla::File::FromCode
 Dist::Zilla::File::InMemory
 Dist::Zilla::Plugin::AutoMetaResources
+Dist::Zilla::Plugin::CopyFilesFromBuild
 Dist::Zilla::Plugin::InstallGuide
 Dist::Zilla::Plugin::MinimumPerl
 Dist::Zilla::Plugin::NextRelease

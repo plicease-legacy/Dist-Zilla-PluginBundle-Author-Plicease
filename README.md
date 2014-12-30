@@ -14,6 +14,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
 
     # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
     [GatherDir]
+    exclude_match = Makefile.PL|Build.PL|cpanfile|META.json
     [PruneCruft]
     except = .travis.yml
     [ManifestSkip]
@@ -62,6 +63,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     Test::More = 0.94
     
     [SpecialPrereqs]
+    [CPANFile]
 
 Some exceptions:
 
@@ -127,6 +129,14 @@ Set the GitHub repo name to something other than the dist name.
 ## github\_user
 
 Set the GitHub user name.
+
+## copy\_mb
+
+Copy Build.PL, cpanfile and META.json from the build into the git repository.
+Exclude them from gather.
+
+This allows other developers to use the dist from the git checkout, without needing
+to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla::PluginBundle::Author::Plicease](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::Plicease).
 
 # SEE ALSO
 
