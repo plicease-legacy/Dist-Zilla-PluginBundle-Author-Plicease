@@ -22,7 +22,10 @@ This Dist::Zilla plugin bundle is mostly equivalent to
 
  # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
  [GatherDir]
- exclude_match = Makefile.PL|Build.PL|cpanfile|META.json
+ exclude_filename = Makefile.PL
+ exclude_filename = Build.PL
+ exclude_filename = cpanfile
+ exclude_match    = ^_build/
  [PruneCruft]
  except = .travis.yml
  [ManifestSkip]
@@ -144,7 +147,7 @@ Set the GitHub user name.
 
 =head2 copy_mb
 
-Copy Build.PL, cpanfile and META.json from the build into the git repository.
+Copy Build.PL and cpanfile from the build into the git repository.
 Exclude them from gather.
 
 This allows other developers to use the dist from the git checkout, without needing
@@ -200,7 +203,8 @@ sub configure
 
   $self->add_plugins(
     'Author::Plicease::FiveEight',
-    ['GatherDir' => { exclude_match => 'Makefile.PL|Build.PL|cpanfile|META.json' } ],
+    ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile )],
+                      exclude_match => '^_build/' }, ],
     [ PruneCruft => { except => '.travis.yml' } ],
     'ManifestSkip',
     'MetaYAML',
@@ -332,7 +336,7 @@ sub configure
   {
     $self->add_plugins([
       'CopyFilesFromBuild' => {
-        copy => [ 'Build.PL', 'cpanfile', 'META.json' ],
+        copy => [ 'Build.PL', 'cpanfile' ],
       },
     ]);
   }

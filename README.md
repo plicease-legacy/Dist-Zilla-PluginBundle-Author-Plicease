@@ -14,7 +14,7 @@ This Dist::Zilla plugin bundle is mostly equivalent to
 
     # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
     [GatherDir]
-    exclude_match = Makefile.PL|Build.PL|cpanfile|META.json
+    exclude_match = Makefile.PL|Build.PL|cpanfile
     [PruneCruft]
     except = .travis.yml
     [ManifestSkip]
@@ -132,7 +132,7 @@ Set the GitHub user name.
 
 ## copy\_mb
 
-Copy Build.PL, cpanfile and META.json from the build into the git repository.
+Copy Build.PL and cpanfile from the build into the git repository.
 Exclude them from gather.
 
 This allows other developers to use the dist from the git checkout, without needing
