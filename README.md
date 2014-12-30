@@ -14,7 +14,10 @@ This Dist::Zilla plugin bundle is mostly equivalent to
 
     # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
     [GatherDir]
-    exclude_match = Makefile.PL|Build.PL|cpanfile
+    exclude_filename = Makefile.PL
+    exclude_filename = Build.PL
+    exclude_filename = cpanfile
+    exclude_match    = ^_build/
     [PruneCruft]
     except = .travis.yml
     [ManifestSkip]
