@@ -15,6 +15,7 @@ pod_spelling_system:
     - Readme
     - readme
     - md
+    - cpanfile
 
 pod_coverage:
   private:
