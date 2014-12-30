@@ -3,6 +3,7 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - Make CPANFile part of the default [@Author::Plicease]
   - added copy_mb option
+  - simplified prereqs
 
 1.60      2014-12-19 16:40:12 -0500
   - option for skipping common spelling release test

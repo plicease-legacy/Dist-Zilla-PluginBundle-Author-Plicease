@@ -8,7 +8,7 @@ package Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot;
 # VERSION
 
 use Moose;
-use List::AllUtils 'first';
+use List::Util 'first';
 use namespace::autoclean;
 
 with 'Dist::Zilla::Role::InstallTool', 'Dist::Zilla::Role::MetaProvider';
