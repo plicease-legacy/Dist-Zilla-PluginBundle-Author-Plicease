@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.62      2015-01-07 14:47:05 -0500
   - escape < and > in AUTHOR / thanks section
 
 1.61      2014-12-30 13:56:48 -0500
