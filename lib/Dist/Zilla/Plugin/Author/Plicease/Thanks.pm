@@ -43,6 +43,17 @@ sub munge_files
   $self->munge_file($_) for @{ $self->found_files };
 }
 
+sub _escape ($)
+{
+  my($txt) = @_;
+  my %map = qw(
+    < lt
+    > gt
+  );
+  $txt =~ s{([<>])}{E<$map{$1}>}g;
+  $txt;
+}
+
 sub munge_file
 {
   my($self, $file) = @_;
@@ -55,19 +66,19 @@ sub munge_file
     push @list, '=head1 AUTHOR', '';
     if($self->original)
     {
-      push @list, 'original author: ' . $self->original,
+      push @list, 'original author: ' . _escape $self->original,
                   '',
-                  'current maintainer: ' . $self->current,
+                  'current maintainer: ' . _escape $self->current,
                   '';
     }
     else
     {
-      push @list, 'author: ' . $self->current,
+      push @list, 'author: ' . _escape $self->current,
                   '';
     }
     if(@{ $self->contributor } > 0)
     {
-      push @list, 'contributors:', '', map { ($_, '') } @{ $self->contributor }; 
+      push @list, 'contributors:', '', map { (_escape $_, '') } @{ $self->contributor }; 
     }
     return join "\n", @list, '';
   };
