@@ -153,6 +153,10 @@ Exclude them from gather.
 This allows other developers to use the dist from the git checkout, without needing
 to install L<Dist::Zilla> and L<Dist::Zilla::PluginBundle::Author::Plicease>.
 
+=head2 allow_dirty
+
+Additional dirty allowed file passed to @Git.
+
 =head1 SEE ALSO
 
 L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
@@ -164,7 +168,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use namespace::autoclean;
 
-sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag ) }
+sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag allow_dirty ) }
 
 sub configure
 {
@@ -264,7 +268,7 @@ sub configure
   if($] >= 5.010000 && $^O ne 'MSWin32')
   {
     $self->add_bundle('Git' => {
-      allow_dirty => [ qw( dist.ini Changes README.md ) ],
+      allow_dirty => [ qw( dist.ini Changes README.md ), @{ $self->payload->{allow_dirty} || [] } ],
     });
   }
 

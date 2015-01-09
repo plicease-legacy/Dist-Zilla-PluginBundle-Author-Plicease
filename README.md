@@ -141,6 +141,10 @@ Exclude them from gather.
 This allows other developers to use the dist from the git checkout, without needing
 to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla::PluginBundle::Author::Plicease](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::Plicease).
 
+## allow\_dirty
+
+Additional dirty allowed file passed to @Git.
+
 # SEE ALSO
 
 [Author::Plicease::Init](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Init),

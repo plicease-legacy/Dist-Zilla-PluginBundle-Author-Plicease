@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - [@Author::Plicease] allow_dirty is passed on to [@Git]
 
 1.62      2015-01-07 14:47:05 -0500
   - escape < and > in AUTHOR / thanks section
