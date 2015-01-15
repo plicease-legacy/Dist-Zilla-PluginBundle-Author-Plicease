@@ -1,6 +1,7 @@
 Dist::Zilla
 Dist::Zilla::Plugin::AutoMetaResources
 Dist::Zilla::Plugin::CopyFilesFromBuild
+Dist::Zilla::Plugin::InsertExample
 Dist::Zilla::Plugin::InstallGuide
 Dist::Zilla::Plugin::MinimumPerl
 Dist::Zilla::Plugin::OurPkgVersion
