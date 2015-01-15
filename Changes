@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update prereqs for consistent builds
 
 1.63      2015-01-09 15:41:46 -0500
   - [@Author::Plicease] allow_dirty is passed on to [@Git]
