@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.65      2015-01-23 07:43:56 -0500
+  - default minting profile removes base as explicit prereq
+
 1.64      2015-01-15 06:44:26 -0500
   - update prereqs for consistent builds
 
