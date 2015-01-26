@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.66      2015-01-26 09:40:46 -0500
   - [Author::Plicease::Thanks] now uses capitalization
     Trent Reznor is a fadad memory...
 
