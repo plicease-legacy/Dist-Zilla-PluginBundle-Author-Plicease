@@ -66,19 +66,19 @@ sub munge_file
     push @list, '=head1 AUTHOR', '';
     if($self->original)
     {
-      push @list, 'original author: ' . _escape $self->original,
+      push @list, 'Original author: ' . _escape $self->original,
                   '',
-                  'current maintainer: ' . _escape $self->current,
+                  'Current maintainer: ' . _escape $self->current,
                   '';
     }
     else
     {
-      push @list, 'author: ' . _escape $self->current,
+      push @list, 'Author: ' . _escape $self->current,
                   '';
     }
     if(@{ $self->contributor } > 0)
     {
-      push @list, 'contributors:', '', map { (_escape $_, '') } @{ $self->contributor }; 
+      push @list, 'Contributors:', '', map { (_escape $_, '') } @{ $self->contributor }; 
     }
     return join "\n", @list, '';
   };

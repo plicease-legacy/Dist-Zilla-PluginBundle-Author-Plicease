@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - [Author::Plicease::Thanks] now uses capitalization
+    Trent Reznor is a fadad memory...
 
 1.65      2015-01-23 07:43:56 -0500
   - default minting profile removes base as explicit prereq
