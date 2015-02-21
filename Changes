@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.67      2015-02-21 14:57:13 -0500
   - Remove Test::Vars based release test.  It seemed like good idea at
     the time, but in practice it has produced too many false postiives.
 
