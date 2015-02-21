@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Remove Test::Vars based release test.  It seemed like good idea at
+    the time, but in practice it has produced too many false postiives.
 
 1.66      2015-01-26 09:40:46 -0500
   - [Author::Plicease::Thanks] now uses capitalization
