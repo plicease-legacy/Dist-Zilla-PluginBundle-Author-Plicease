@@ -139,6 +139,7 @@ sub gather_file_dist_ini
     $content .= "[RemovePrereqs]\n"
              .  "remove = strict\n"
              .  "remove = warnings\n"
+             .  "remove = base\n"
              .  "\n";
     
     $content .= ";[Prereqs]\n"
