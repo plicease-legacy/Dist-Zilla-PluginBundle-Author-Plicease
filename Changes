@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.69      2015-03-03 21:33:50 -0500
   - Modules that require Moo shall require 2.0
 
 1.68      2015-03-03 21:11:22 -0500
