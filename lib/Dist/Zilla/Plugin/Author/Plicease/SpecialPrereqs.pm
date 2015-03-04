@@ -57,7 +57,7 @@ Require 1.003001.  See rt#83248
 with 'Dist::Zilla::Role::PrereqSource';
 
 my %upgrades = qw(
-  Moo                                   1.001000
+  Moo                                   2.0
   PerlX::Maybe                          0.003
   File::HomeDir                         0.91
   AnyEvent::Open3::Simple               0.76
