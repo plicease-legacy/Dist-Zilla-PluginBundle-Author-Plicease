@@ -99,12 +99,6 @@ pod_coverage:
   # for either Class or method.
   private: []
 
-unused_vars:
-  skip: 0
-  global:
-    ignore_vars: []
-  module: {}
-
 EOF
   }
 
