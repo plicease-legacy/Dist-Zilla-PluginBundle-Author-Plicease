@@ -22,13 +22,22 @@ with 'Dist::Zilla::Role::FileGatherer';
 
 use namespace::autoclean;
 
+our $chrome;
+
+sub chrome
+{
+  return $chrome if defined $chrome;
+  shift->zilla->chrome;
+}
+
 has abstract => (
   is      => 'ro',
   isa     => 'Str',
   lazy    => 1,
   default => sub {
     my($self) = @_;
-    $self->zilla->chrome->prompt_str("abstract");
+    print 'here:', ref($self->zilla);
+    $self->chrome->prompt_str("abstract");
   },
 );
 
@@ -37,7 +46,7 @@ has include_tests => (
   isa     => 'Int',
   lazy    => 1,
   default => sub {
-    shift->zilla->chrome->prompt_yn("include release tests?");
+    shift->chrome->prompt_yn("include release tests?");
   },
 );
 
@@ -233,7 +242,7 @@ has github_login => (
   lazy    => 1,
   default => sub {
     my($self) = @_;
-    $self->zilla->chrome->prompt_str("github user", { default => 'plicease' });
+    $self->chrome->prompt_str("github user", { default => 'plicease' });
   },
 );
 
@@ -243,7 +252,7 @@ has github_pass => (
   lazy => 1,
   default => sub {
     my($self) = @_;
-    $self->zilla->chrome->prompt_str("github pass", { noecho => 1 });
+    $self->chrome->prompt_str("github pass", { noecho => 1 });
   },
 );
 
@@ -267,25 +276,29 @@ sub after_mint
     $self->zilla->log("no LWP, can't create github repo");
   }
 
-  my $no_github = 0;
-
-  do {
+  my $no_github = 1;
+  
+  unless($ENV{DIST_ZILLA_PLUGIN_AUTHOR_PLICEASE_INIT2_NO_GITHUB})
+  {
     my $ua = LWP::UserAgent->new;
     my $request = HTTP::Request->new(
       POST => "https://api.github.com/user/repos",
     );
-    
+
     my $data = encode_json({ name => $self->zilla->name, description => $self->abstract });
     $request->content($data);
     $request->header( 'Content-Length' => length encode_utf8 $data );
     $request->authorization_basic($self->github_login, $self->github_pass);
     my $response = $ua->request($request);
-    unless($response->is_success)
+    if($response->is_success)
+    {
+      $no_github = 0;
+    }
+    else
     {
       $self->zilla->log("could not create a github repo!");
-      $no_github = 1;
     }
-  };
+  }
   
   $git->remote('add', 'origin', "git\@github.com:" . $self->github_login . '/' . $self->zilla->name . '.git');
   $git->push('origin', 'master') unless $no_github;

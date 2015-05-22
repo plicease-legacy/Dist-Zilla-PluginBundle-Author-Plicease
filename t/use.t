@@ -1,9 +1,8 @@
 use strict;
 use warnings;
-use Test::More tests => 11;
+use Test::More tests => 10;
 
 use_ok("Dist::Zilla::MintingProfile::Author::Plicease");
-use_ok("Dist::Zilla::Plugin::Author::Plicease::Init");
 use_ok("Dist::Zilla::Plugin::Author::Plicease::Init2");
 use_ok("Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot");
 use_ok("Dist::Zilla::Plugin::Author::Plicease::PrePodWeaver");

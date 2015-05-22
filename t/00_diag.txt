@@ -1,4 +1,6 @@
+Capture::Tiny
 Dist::Zilla
+Dist::Zilla::App
 Dist::Zilla::Plugin::AutoMetaResources
 Dist::Zilla::Plugin::CopyFilesFromBuild
 Dist::Zilla::Plugin::InsertExample
@@ -8,6 +10,8 @@ Dist::Zilla::Plugin::OurPkgVersion
 Dist::Zilla::Plugin::PodWeaver
 Dist::Zilla::Plugin::ReadmeAnyFromPod
 Dist::Zilla::Plugin::Run::BeforeBuild
+Dist::Zilla::Role::MintingProfile
+File::Temp
 File::chdir
 IPC::System::Simple
 JSON::PP
@@ -16,6 +20,7 @@ Moose
 Path::Class
 PerlX::Maybe
 PerlX::Maybe::XS
+Test::File
 Test::Fixme
 Test::More
 Test::Pod
