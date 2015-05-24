@@ -20,38 +20,7 @@ pod_spelling_system:
 pod_coverage:
   private:
     - .*#BUILDARGS
-    - App::Plicease::Dev.*#main
-    - App::Plicease::Dev::RemoveTrailingSpace#recurse
+    - Dist::Zilla::Plugin::Author::Plicease::.*
+    - Dist::Zilla::MintingProfile::Author::Plicease
     - Dist::Zilla::PluginBundle::Author::Plicease#configure
     - Dist::Zilla::PluginBundle::Author::Plicease#mvp_multivalue_args
-    - Dist::Zilla::Plugin::Author::Plicease::.*#after_mint
-    - Dist::Zilla::Plugin::Author::Plicease::.*#before_build
-    - Dist::Zilla::Plugin::Author::Plicease::.*#after_build
-    - Dist::Zilla::Plugin::Author::Plicease::.*#after_release
-    - Dist::Zilla::Plugin::Author::Plicease::.*#before_release
-    - Dist::Zilla::Plugin::Author::Plicease::.*#make_module
-    - Dist::Zilla::Plugin::Author::Plicease::.*#munge_file
-    - Dist::Zilla::Plugin::Author::Plicease::.*#munge_files
-    - Dist::Zilla::Plugin::Author::Plicease::.*#setup_installer
-    - Dist::Zilla::Plugin::Author::Plicease::.*#test
-    - Dist::Zilla::Plugin::Author::Plicease::.*#gather.*
-    - Dist::Zilla::Plugin::Author::Plicease::.*#register_prereqs
-    - Dist::Zilla::Plugin::Author::Plicease::.*#mvp_multivalue_args
-    - Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot#metadata
-    - Dist::Zilla::Plugin::Author::Plicease::Resources#metadata
-
-unused_vars:
-  global:
-    ignore_vars: []
-  module:
-    Dist::Zilla::Plugin::Author::Plicease::Init2: 
-      ignore_vars:
-        - $arg
-    Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot:
-      ignore_vars:
-        - $v
-        - $class
-    Dist::Zilla::Plugin::Author::Plicease::Tests:
-      ignore_vars:
-        - $target
-

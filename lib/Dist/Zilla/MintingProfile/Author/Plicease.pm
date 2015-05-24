@@ -31,6 +31,10 @@ sub profile_dir
   my $dir = file( __FILE__ )
     ->parent->parent->parent->parent->parent->parent->subdir('profiles')->subdir($name);
   return $dir if defined $dir && -d $dir;
+
+  $dir = file( __FILE__ )
+    ->parent->parent->parent->parent->parent->parent->parent->subdir('profiles')->subdir($name);
+  return $dir if defined $dir && -d $dir;
   
   confess "Can't find profile $name via $self ($dir)";
 }
