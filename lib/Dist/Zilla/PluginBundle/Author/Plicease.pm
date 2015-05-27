@@ -220,15 +220,9 @@ sub configure
     }
   };
   
-  $self->add_plugins(
-    'Manifest',
-    'TestRelease',
-  );
-  
-  
   $self->add_plugins(qw(
-
-    Author::Plicease::PrePodWeaver
+    Manifest
+    TestRelease
     PodWeaver
   ));
   

@@ -19,6 +19,7 @@ Moose
 Path::Class
 PerlX::Maybe
 PerlX::Maybe::XS
+Pod::Markdown
 Test::File
 Test::File::ShareDir
 Test::Fixme

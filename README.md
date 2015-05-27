@@ -1,6 +1,10 @@
-# Dist::Zilla::PluginBundle::Author::Plicease [![Build Status](https://secure.travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease.png)](http://travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease)
+# NAME
 
-Dist::Zilla plugin bundle used by Plicease
+Dist::Zilla::PluginBundle::Author::Plicease - Dist::Zilla plugin bundle used by Plicease
+
+# VERSION
+
+version 1.71
 
 # SYNOPSIS
 
@@ -61,7 +65,6 @@ This plugin bundle is mostly equivalent to
     [MakeMaker]
     [Manifest]
     [TestRelease]
-    [Author::Plicease::PrePodWeaver]
     [PodWeaver]
     
     [NextRelease]
