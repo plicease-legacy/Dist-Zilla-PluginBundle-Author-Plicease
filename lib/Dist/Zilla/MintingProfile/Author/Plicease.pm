@@ -1,5 +1,6 @@
 package Dist::Zilla::MintingProfile::Author::Plicease;
 
+use 5.008001;
 use Moose;
 
 # ABSTRACT: Minting profile for Plicease

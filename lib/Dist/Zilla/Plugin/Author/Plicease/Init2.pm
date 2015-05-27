@@ -1,5 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Init2;
 
+use 5.008001;
 use Moose;
 use Dist::Zilla::File::InMemory;
 use Dist::Zilla::File::FromCode;
@@ -19,8 +20,6 @@ Create a dist in plicease style.
 with 'Dist::Zilla::Role::AfterMint';
 with 'Dist::Zilla::Role::ModuleMaker';
 with 'Dist::Zilla::Role::FileGatherer';
-
-use namespace::autoclean;
 
 our $chrome;
 

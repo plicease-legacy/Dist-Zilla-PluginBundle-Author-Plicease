@@ -10,7 +10,6 @@ Dist::Zilla::Plugin::OurPkgVersion
 Dist::Zilla::Plugin::PodWeaver
 Dist::Zilla::Plugin::ReadmeAnyFromPod
 Dist::Zilla::Plugin::Run::BeforeBuild
-File::Temp
 File::chdir
 IPC::System::Simple
 JSON::PP
@@ -32,4 +31,3 @@ Test::Version
 YAML
 YAML::XS
 autodie
-namespace::autoclean

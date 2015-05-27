@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup;
 
-use strict;
-use warnings;
+use 5.008001;
 use Moose;
 
 # ABSTRACT: add a travis status button to the README.md file

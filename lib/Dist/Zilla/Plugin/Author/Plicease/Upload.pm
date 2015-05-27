@@ -1,5 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Upload;
 
+use 5.008001;
 use Moose;
 
 # ABSTRACT: Upload a dist to CPAN

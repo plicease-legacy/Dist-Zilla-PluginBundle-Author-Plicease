@@ -1,5 +1,6 @@
 package Dist::Zilla::PluginBundle::Author::Plicease;
 
+use 5.008001;
 use Moose;
 use Dist::Zilla;
 use PerlX::Maybe qw( maybe );
@@ -143,8 +144,6 @@ Additional dirty allowed file passed to @Git.
 =cut
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
-
-use namespace::autoclean;
 
 sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag allow_dirty ) }
 

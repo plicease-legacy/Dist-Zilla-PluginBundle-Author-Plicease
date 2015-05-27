@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::Author::Plicease::Tests;
 
-use strict;
-use warnings;
+use 5.008001;
 use Moose;
 use File::chdir;
 use File::Path qw( make_path );

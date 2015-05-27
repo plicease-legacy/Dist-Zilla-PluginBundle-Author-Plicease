@@ -1,6 +1,8 @@
 package Dist::Zilla::Plugin::Author::Plicease::Thanks;
 
+use 5.008001;
 use Moose;
+
 with 'Dist::Zilla::Role::FileMunger';
 with 'Dist::Zilla::Role::FileFinderUser' => {
   default_finders => [ ':InstallModules', ':ExecFiles' ],
