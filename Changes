@@ -1,8 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  - removed Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot
-  - removed Dist::Zilla::Plugin::Author::Plicease::TransformTravis
+  - Added example/unbundle.pl for unbundling
+  - Removed Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot
+  - Removed Dist::Zilla::Plugin::Author::Plicease::TransformTravis
   - Added test for minting profile
   - Removed Dist::Zilla::Plugin::Author::Plicease::Init as it had been quitely deprecated for a long time
 

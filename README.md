@@ -10,16 +10,51 @@ In your dist.ini:
 
 # DESCRIPTION
 
+This is a [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) plugin bundle is a set of my personal preferences.
+You are probably reading this documentation not out of choice, but because
+you have to.  Sorry.
+
+- Taking over one of my modules?
+
+    This dist comes with a script in `example/unbundle.pl`, which will extract
+    the `@Author::Plicease` portion of the dist.ini configuration so that you
+    can edit it and make your own.  I strongly encourage you to do this, as it
+    will help you remove the preferences from the essential items.
+
+- Want to submit a patch for one of my modules?
+
+    Consider using `prove -l` on the test suite or adding the lib directory
+    to `PERL5LIB`.  Save yourself the hassle of dealing with [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
+    at all.  If there is something wrong with one of the generated files
+    (such as `Makefile.PL` or `Build.PL`) consider opening a support ticket
+    instead.  Most other activities that you relating to the use of [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
+    have to do with release testing and uploading to CPAN which is more
+    my responsibility than yours.
+
+- Really need to fix some aspect of the build process?
+
+    Or perhaps the module in question is using XS (hint: convert it to FFI
+    instead!).  If you really do need to fix some aspect of the build process
+    then you probably do need to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and this bundle.
+    If you are having trouble figuring out how it works, then try extracting
+    the bundle using the `example/unbundle.pl` script mentioned above.
+
+I've only uploaded this to CPAN to assist others who may be working on
+one of my dists.  I don't expect anyone to use it for their own projects.
+
 This Dist::Zilla plugin bundle is mostly equivalent to
 
-    # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
+    [Author::Plicease::FiveEight]
+    
     [GatherDir]
+    exclude_match = ^_build/
     exclude_filename = Makefile.PL
     exclude_filename = Build.PL
     exclude_filename = cpanfile
-    exclude_match    = ^_build/
+    
     [PruneCruft]
     except = .travis.yml
+    
     [ManifestSkip]
     [MetaYAML]
     [License]
@@ -28,57 +63,66 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     [MakeMaker]
     [Manifest]
     [TestRelease]
-    
     [Author::Plicease::PrePodWeaver]
     [PodWeaver]
+    
     [NextRelease]
     format = %-9v %{yyyy-MM-dd HH:mm:ss Z}d
+    
     [AutoPrereqs]
     [OurPkgVersion]
     [MetaJSON]
     
-    [@Git]
+    [Git::Check]
     allow_dirty = dist.ini
     allow_dirty = Changes
     allow_dirty = README.md
     
+    [Git::Commit]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.md
+    
+    [Git::Tag]
+    [Git::Push]
     [Author::Plicease::Resources]
     [InstallGuide]
     [MinimumPerl]
-    [ConfirmRelease] 
+    [ConfirmRelease]
     
     [ReadmeAnyFromPod]
-    type     = text
-    filename = README
     location = build
+    type = text
+    filename = README
     
     [ReadmeAnyFromPod / ReadMePodInRoot]
-    type     = markdown
     filename = README.md
+    type = markdown
     location = root
     
     [Author::Plicease::MarkDownCleanup]
+    travis_status = 0
+    
     [Author::Plicease::Recommend]
     
     [Prereqs / NeedTestMore094]
-    ; for subtest
-    -phase     = test
     Test::More = 0.94
+    -phase = test
     
-    [SpecialPrereqs]
+    [Author::Plicease::SpecialPrereqs]
     [CPANFile]
 
 Some exceptions:
 
 - Perl 5.8
 
-    [\[@Git\]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) does not support Perl 5.8, so it
+    `Dist::Zilla::Plugin::Git::*` does not support Perl 5.8, so it
     is not a prereq there, and it isn't included in the bundle.  As a result
     releasing from Perl 5.8 is not allowed.
 
 - MSWin32
 
-    Installing [\[@Git\]](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Git) on MSWin32 is a pain
+    Installing [Dist::Zilla::Plugin::Git::\*](https://metacpan.org/pod/Dist::Zilla::Plugin::Git::*) on MSWin32 is a pain
     so it is also not a prereq on that platform, isn't used and as a result
     releasing from MSWin32 is not allowed.
 
@@ -144,11 +188,6 @@ to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla:
 ## allow\_dirty
 
 Additional dirty allowed file passed to @Git.
-
-# SEE ALSO
-
-[Author::Plicease::Init](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Init),
-[MintingProfile::Plicease](https://metacpan.org/pod/Dist::Zilla::MintingProfile::Author::Plicease)
 
 # AUTHOR
 

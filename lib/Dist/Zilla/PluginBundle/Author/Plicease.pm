@@ -18,63 +18,45 @@ In your dist.ini:
 
 =head1 DESCRIPTION
 
+This is a L<Dist::Zilla> plugin bundle is a set of my personal preferences.
+You are probably reading this documentation not out of choice, but because
+you have to.  Sorry.
+
+=over 4
+
+=item Taking over one of my modules?
+
+This dist comes with a script in C<example/unbundle.pl>, which will extract
+the C<@Author::Plicease> portion of the dist.ini configuration so that you
+can edit it and make your own.  I strongly encourage you to do this, as it
+will help you remove the preferences from the essential items.
+
+=item Want to submit a patch for one of my modules?
+
+Consider using C<prove -l> on the test suite or adding the lib directory
+to C<PERL5LIB>.  Save yourself the hassle of dealing with L<Dist::Zilla>
+at all.  If there is something wrong with one of the generated files
+(such as C<Makefile.PL> or C<Build.PL>) consider opening a support ticket
+instead.  Most other activities that you relating to the use of L<Dist::Zilla>
+have to do with release testing and uploading to CPAN which is more
+my responsibility than yours.
+
+=item Really need to fix some aspect of the build process?
+
+Or perhaps the module in question is using XS (hint: convert it to FFI
+instead!).  If you really do need to fix some aspect of the build process
+then you probably do need to install L<Dist::Zilla> and this bundle.
+If you are having trouble figuring out how it works, then try extracting
+the bundle using the C<example/unbundle.pl> script mentioned above.
+
+=back
+
+I've only uploaded this to CPAN to assist others who may be working on
+one of my dists.  I don't expect anyone to use it for their own projects.
+
 This Dist::Zilla plugin bundle is mostly equivalent to
 
- # Basic - UploadToCPAN, Readme, ExtraTests, and ConfirmRelease
- [GatherDir]
- exclude_filename = Makefile.PL
- exclude_filename = Build.PL
- exclude_filename = cpanfile
- exclude_match    = ^_build/
- [PruneCruft]
- except = .travis.yml
- [ManifestSkip]
- [MetaYAML]
- [License]
- [ExecDir]
- [ShareDir]
- [MakeMaker]
- [Manifest]
- [TestRelease]
- 
- [Author::Plicease::PrePodWeaver]
- [PodWeaver]
- [NextRelease]
- format = %-9v %{yyyy-MM-dd HH:mm:ss Z}d
- [AutoPrereqs]
- [OurPkgVersion]
- [MetaJSON]
- 
- [@Git]
- allow_dirty = dist.ini
- allow_dirty = Changes
- allow_dirty = README.md
- 
- [Author::Plicease::Resources]
- [InstallGuide]
- [MinimumPerl]
- [ConfirmRelease] 
- 
- [ReadmeAnyFromPod]
- type     = text
- filename = README
- location = build
- 
- [ReadmeAnyFromPod / ReadMePodInRoot]
- type     = markdown
- filename = README.md
- location = root
- 
- [Author::Plicease::MarkDownCleanup]
- [Author::Plicease::Recommend]
- 
- [Prereqs / NeedTestMore094]
- ; for subtest
- -phase     = test
- Test::More = 0.94
- 
- [SpecialPrereqs]
- [CPANFile]
+# EXAMPLE: example/default_dist.ini
 
 Some exceptions:
 
@@ -82,13 +64,13 @@ Some exceptions:
 
 =item Perl 5.8
 
-L<[@Git]|Dist::Zilla::PluginBundle::Git> does not support Perl 5.8, so it
+C<Dist::Zilla::Plugin::Git::*> does not support Perl 5.8, so it
 is not a prereq there, and it isn't included in the bundle.  As a result
 releasing from Perl 5.8 is not allowed.
 
 =item MSWin32
 
-Installing L<[@Git]|Dist::Zilla::PluginBundle::Git> on MSWin32 is a pain
+Installing L<Dist::Zilla::Plugin::Git::*> on MSWin32 is a pain
 so it is also not a prereq on that platform, isn't used and as a result
 releasing from MSWin32 is not allowed.
 
@@ -156,11 +138,6 @@ to install L<Dist::Zilla> and L<Dist::Zilla::PluginBundle::Author::Plicease>.
 =head2 allow_dirty
 
 Additional dirty allowed file passed to @Git.
-
-=head1 SEE ALSO
-
-L<Author::Plicease::Init|Dist::Zilla::Plugin::Author::Plicease::Init>,
-L<MintingProfile::Plicease|Dist::Zilla::MintingProfile::Author::Plicease>
 
 =cut
 
@@ -267,9 +244,14 @@ sub configure
 
   if($] >= 5.010000 && $^O ne 'MSWin32')
   {
-    $self->add_bundle('Git' => {
-      allow_dirty => [ qw( dist.ini Changes README.md ), @{ $self->payload->{allow_dirty} || [] } ],
-    });
+    my $dirty = { allow_dirty => [ qw( dist.ini Changes README.md ), @{ $self->payload->{allow_dirty} || [] } ] };
+    
+    $self->add_plugins(
+      [ 'Git::Check',  $dirty ],
+      [ 'Git::Commit', $dirty ],
+      [ 'Git::Tag'            ],
+      [ 'Git::Push'           ],
+    );
   }
 
   $self->add_plugins([

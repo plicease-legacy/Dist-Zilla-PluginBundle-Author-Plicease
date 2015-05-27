@@ -10,7 +10,6 @@ Dist::Zilla::Plugin::OurPkgVersion
 Dist::Zilla::Plugin::PodWeaver
 Dist::Zilla::Plugin::ReadmeAnyFromPod
 Dist::Zilla::Plugin::Run::BeforeBuild
-Dist::Zilla::Role::MintingProfile
 File::Temp
 File::chdir
 IPC::System::Simple
@@ -21,10 +20,12 @@ Path::Class
 PerlX::Maybe
 PerlX::Maybe::XS
 Test::File
+Test::File::ShareDir
 Test::Fixme
 Test::More
 Test::Pod
 Test::Pod::Coverage
+Test::Script
 Test::Version
 YAML
 YAML::XS
