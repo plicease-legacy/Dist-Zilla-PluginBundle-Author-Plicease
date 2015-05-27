@@ -36,7 +36,6 @@ has abstract => (
   lazy    => 1,
   default => sub {
     my($self) = @_;
-    print 'here:', ref($self->zilla);
     $self->chrome->prompt_str("abstract");
   },
 );
