@@ -192,3 +192,13 @@ sub test
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Dist::Zilla>
+
+=item L<Dist::Zilla::PluginBundle::Author::Plicease>
+
+=back

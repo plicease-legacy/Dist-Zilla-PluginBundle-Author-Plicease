@@ -191,6 +191,15 @@ to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla:
 
 Additional dirty allowed file passed to @Git.
 
+# SEE ALSO
+
+- [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
+- [Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup)
+- [Dist::Zilla::Plugin::Author::Plicease::SpecialPrereqs](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::SpecialPrereqs)
+- [Dist::Zilla::Plugin::Author::Plicease::Tests](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Tests)
+- [Dist::Zilla::Plugin::Author::Plicease::Thanks](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Thanks)
+- [Dist::Zilla::Plugin::Author::Plicease::Upload](https://metacpan.org/pod/Dist::Zilla::Plugin::Author::Plicease::Upload)
+
 # AUTHOR
 
 Graham Ollis <perl@cpan.org>

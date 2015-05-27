@@ -359,3 +359,23 @@ sub configure
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Dist::Zilla>
+
+=item L<Dist::Zilla::Plugin::Author::Plicease::MarkDownCleanup>
+
+=item L<Dist::Zilla::Plugin::Author::Plicease::SpecialPrereqs>
+
+=item L<Dist::Zilla::Plugin::Author::Plicease::Tests>
+
+=item L<Dist::Zilla::Plugin::Author::Plicease::Thanks>
+
+=item L<Dist::Zilla::Plugin::Author::Plicease::Upload>
+
+=back
+
+=cut
