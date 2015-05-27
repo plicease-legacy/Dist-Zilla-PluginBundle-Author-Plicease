@@ -183,7 +183,6 @@ sub configure
     if -r "inc/run/test.pl";
 
   $self->add_plugins(
-    'Author::Plicease::FiveEight',
     ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile )],
                       exclude_match => '^_build/' }, ],
     [ PruneCruft => { except => '.travis.yml' } ],

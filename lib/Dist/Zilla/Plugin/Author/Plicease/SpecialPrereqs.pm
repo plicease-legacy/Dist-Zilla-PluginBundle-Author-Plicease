@@ -16,15 +16,17 @@ use Moose;
 Some older versions of modules have problematic for various
 reasons (at least in the context of how I use them).  This
 plugin will upgrade those prereqs to appropriate version
-they are C<0>, meaning any version.
+if they are C<0>, meaning any version.
+
+This plugin also enforces that releases are not done on
+Perl 5.8 or C<MSWin32>.
 
 =over 4
 
 =item Moo
 
-Require 1.001000, which allows for non-ref defaults.  Later
-this may be upgraded to 2.x if fatal warnings are removed
-as promised.
+Require 2.x as this fixes the bug where fatal warnings was
+enabled.
 
 =item PerlX::Maybe
 
@@ -37,6 +39,7 @@ Require 0.91 for File::HomeDir::Test
 =item AnyEvent::Open3::Simple
 
 Require 0.76 for new stdin style
+Require 0.83 for deprecation removals
 
 =item Path::Class
 
@@ -54,13 +57,14 @@ Require 1.003001.  See rt#83248
 
 =cut
 
+with 'Dist::Zilla::Role::BeforeRelease';
 with 'Dist::Zilla::Role::PrereqSource';
 
 my %upgrades = qw(
   Moo                                   2.0
   PerlX::Maybe                          0.003
   File::HomeDir                         0.91
-  AnyEvent::Open3::Simple               0.76
+  AnyEvent::Open3::Simple               0.83
   Path::Class                           0.26
   Mojolicious                           4.31
   Role::Tiny                            1.003001
@@ -89,6 +93,13 @@ sub register_prereqs
       }
     }
   }
+}
+
+sub before_release
+{
+  my $self = shift;
+  $self->log_fatal('release requires Perl 5.10 or better') if $] < 5.010000;
+  $self->log_fatal('don\'t release via MSWin32')           if $^O eq 'MSWin32';
 }
 
 __PACKAGE__->meta->make_immutable;

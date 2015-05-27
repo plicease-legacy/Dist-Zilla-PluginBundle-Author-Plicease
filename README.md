@@ -44,8 +44,6 @@ one of my dists.  I don't expect anyone to use it for their own projects.
 
 This plugin bundle is mostly equivalent to
 
-    [Author::Plicease::FiveEight]
-    
     [GatherDir]
     exclude_filename = Makefile.PL
     exclude_filename = Build.PL
