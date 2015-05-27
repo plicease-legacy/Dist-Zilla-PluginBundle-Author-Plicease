@@ -7,6 +7,7 @@ install:
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Dist::Zilla::PluginBundle::Git || true
   - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
+  - cpanm -n Devel::Hide
   - cpanm -n Test::CPAN::Changes Test::EOL Test::Fixme Test::NoTabs Test::Pod::Spelling::CommonMistakes Test::Spelling Test::Strict Test::Version || true
 
 perl:
