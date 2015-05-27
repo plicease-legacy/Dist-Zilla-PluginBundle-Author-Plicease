@@ -99,6 +99,7 @@ subtest 'dzil' => sub {
       }
     };  
 
+    note $out;
     dir_exists_ok '.build';
     dir_empty_ok '.build';
 
