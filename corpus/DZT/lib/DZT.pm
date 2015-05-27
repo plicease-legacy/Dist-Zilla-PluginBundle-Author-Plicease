@@ -1,5 +1,11 @@
 package Foo;
 
+use strict;
+use warnings;
+
+# ABSTRACT: The Foo module
+# VERSION
+
 =head1 DESCRIPTION
 
 this is the description.
