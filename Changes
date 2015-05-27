@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Merge [Recommend] into [SpecialPrereqs]
   - Merge [FiveEight] into [SpecialPrereqs]
 
 1.71      2015-05-27 15:23:38 -0400

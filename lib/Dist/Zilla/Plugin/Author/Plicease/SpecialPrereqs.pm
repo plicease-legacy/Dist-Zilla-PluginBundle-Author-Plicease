@@ -18,6 +18,10 @@ reasons (at least in the context of how I use them).  This
 plugin will upgrade those prereqs to appropriate version
 if they are C<0>, meaning any version.
 
+Some modules are recommended if certain modules are already
+prerequisites.  For example, XS modules may be recommended if
+otherwise pure perl modules will optionally use them.
+
 This plugin also enforces that releases are not done on
 Perl 5.8 or C<MSWin32>.
 
@@ -52,6 +56,22 @@ Require 4.31
 =item Role::Tiny
 
 Require 1.003001.  See rt#83248
+
+=item JSON::XS
+
+Recommended if JSON is required.
+
+=item YAML::XS
+
+Recommended if YAML is required.
+
+=item PerlX::Maybe::XS
+
+Recommended if PerlX::Maybe is required.
+
+=item EV
+
+Recommended if Mojolicious or AnyEvent modules are required.
 
 =back
 
@@ -93,6 +113,32 @@ sub register_prereqs
       }
     }
   }
+
+  foreach my $phase (keys %$prereqs)
+  {
+    foreach my $type (keys %{ $prereqs->{$phase} })
+    {
+      foreach my $module (keys %{ $prereqs->{$phase}->{$type} })
+      {
+        if($module =~ /^(JSON|YAML|PerlX::Maybe)$/)
+        {
+          $self->zilla->register_prereqs({
+            type  => 'recommends',
+            phase => $phase,
+          }, join('::', $module, 'XS') => 0 );
+        }
+        my($first) = split /::/, $module;
+        if($first =~ /^(AnyEvent|Mojo|Mojolicious)$/)
+        {
+          $self->zilla->register_prereqs({
+            type  => 'recommends',
+            phase => $phase,
+          }, EV => 0);
+        }
+      }
+    }
+  }
+
 }
 
 sub before_release

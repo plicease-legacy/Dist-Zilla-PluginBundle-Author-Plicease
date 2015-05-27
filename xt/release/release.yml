@@ -17,6 +17,7 @@ pod_spelling_system:
     - md
     - cpanfile
     - dists
+    - EV
 
 pod_coverage:
   private:
