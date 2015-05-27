@@ -297,8 +297,6 @@ sub configure
     },
   ]);
 
-  $self->add_plugins(qw( Author::Plicease::Recommend ));
-  
   $self->add_plugins([
     'Prereqs' => 'NeedTestMore094' => {
       '-phase'     => 'test',

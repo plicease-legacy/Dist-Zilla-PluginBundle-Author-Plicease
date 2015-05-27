@@ -104,8 +104,6 @@ This plugin bundle is mostly equivalent to
     [Author::Plicease::MarkDownCleanup]
     travis_status = 0
     
-    [Author::Plicease::Recommend]
-    
     [Prereqs / NeedTestMore094]
     -phase = test
     Test::More = 0.94
