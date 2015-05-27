@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - removed Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot
+  - removed Dist::Zilla::Plugin::Author::Plicease::TransformTravis
+  - Added test for minting profile
+  - Removed Dist::Zilla::Plugin::Author::Plicease::Init as it had been quitely deprecated for a long time
 
 1.70      2015-05-07 09:08:31 -0400
   - Remove xt/release/build_environment.t in favor of :version in dist.ini
