@@ -6,6 +6,7 @@ use PerlX::Maybe qw( maybe );
 use Path::Class::File;
 use YAML ();
 use Term::ANSIColor ();
+use Path::Class qw( file dir );
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -247,13 +248,21 @@ sub configure
     );
   }
 
-  $self->add_plugins([
-    'Author::Plicease::Resources' => {
-      maybe github_user => $self->payload->{github_user},
-      maybe github_repo => $self->payload->{github_repo},
-      maybe homepage    => $self->payload->{homepage},
-    },
-  ]);
+  do {
+    my $name = dir->absolute->basename;
+    my $user = $self->payload->{github_user} || 'plicease';
+    my $repo = $self->payload->{github_repo} || $name;
+  
+    $self->add_plugins([
+      'MetaResources' => {
+        'homepage' => $self->payload->{homepage} || "http://perl.wdlabs.com/$name",
+        'bugtracker.web'  => sprintf("https://github.com/%s/%s/issues", $user, $repo),
+        'repository.url'  => sprintf("git://github.com/%s/%s.git",      $user, $repo),
+        'repository.web'  => sprintf("https://github.com/%s/%s",        $user, $repo),
+        'repository.type' => 'git',
+      },
+    ]);
+  };
 
   if($self->payload->{release_tests})
   {

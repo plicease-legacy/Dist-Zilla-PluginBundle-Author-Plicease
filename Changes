@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Remove [Author::Plicease::Resources]
   - Remove [Author::Plicease::PrePodWeaver] from bundle
   - Merge [Author::Plicease::InstallerPerlVersion] into [Author::Plicease::SpecialPrereqs]
   - The optional behavior inside [Author::Plicease::InstallerPerlVersion] is

@@ -86,7 +86,14 @@ This plugin bundle is mostly equivalent to
     
     [Git::Tag]
     [Git::Push]
-    [Author::Plicease::Resources]
+    
+    [MetaResources]
+    bugtracker.web = https://github.com/plicease/xuKvBdrwGy/issues
+    homepage = http://perl.wdlabs.com/xuKvBdrwGy
+    repository.type = git
+    repository.url = git://github.com/plicease/xuKvBdrwGy.git
+    repository.web = https://github.com/plicease/xuKvBdrwGy
+    
     [InstallGuide]
     [MinimumPerl]
     [ConfirmRelease]
