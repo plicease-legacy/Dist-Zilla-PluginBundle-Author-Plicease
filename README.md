@@ -88,11 +88,11 @@ This plugin bundle is mostly equivalent to
     [Git::Push]
     
     [MetaResources]
-    bugtracker.web = https://github.com/plicease/xuKvBdrwGy/issues
-    homepage = http://perl.wdlabs.com/xuKvBdrwGy
+    bugtracker.web = https://github.com/plicease/My-Dist/issues
+    homepage = http://perl.wdlabs.com/My-Dist
     repository.type = git
-    repository.url = git://github.com/plicease/xuKvBdrwGy.git
-    repository.web = https://github.com/plicease/xuKvBdrwGy
+    repository.url = git://github.com/plicease/My-Dist.git
+    repository.web = https://github.com/plicease/My-Dist
     
     [InstallGuide]
     [MinimumPerl]

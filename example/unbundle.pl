@@ -17,6 +17,8 @@ if($ARGV[0] eq '--default')
   $in_config = {};
   warn "using default";
   chdir(tempdir( CLEANUP => 1));
+  mkdir 'My-Dist';
+  chdir 'My-Dist';
 }
 else
 {
