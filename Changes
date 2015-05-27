@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.72      2015-05-27 17:26:27 -0400
   - Remove [Author::Plicease::Resources]
   - Remove [Author::Plicease::PrePodWeaver] from bundle
   - Merge [Author::Plicease::InstallerPerlVersion] into [Author::Plicease::SpecialPrereqs]
