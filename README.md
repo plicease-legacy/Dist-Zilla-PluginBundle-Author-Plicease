@@ -42,15 +42,15 @@ you have to.  Sorry.
 I've only uploaded this to CPAN to assist others who may be working on
 one of my dists.  I don't expect anyone to use it for their own projects.
 
-This Dist::Zilla plugin bundle is mostly equivalent to
+This plugin bundle is mostly equivalent to
 
     [Author::Plicease::FiveEight]
     
     [GatherDir]
-    exclude_match = ^_build/
     exclude_filename = Makefile.PL
     exclude_filename = Build.PL
     exclude_filename = cpanfile
+    exclude_match = ^_build/
     
     [PruneCruft]
     except = .travis.yml
@@ -91,14 +91,14 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     [ConfirmRelease]
     
     [ReadmeAnyFromPod]
+    filename = README
     location = build
     type = text
-    filename = README
     
     [ReadmeAnyFromPod / ReadMePodInRoot]
     filename = README.md
-    type = markdown
     location = root
+    type = markdown
     
     [Author::Plicease::MarkDownCleanup]
     travis_status = 0
@@ -106,8 +106,8 @@ This Dist::Zilla plugin bundle is mostly equivalent to
     [Author::Plicease::Recommend]
     
     [Prereqs / NeedTestMore094]
-    Test::More = 0.94
     -phase = test
+    Test::More = 0.94
     
     [Author::Plicease::SpecialPrereqs]
     [CPANFile]

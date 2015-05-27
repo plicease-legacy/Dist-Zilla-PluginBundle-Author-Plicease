@@ -58,8 +58,9 @@ sub add_plugins
         print "[$moniker]\n";
       }
 
-      while(my($k, $v) = each %config)
+      foreach my $k (sort keys %config)
       {
+        my $v = $config{$k};
         $v = [ $v ] unless ref $v;
         print "$k = $_\n" for @$v;
       }

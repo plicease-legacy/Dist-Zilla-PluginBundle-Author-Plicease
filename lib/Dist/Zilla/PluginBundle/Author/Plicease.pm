@@ -54,7 +54,7 @@ the bundle using the C<example/unbundle.pl> script mentioned above.
 I've only uploaded this to CPAN to assist others who may be working on
 one of my dists.  I don't expect anyone to use it for their own projects.
 
-This Dist::Zilla plugin bundle is mostly equivalent to
+This plugin bundle is mostly equivalent to
 
 # EXAMPLE: example/default_dist.ini
 
