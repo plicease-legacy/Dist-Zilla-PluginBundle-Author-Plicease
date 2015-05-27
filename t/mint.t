@@ -8,6 +8,12 @@ use Capture::Tiny qw( capture_merged );
 use Test::File;
 use YAML ();
 use Path::Class qw( dir );
+use Test::File::ShareDir
+  -share => {
+    -module => {
+      'Dist::Zilla::MintingProfile::Author::Plicease' => dir->subdir('profiles')->stringify,
+    },
+  };
 
 $Dist::Zilla::Plugin::Author::Plicease::Init2::chrome = 
 $Dist::Zilla::Plugin::Author::Plicease::Init2::chrome = 'My::Chrome';
