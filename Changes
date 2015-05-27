@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.71      2015-05-27 15:23:38 -0400
+  - Added scp_dest and url options to [Author::Plicease::Upload]
   - Added example/unbundle.pl for unbundling
   - Removed Dist::Zilla::Plugin::Author::Plicease::OSPrereqsNot
   - Removed Dist::Zilla::Plugin::Author::Plicease::TransformTravis
