@@ -1,8 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  - Merge [Recommend] into [SpecialPrereqs]
-  - Merge [FiveEight] into [SpecialPrereqs]
+  - Merge [Author::Plicease::InstallerPerlVersion] into [Author::Plicease::SpecialPrereqs]
+  - The optional behavior inside [Author::Plicease::InstallerPerlVersion] is
+    not on by default via [Author::Plicease::SpecialPrereqs]
+  - Merge [Author::Plicease::Recommend] into [Author::Plicease::SpecialPrereqs]
+  - Merge [Author::Plicease::FiveEight] into [Author::Plicease::SpecialPrereqs]
 
 1.71      2015-05-27 15:23:38 -0400
   - Added scp_dest and url options to [Author::Plicease::Upload]
