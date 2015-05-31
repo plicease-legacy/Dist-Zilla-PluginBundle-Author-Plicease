@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.77      2015-05-31 15:28:39 -0400
+  - Fix bug introduced in 1.75 for Perls as old as 5.20.2
+    I was testing this with a 5.22.0 rc
+
 1.76      2015-05-31 14:55:21 -0400
   - When minting a new project, include a .gitattributes file that will make
     sure that GitHub does not misidentify .t files as being Perl 6.
