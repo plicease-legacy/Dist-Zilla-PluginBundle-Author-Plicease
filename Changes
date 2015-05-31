@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.76      2015-05-31 14:55:21 -0400
   - When minting a new project, include a .gitattributes file that will make
     sure that GitHub does not misidentify .t files as being Perl 6.
 
