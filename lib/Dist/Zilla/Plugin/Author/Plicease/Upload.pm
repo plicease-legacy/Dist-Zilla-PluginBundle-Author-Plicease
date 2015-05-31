@@ -18,7 +18,7 @@ This works similar to L<Dist::Zilla::Plugin::UploadToCPAN>.  Except:
 
 It doesn't die if the upload does not succeed.  In my work flow I usually
 just upload the tarball manually when the upload fails.  Sometimes I also
-want to do the release step when I am not connected to the internet.
+want to do the release step when I am not connected to the Internet.
 
 =item Asks first
 

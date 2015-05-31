@@ -4,7 +4,12 @@ use Capture::Tiny qw( capture_stdout );
 use Path::Class qw( file );
 
 my($out ) = capture_stdout {
-  system($^X, '-Ilib', 'example/unbundle.pl', '--default');
+  system(
+    $^X, 
+      '-Ilib', 
+      '-MDevel::Hide=Dist::Zilla::Plugin::ACPS::RPM',
+      'example/unbundle.pl', '--default',
+    );
   die "failed" unless $? == 0;
 };
 

@@ -202,7 +202,7 @@ Additional dirty allowed file passed to @Git.
 
 # AUTHOR
 
-Graham Ollis <perl@cpan.org>
+Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
