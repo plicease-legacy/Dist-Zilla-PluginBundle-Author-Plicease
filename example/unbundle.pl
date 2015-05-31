@@ -5,7 +5,7 @@ use Config::INI::Reader;
 use Path::Class qw( file dir );
 use File::Temp qw( tempdir );
 
-BEGIN {  @INC = map { ref ? $_ : dir($_)->absolute->stringify } @INC }
+BEGIN {  @INC = map { ref($_) ? $_ : dir($_)->absolute->stringify } @INC }
 
 my $nl = 0;
 my $in_config;
