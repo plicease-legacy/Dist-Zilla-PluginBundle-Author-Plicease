@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - When minting a new project, include a .gitattributes file that will make
+    sure that GitHub does not misidentify .t files as being Perl 6.
 
 1.75      2015-05-31 14:42:48 -0400
   - Devel::Hide is a true develop only prereq.

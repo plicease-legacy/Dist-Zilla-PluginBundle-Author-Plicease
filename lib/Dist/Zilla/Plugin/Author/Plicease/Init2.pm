@@ -81,6 +81,7 @@ sub gather_files
   $self->gather_file_changes($arg);
   $self->gather_files_tests($arg);
   $self->gather_file_gitignore($arg);
+  $self->gather_file_gitattributes($arg);
   $self->gather_file_travis_yml($arg);
 }
 
@@ -226,6 +227,20 @@ sub gather_file_gitignore
   my $file = Dist::Zilla::File::InMemory->new({
     name    => '.gitignore',
     content => "/$name-*\n/.build\n",
+  });
+  
+  $self->add_file($file);
+}
+
+sub gather_file_gitattributes
+{
+  my($self, $arg) = @_;
+  
+  my $name = $self->zilla->name;
+  
+  my $file = Dist::Zilla::File::InMemory->new({
+    name    => '.gitattributes',
+    content => "*.t linguist-language=Perl\n*.h linguist-language=C\n",
   });
   
   $self->add_file($file);
