@@ -2,6 +2,11 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.75      2015-05-31 14:42:48 -0400
+  - Devel::Hide is a true develop only prereq.
+    A bug introduced in 1.71 was that Devel::Hide was needed for all
+    of the tests to pass.
+
 1.74      2015-05-28 10:37:17 -0400
   - Fix test broken in last version when installed (not upgraded)
 
