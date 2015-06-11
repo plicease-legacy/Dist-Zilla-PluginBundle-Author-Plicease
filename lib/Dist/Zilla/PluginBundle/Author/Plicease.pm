@@ -64,9 +64,9 @@ Some exceptions:
 
 =over 4
 
-=item Perl 5.8
+=item Perl 5.8.x, Perl 5.10.0
 
-C<Dist::Zilla::Plugin::Git::*> does not support Perl 5.8, so it
+C<Dist::Zilla::Plugin::Git::*> does not support Perl 5.8.x or 5.10.0, so it
 is not a prereq there, and it isn't included in the bundle.  As a result
 releasing from Perl 5.8 is not allowed.
 
@@ -235,7 +235,7 @@ sub configure
 
   ));
 
-  if($] >= 5.010000 && $^O ne 'MSWin32')
+  if($] >= 5.010001 && $^O ne 'MSWin32')
   {
     my $dirty = { allow_dirty => [ qw( dist.ini Changes README.md ), @{ $self->payload->{allow_dirty} || [] } ] };
     

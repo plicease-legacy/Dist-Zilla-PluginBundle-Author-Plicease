@@ -10,7 +10,7 @@ sub new
   my($class, %args) = @_;
 
   $args{requires}->{'Dist::Zilla::PluginBundle::Git'} = 0
-    if $] >= 5.010000 && $^O ne 'MSWin32';
+    if $] >= 5.010001 && $^O ne 'MSWin32';
 
   my $self = $class->SUPER::new(%args);
   

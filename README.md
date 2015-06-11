@@ -116,9 +116,9 @@ This plugin bundle is mostly equivalent to
 
 Some exceptions:
 
-- Perl 5.8
+- Perl 5.8.x, Perl 5.10.0
 
-    `Dist::Zilla::Plugin::Git::*` does not support Perl 5.8, so it
+    `Dist::Zilla::Plugin::Git::*` does not support Perl 5.8.x or 5.10.0, so it
     is not a prereq there, and it isn't included in the bundle.  As a result
     releasing from Perl 5.8 is not allowed.
 

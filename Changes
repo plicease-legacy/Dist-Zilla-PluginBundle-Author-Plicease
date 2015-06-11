@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Support for Perl 5.10.0
+    [@Git] does no longer supports the .0 release of 5.10 but we need
+    (as with 5.8.x) so make this one work for everything except for
+    releases like 5.8.x and MSWin32.
 
 1.77      2015-05-31 15:28:39 -0400
   - Fix bug introduced in 1.75 for Perls as old as 5.20.2
