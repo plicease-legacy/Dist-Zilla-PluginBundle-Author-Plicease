@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.78      2015-06-11 11:04:52 -0600
   - Support for Perl 5.10.0
     [@Git] does no longer supports the .0 release of 5.10 but we need
     (as with 5.8.x) so make this one work for everything except for
