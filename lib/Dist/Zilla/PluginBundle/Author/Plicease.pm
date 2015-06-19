@@ -141,6 +141,11 @@ to install L<Dist::Zilla> and L<Dist::Zilla::PluginBundle::Author::Plicease>.
 
 Additional dirty allowed file passed to @Git.
 
+=head2 irc
+
+IRC discussion URL for x_IRC meta (maybe changed to non x_ meta if/when IRC
+becomes formally supported).
+
 =cut
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -259,6 +264,7 @@ sub configure
         'repository.url'  => sprintf("git://github.com/%s/%s.git",      $user, $repo),
         'repository.web'  => sprintf("https://github.com/%s/%s",        $user, $repo),
         'repository.type' => 'git',
+        maybe 'x_IRC' => $self->payload->{irc},
       },
     ]);
   };

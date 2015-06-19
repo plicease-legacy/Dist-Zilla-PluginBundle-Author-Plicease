@@ -191,6 +191,11 @@ to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla:
 
 Additional dirty allowed file passed to @Git.
 
+## irc
+
+IRC discussion URL for x\_IRC meta (maybe changed to non x\_ meta if/when IRC
+becomes formally supported).
+
 # SEE ALSO
 
 - [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)

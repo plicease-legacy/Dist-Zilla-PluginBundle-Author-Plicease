@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add irc option that sets x_IRC meta
 
 1.78      2015-06-11 11:04:52 -0600
   - Support for Perl 5.10.0
