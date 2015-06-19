@@ -18,6 +18,7 @@ pod_spelling_system:
     - cpanfile
     - dists
     - EV
+    - irc
 
 pod_coverage:
   private:
