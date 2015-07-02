@@ -221,7 +221,7 @@ sub configure
         map { $_ => $self->payload->{"alien_$_"} }
         map { s/^alien_//; $_ } 
         grep /^alien_/, keys %{ $self->payload };
-      $self->add_plugins([ Alien => \%args ]);
+      $self->add_plugins([ Alien => { %args, %mb } ]);
     }
     elsif(defined $installer && $installer eq 'ModuleBuild')
     {
