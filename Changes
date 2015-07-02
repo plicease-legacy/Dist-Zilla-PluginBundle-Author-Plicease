@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Allow for [Alien] and inc/My/ModuleBuild.pm
 
 1.79      2015-06-19 10:16:08 -0400
   - Add irc option that sets x_IRC meta

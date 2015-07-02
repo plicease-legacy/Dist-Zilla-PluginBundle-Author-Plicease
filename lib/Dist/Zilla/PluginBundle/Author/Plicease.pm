@@ -150,7 +150,15 @@ becomes formally supported).
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
-sub mvp_multivalue_args { qw( alien_build_command alien_install_command diag allow_dirty ) }
+sub mvp_multivalue_args { qw( 
+  alien_build_command
+  alien_install_command
+  alien_auto_include
+  alien_bin_requires
+  alien_helper
+  
+  diag
+  allow_dirty ) }
 
 sub configure
 {
@@ -199,15 +207,15 @@ sub configure
   );
 
   do { # installer stuff
-    my $installer = $self->payload->{installer} || 'MakeMaker';
+    my $installer = $self->payload->{installer};
     my %mb = map { $_ => $self->payload->{$_} } grep /^mb_/, keys %{ $self->payload };
     if(-e Path::Class::File->new('inc', 'My', 'ModuleBuild.pm'))
     {
-      $installer = 'ModuleBuild';
+      $installer ||= 'ModuleBuild';
       $mb{mb_class} = 'My::ModuleBuild'
         unless defined $mb{mb_class};
     }
-    if($installer eq 'Alien')
+    if(defined $installer && $installer eq 'Alien')
     {
       my %args = 
         map { $_ => $self->payload->{"alien_$_"} }
@@ -215,12 +223,13 @@ sub configure
         grep /^alien_/, keys %{ $self->payload };
       $self->add_plugins([ Alien => \%args ]);
     }
-    elsif($installer eq 'ModuleBuild')
+    elsif(defined $installer && $installer eq 'ModuleBuild')
     {
       $self->add_plugins([ ModuleBuild => \%mb ]);
     }
     else
     {
+      $installer ||= 'MakeMaker';
       $self->add_plugins($installer);
     }
   };
