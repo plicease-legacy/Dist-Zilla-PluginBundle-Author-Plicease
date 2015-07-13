@@ -115,6 +115,7 @@ sub gather_file_travis_yml
                           q{},
                           q{#after_script: /bin/true},
                           q{},
+                          q{sudo: false},
     ),
   });
 

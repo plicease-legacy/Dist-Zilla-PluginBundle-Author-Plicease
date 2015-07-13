@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Use travis CI newer (faster) container based infrastructure by default
+    in new dists
 
 1.80      2015-07-02 09:10:06 -0400
   - Allow for [Alien] and inc/My/ModuleBuild.pm
