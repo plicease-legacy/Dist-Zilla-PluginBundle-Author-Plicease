@@ -356,14 +356,24 @@ sub configure
   if(-e ".travis.yml")
   {
     my $travis = YAML::LoadFile(".travis.yml");
+    
     if(exists $travis->{perl} && grep /^5\.19$/, @{ $travis->{perl} })
     {
       die "travis is trying to test Perl 5.19";
     }
+    
     unless(exists $travis->{perl} && grep /^5\.20$/, @{ $travis->{perl} })
     {
       print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
       print STDERR "travis is not testing Perl 5.20";
+      print STDERR Term::ANSIColor::color('reset') if -t STDERR;
+      print STDERR "\n";
+    }
+    
+    unless(exists $travis->{sudo})
+    {
+      print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
+      print STDERR "You have not specified a value for sudo in travis (suggest setting to false for faster travis build)";
       print STDERR Term::ANSIColor::color('reset') if -t STDERR;
       print STDERR "\n";
     }
