@@ -25,3 +25,5 @@ perl:
 script: dzil test -v
 
 #after_script: /bin/true
+
+sudo: false
