@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use 5.008001;
-use Test::More tests => 1;
+use Test::More;
 use File::Temp qw( tempdir );
 use File::chdir;
 use Dist::Zilla::App;
@@ -16,6 +16,11 @@ use Test::File::ShareDir
       'Dist::Zilla::MintingProfile::Author::Plicease' => dir->subdir('profiles')->stringify,
     },
   };
+
+plan skip_all => 'test requires Dist::Zilla::Plugin::Git' unless eval qq{ use Dist::Zilla::Plugin::Git; 1 };
+plan skip_all => 'test requires Perl::PrereqScanner' unless eval qq{ use Perl::PrereqScanner; 1; };
+plan skip_all => 'test requires Term::Encoding' unless eval qq{ use Term::Encoding; 1; };
+plan tests => 1;
 
 $Dist::Zilla::Plugin::Author::Plicease::Init2::chrome = 
 $Dist::Zilla::Plugin::Author::Plicease::Init2::chrome = 'My::Chrome';
@@ -44,7 +49,14 @@ subtest 'dzil' => sub {
       }
     };  
 
-    note $out;
+    if(-e 'Foo-Bar/lib/Foo/Bar.pm')
+    {
+      note $out;
+    }
+    else
+    {
+      diag $out;
+    }
     dir_exists_ok 'Foo-Bar';
     file_exists_ok 'Foo-Bar/dist.ini';
     file_exists_ok 'Foo-Bar/lib/Foo/Bar.pm';

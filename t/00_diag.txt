@@ -3,6 +3,7 @@ Dist::Zilla
 Dist::Zilla::App
 Dist::Zilla::Plugin::AutoMetaResources
 Dist::Zilla::Plugin::CopyFilesFromBuild
+Dist::Zilla::Plugin::Git
 Dist::Zilla::Plugin::InsertExample
 Dist::Zilla::Plugin::InstallGuide
 Dist::Zilla::Plugin::MinimumPerl
@@ -16,9 +17,11 @@ JSON::PP
 Module::Build
 Moose
 Path::Class
+Perl::PrereqScaner
 PerlX::Maybe
 PerlX::Maybe::XS
 Pod::Markdown
+Term::Encoding
 Test::Dir
 Test::File
 Test::File::ShareDir
