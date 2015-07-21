@@ -2,7 +2,7 @@ language: perl
 
 install:
   - cpanm -n Dist::Zilla
-  - cpanm -n `cat t/00_diag.txt`
+  - cpanm -n `cat t/00_diag.txt` || true
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Dist::Zilla::PluginBundle::Git || true
