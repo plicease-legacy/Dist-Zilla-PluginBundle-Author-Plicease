@@ -17,7 +17,7 @@ JSON::PP
 Module::Build
 Moose
 Path::Class
-Perl::PrereqScaner
+Perl::PrereqScanner
 PerlX::Maybe
 PerlX::Maybe::XS
 Pod::Markdown
