@@ -156,6 +156,7 @@ sub mvp_multivalue_args { qw(
   alien_auto_include
   alien_bin_requires
   alien_helper
+  upgrade
   
   diag
   allow_dirty ) }
@@ -321,14 +322,12 @@ sub configure
   ]);
 
   $self->add_plugins([
-    'Prereqs' => 'NeedTestMore094' => {
-      '-phase'     => 'test',
-      'Test::More' => '0.94',
+    'Author::Plicease::SpecialPrereqs' => {
+      maybe upgrade => $self->payload->{upgrade},
     },
   ]);
-  
+
   $self->add_plugins(
-    'Author::Plicease::SpecialPrereqs',
     'CPANFile',
   );
 

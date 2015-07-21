@@ -86,19 +86,39 @@ with 'Dist::Zilla::Role::BeforeRelease';
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::InstallTool';
 
-my %upgrades = qw(
-  Moo                                   2.0
-  PerlX::Maybe                          0.003
-  File::HomeDir                         0.91
-  AnyEvent::Open3::Simple               0.83
-  Path::Class                           0.26
-  Mojolicious                           4.31
-  Role::Tiny                            1.003001
+sub mvp_multivalue_args { qw( upgrade ) }
+
+has upgrade => (
+  is      => 'ro',
+  default => sub { [] },
 );
 
 sub register_prereqs
 {
   my($self) = @_;
+
+  my %upgrades = qw(
+    Moo                                   2.0
+    PerlX::Maybe                          0.003
+    File::HomeDir                         0.91
+    AnyEvent::Open3::Simple               0.83
+    Path::Class                           0.26
+    Mojolicious                           4.31
+    Role::Tiny                            1.003001
+    Test::More                            0.94
+  );
+  
+  foreach my $upgrade (@{ $self->upgrade })
+  {
+    if($upgrade =~ /^\s*(\S+)\s*=\s*(\S+)\s*$/)
+    {
+      $upgrades{$1} = $2;
+    }
+    else
+    {
+      $self->log_fatal("upgrade failed: $upgrade");
+    }
+  }
 
   my $prereqs = $self->zilla->prereqs->as_string_hash;
   foreach my $phase (keys %$prereqs)

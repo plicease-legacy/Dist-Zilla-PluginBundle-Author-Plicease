@@ -107,10 +107,6 @@ This plugin bundle is mostly equivalent to
     [Author::Plicease::MarkDownCleanup]
     travis_status = 0
     
-    [Prereqs / NeedTestMore094]
-    -phase = test
-    Test::More = 0.94
-    
     [Author::Plicease::SpecialPrereqs]
     [CPANFile]
 
