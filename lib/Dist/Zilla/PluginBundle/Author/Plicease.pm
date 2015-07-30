@@ -146,6 +146,10 @@ Additional dirty allowed file passed to @Git.
 IRC discussion URL for x_IRC meta (maybe changed to non x_ meta if/when IRC
 becomes formally supported).
 
+=head2 version_plugin
+
+Specify an alternative to OurPkgVersion for updating the versions in .pm files.
+
 =cut
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -243,12 +247,9 @@ sub configure
   
   $self->add_plugins([ NextRelease => { format => '%-9v %{yyyy-MM-dd HH:mm:ss Z}d' }]);
     
-  $self->add_plugins(qw(
-    AutoPrereqs
-    OurPkgVersion
-    MetaJSON
-
-  ));
+  $self->add_plugins('AutoPrereqs');
+  $self->add_plugins($self->payload->{version_plugin} || 'OurPkgVersion');
+  $self->add_plugins('MetaJSON');
 
   if($] >= 5.010001 && $^O ne 'MSWin32')
   {

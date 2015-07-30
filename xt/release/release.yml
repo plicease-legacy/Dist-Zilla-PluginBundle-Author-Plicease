@@ -19,6 +19,7 @@ pod_spelling_system:
     - dists
     - EV
     - irc
+    - OurPkgVersion
 
 pod_coverage:
   private:

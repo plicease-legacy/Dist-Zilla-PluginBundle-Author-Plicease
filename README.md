@@ -192,6 +192,10 @@ Additional dirty allowed file passed to @Git.
 IRC discussion URL for x\_IRC meta (maybe changed to non x\_ meta if/when IRC
 becomes formally supported).
 
+## version\_plugin
+
+Specify an alternative to OurPkgVersion for updating the versions in .pm files.
+
 # SEE ALSO
 
 - [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
