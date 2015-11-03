@@ -207,7 +207,7 @@ Specify an alternative to OurPkgVersion for updating the versions in .pm files.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Graham Ollis &lt;plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

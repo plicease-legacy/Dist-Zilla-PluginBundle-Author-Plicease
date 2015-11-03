@@ -298,23 +298,26 @@ sub configure
 
   ));
   
-  $self->add_plugins([
-    'ReadmeAnyFromPod' => {
-            type            => 'text',
-            filename        => 'README',
-            location        => 'build', 
-      maybe source_filename => $self->payload->{readme_from},
-    },
-  ]);
+  unless($self->payload->{no_readme})
+  {
+    $self->add_plugins([
+      'ReadmeAnyFromPod' => {
+              type            => 'text',
+              filename        => 'README',
+              location        => 'build', 
+        maybe source_filename => $self->payload->{readme_from},
+      },
+    ]);
   
-  $self->add_plugins([
-    'ReadmeAnyFromPod' => ReadMePodInRoot => {
-      type                  => 'markdown',
-      filename              => 'README.md',
-      location              => 'root',
-      maybe source_filename => $self->payload->{readme_from},
-    },
-  ]);
+    $self->add_plugins([
+      'ReadmeAnyFromPod' => ReadMePodInRoot => {
+        type                  => 'markdown',
+        filename              => 'README.md',
+        location              => 'root',
+        maybe source_filename => $self->payload->{readme_from},
+     },
+   ]);
+  }
   
   $self->add_plugins([
     'Author::Plicease::MarkDownCleanup' => {
