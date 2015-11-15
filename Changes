@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Added undocumented preamble to
+    [@Author::Plicease]
+    and
+    [Author::Plicease::SpecialPrereqs]
 
 1.85      2015-11-03 07:22:39 -0500
   - Add no_readme

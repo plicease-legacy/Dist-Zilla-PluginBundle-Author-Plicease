@@ -161,6 +161,7 @@ sub mvp_multivalue_args { qw(
   alien_bin_requires
   alien_helper
   upgrade
+  preamble
   
   diag
   allow_dirty ) }
@@ -327,7 +328,8 @@ sub configure
 
   $self->add_plugins([
     'Author::Plicease::SpecialPrereqs' => {
-      maybe upgrade => $self->payload->{upgrade},
+      maybe upgrade  => $self->payload->{upgrade},
+      maybe preamble => $self->payload->{preamble},
     },
   ]);
 

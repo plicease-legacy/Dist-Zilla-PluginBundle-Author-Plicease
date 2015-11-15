@@ -86,7 +86,12 @@ with 'Dist::Zilla::Role::BeforeRelease';
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::InstallTool';
 
-sub mvp_multivalue_args { qw( upgrade ) }
+sub mvp_multivalue_args { qw( upgrade preamble ) }
+
+has preamble => (
+  is      => 'ro',
+  default => sub { [] },
+);
 
 has upgrade => (
   is      => 'ro',
@@ -188,7 +193,9 @@ sub setup_installer
   {
     my $content = $file->content;
     $content = join "\n", 
+      "use strict; use warnings;",
       "BEGIN {",
+      (map { s/^\| /  /; $_ } @{ $self->preamble }),
       "  unless(eval q{ use $perl_version; 1}) {",
       "    print \"Perl $perl_version or better required\\n\";",
       "    exit;",
