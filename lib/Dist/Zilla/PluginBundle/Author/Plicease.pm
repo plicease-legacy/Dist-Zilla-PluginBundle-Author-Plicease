@@ -150,6 +150,10 @@ becomes formally supported).
 
 Specify an alternative to OurPkgVersion for updating the versions in .pm files.
 
+=head2 perl
+
+Specify a minimum Perl version.  If not specified it will be detected.
+
 =cut
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -294,11 +298,16 @@ sub configure
   $self->add_plugins(qw(
 
     InstallGuide
-    MinimumPerl
     ConfirmRelease
 
   ));
   
+  $self->add_plugins([
+    MinimumPerl => {
+      maybe perl => $self->payload->{perl},
+    },
+  ]);
+
   unless($self->payload->{no_readme})
   {
     $self->add_plugins([

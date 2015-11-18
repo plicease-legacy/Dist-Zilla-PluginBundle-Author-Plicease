@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Allow override of [MinimumPerl]
 
 1.87      2015-11-18 06:28:32 -0500
   - When we see JSON::MaybeXS we will recommend Cpanel::JSON::XS

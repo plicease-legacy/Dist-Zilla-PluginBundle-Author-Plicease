@@ -91,8 +91,8 @@ This plugin bundle is mostly equivalent to
     repository.web = https://github.com/plicease/My-Dist
     
     [InstallGuide]
-    [MinimumPerl]
     [ConfirmRelease]
+    [MinimumPerl]
     
     [ReadmeAnyFromPod]
     filename = README
