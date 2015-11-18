@@ -158,6 +158,13 @@ sub register_prereqs
             phase => $phase,
           }, join('::', $module, 'XS') => 0 );
         }
+        if($module eq 'JSON::MaybeXS')
+        {
+          $self->zilla->register_prereqs({
+            type => 'recommends',
+            phase => $phase,
+          }, "Cpanel::JSON::XS");
+        }
         my($first) = split /::/, $module;
         if($first =~ /^(AnyEvent|Mojo|Mojolicious)$/)
         {

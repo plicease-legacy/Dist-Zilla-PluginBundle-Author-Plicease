@@ -127,6 +127,12 @@ sub setup_installer
     }
   }
   
+  if($list{'JSON::MaybeXS'})
+  {
+    $list{'JSON::PP'}++;
+    $list{'JSON::XS'}++;
+  }
+  
   foreach my $lib (@{ $self->diag })
   {
     if($lib =~ /^-(.*)$/)
