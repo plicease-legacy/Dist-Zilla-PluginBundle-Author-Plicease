@@ -196,6 +196,10 @@ becomes formally supported).
 
 Specify an alternative to OurPkgVersion for updating the versions in .pm files.
 
+## perl
+
+Specify a minimum Perl version.  If not specified it will be detected.
+
 # SEE ALSO
 
 - [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)

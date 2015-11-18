@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.88      2015-11-18 07:03:59 -0500
   - Allow override of [MinimumPerl]
 
 1.87      2015-11-18 06:28:32 -0500
