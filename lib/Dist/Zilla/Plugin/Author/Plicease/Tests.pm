@@ -66,6 +66,7 @@ sub before_build
     my $file = $self->zilla->root->file(qw( xt release ), $t_file->basename);
     if(-e $file)
     {
+      next if $t_file->basename eq 'release.yml';
       my $old  = $file->slurp;
       if($new ne $old)
       {
