@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.89      2015-11-22 14:28:47 -0500
   - Minting profile creates t/01_use.t instead of t/use.t which is almost
     always what I move it to anyway.
   - Better default for xt/release/release.yml
