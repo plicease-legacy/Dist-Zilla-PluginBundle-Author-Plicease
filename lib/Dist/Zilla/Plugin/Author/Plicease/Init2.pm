@@ -207,7 +207,7 @@ sub gather_files_tests
   $name =~ s{-}{::}g;
 
   my $use_t_file = Dist::Zilla::File::InMemory->new({
-    name => 't/use.t',
+    name => 't/01_use.t',
     content => join("\n", q{use strict;},
                           q{use warnings;},
                           q{use Test::More tests => 1;},

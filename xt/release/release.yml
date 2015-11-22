@@ -1,30 +1,14 @@
 ---
 pod_spelling_system:
-  stopwords:
-    - profile.ini
-    - dist.ini
-    - ini
-    - MakeMaker
-    - deps
-    - travis
-    - yml
-    - ModuleBuild
-    - ModuleBuildTiny
-    - ModuleBuildDatabase
-    - README
-    - Readme
-    - readme
-    - md
-    - cpanfile
-    - dists
-    - EV
-    - irc
-    - OurPkgVersion
+  skip: 0
+  # list of words that are spelled correctly
+  # (regardless of what spell check thinks)
+  # or stuff that I like to spell incorrectly
+  # intentionally
+  stopwords: []
 
 pod_coverage:
-  private:
-    - .*#BUILDARGS
-    - Dist::Zilla::Plugin::Author::Plicease::.*
-    - Dist::Zilla::MintingProfile::Author::Plicease
-    - Dist::Zilla::PluginBundle::Author::Plicease#configure
-    - Dist::Zilla::PluginBundle::Author::Plicease#mvp_multivalue_args
+  skip: 0
+  # format is "Class#method" or "Class",regex allowed
+  # for either Class or method.
+  private: []

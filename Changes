@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Minting profile creates t/01_use.t instead of t/use.t which is almost
+    always what I move it to anyway.
+  - Better default for xt/release/release.yml
 
 1.88      2015-11-18 07:03:59 -0500
   - Allow override of [MinimumPerl]

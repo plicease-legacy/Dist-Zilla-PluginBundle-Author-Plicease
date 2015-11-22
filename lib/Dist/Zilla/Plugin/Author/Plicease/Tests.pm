@@ -59,7 +59,7 @@ sub before_build
   ? $self->zilla->root->subdir($self->source)
   : Dist::Zilla::MintingProfile::Author::Plicease->profile_dir->subdir(qw( default skel xt release ));
 
-  foreach my $t_file (grep { $_->basename =~ /\.t$/ } $source->children(no_hidden => 1))
+  foreach my $t_file (grep { $_->basename =~ /\.t$/ || $_->basename eq 'release.yml' } $source->children(no_hidden => 1))
   {
     next if $t_file->basename =~ $skip;
     my $new  = $t_file->slurp;
@@ -80,27 +80,6 @@ sub before_build
     }
   }
   
-  my $t_config = $self->zilla->root->file(qw( xt release release.yml ));
-  unless(-e $t_config)
-  {
-    $self->log("creating " . $t_config->stringify);
-    $t_config->openw->print(<<EOF);
----
-pod_spelling_system:
-  skip: 0
-  # list of words that are spelled correctly
-  # (regardless of what spell check thinks)
-  stopwords: []
-
-pod_coverage:
-  skip: 0
-  # format is "Class#method" or "Class", regex allowed
-  # for either Class or method.
-  private: []
-
-EOF
-  }
-
   my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
   $diag->spew(scalar $source->parent->parent->file('t', '00_diag.t')->absolute->slurp);
 }
