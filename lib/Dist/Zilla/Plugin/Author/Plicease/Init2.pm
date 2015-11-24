@@ -142,7 +142,7 @@ sub gather_file_dist_ini
     
     $content .= "[\@Author::Plicease]\n"
              .  "release_tests = " . $self->include_tests ."\n"
-             .  "installer     = ModuleBuild\n"
+             .  "installer     = Author::Plicease::MakeMaker\n"
              .  "\n";
     
     $content .= "[RemovePrereqs]\n"

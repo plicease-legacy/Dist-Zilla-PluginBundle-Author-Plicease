@@ -58,7 +58,7 @@ This plugin bundle is mostly equivalent to
     [License]
     [ExecDir]
     [ShareDir]
-    [MakeMaker]
+    [Author::Plicease::MakeMaker]
     [Manifest]
     [TestRelease]
     [PodWeaver]
@@ -211,7 +211,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Graham Ollis &lt;plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

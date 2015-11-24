@@ -239,7 +239,7 @@ sub configure
     }
     else
     {
-      $installer ||= 'MakeMaker';
+      $installer ||= 'Author::Plicease::MakeMaker';
       $self->add_plugins($installer);
     }
   };
