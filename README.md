@@ -211,7 +211,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
 
 # AUTHOR
 
-Graham Ollis &lt;plicease@cpan.org>
+Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
