@@ -3,6 +3,8 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
   - Created [Author::Plicease::MakeMaker] in attempt to deal
     with File::ShareDir madness.
+  - Created [Author::Plicease::DevShare] also to help deal
+    with File::ShareDir madness.
 
 1.89      2015-11-22 14:28:47 -0500
   - Minting profile creates t/01_use.t instead of t/use.t which is almost
