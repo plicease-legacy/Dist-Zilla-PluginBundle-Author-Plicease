@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.90      2015-11-24 21:07:35 -0500
   - Created [Author::Plicease::MakeMaker] in attempt to deal
     with File::ShareDir madness.
   - Created [Author::Plicease::DevShare] also to help deal
