@@ -18,6 +18,11 @@ has travis_status => (
   is => 'ro',
 );
 
+has travis_user => (
+  is      => 'ro',
+  default => 'plicease',
+);
+
 sub after_build
 {
   my($self) = @_;
@@ -25,7 +30,8 @@ sub after_build
   if(-r $readme)
   {
     my $name = $self->zilla->root->absolute->basename;
-    my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/plicease/$name.png)](http://travis-ci.org/plicease/$name)" : "";
+    my $user = $self->travis_user;
+    my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/$user/$name.png)](http://travis-ci.org/$user/$name)" : "";
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
     $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(\\_\d+|)\s+#}{#};

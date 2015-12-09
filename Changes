@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - added travis_user option to [@Author::Plicease] and [Author::Plicease::MarkDownCleanup]
 
 1.90      2015-11-24 21:07:35 -0500
   - Created [Author::Plicease::MakeMaker] in attempt to deal
