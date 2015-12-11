@@ -48,6 +48,12 @@ has diag_preamble => (
   default => sub { [] },
 );
 
+has _diag_content => (
+  is      => 'rw',
+  isa     => 'Str',
+  default => '',
+);
+
 sub before_build
 {
   my($self) = @_;
@@ -89,7 +95,7 @@ sub before_build
   my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
   my $content = $source->parent->parent->file('t', '00_diag.t')->absolute->slurp;
   $content =~ s{## PREAMBLE ##}{join "\n", map { s/^\| //; $_ } @{ $self->diag_preamble }}e;
-  $diag->spew($content);
+  $self->_diag_content($content);
 }
 
 # not really an installer, but we have to create a list
@@ -145,9 +151,21 @@ sub setup_installer
   
   my($file) = grep { $_->name eq 't/00_diag.t' } @{ $self->zilla->files };
 
-  my $content = $file->content;
+  my $content = $self->_diag_content;
   $content =~ s{## GENERATE ##}{$code};
-  $file->content($content);
+
+  if($file)
+  {
+    $file->content($content);
+  }
+  else
+  {
+    $file = Dist::Zilla::File::InMemory->new({
+      name => 't/00_diag.t',
+      content => $content
+    });
+    $self->add_file($file);
+  }
 
   my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
   $diag->spew($content);
