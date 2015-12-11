@@ -7,9 +7,9 @@ install:
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Dist::Zilla::PluginBundle::Git || true
   - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
-  - dzil authordeps --missing | cpanm
-  - dzil listdeps
-  - dzil listdeps   --missing | cpanm
+  - cpanm -n Path::Class Capture::Tiny
+  - dzil authordeps --missing | cpanm -n
+  - dzil listdeps   --missing | cpanm -n
 
 perl:
   - "5.8"
