@@ -3,6 +3,8 @@ use warnings;
 use Capture::Tiny qw( capture_stdout );
 use Path::Class qw( file );
 
+exit if $ENV{TRAVIS};
+
 my($out ) = capture_stdout {
   system(
     $^X, 
