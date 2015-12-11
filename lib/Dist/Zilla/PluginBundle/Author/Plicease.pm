@@ -166,6 +166,7 @@ sub mvp_multivalue_args { qw(
   alien_helper
   upgrade
   preamble
+  diag_preamble
   
   diag
   allow_dirty ) }
@@ -289,8 +290,9 @@ sub configure
   {
     $self->add_plugins([
       'Author::Plicease::Tests' => {
-        maybe skip => $self->payload->{release_tests_skip},
-        maybe diag => $self->payload->{diag},
+        maybe skip          => $self->payload->{release_tests_skip},
+        maybe diag          => $self->payload->{diag},
+        maybe diag_preamble => $self->payload->{diag_preamble},
       }
     ]);
   }
@@ -389,6 +391,17 @@ sub configure
     {
       print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
       print STDERR "You have not specified a value for sudo in travis (suggest setting to false for faster travis build)";
+      print STDERR Term::ANSIColor::color('reset') if -t STDERR;
+      print STDERR "\n";
+    }
+  }
+
+  foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt xt/release/build_environment.t xt/release/unused.t ))
+  {  
+    if(-e $name)
+    {
+      print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
+      print STDERR "You have a lingering deprecated test: $name";
       print STDERR Term::ANSIColor::color('reset') if -t STDERR;
       print STDERR "\n";
     }

@@ -25,7 +25,7 @@ with 'Dist::Zilla::Role::BeforeBuild';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TestRunner';
 
-sub mvp_multivalue_args { qw( diag ) }
+sub mvp_multivalue_args { qw( diag diag_preamble ) }
 
 has source => (
   is      =>'ro',
@@ -39,6 +39,11 @@ has skip => (
 );
 
 has diag => (
+  is      => 'ro',
+  default => sub { [] },
+);
+
+has diag_preamble => (
   is      => 'ro',
   default => sub { [] },
 );
@@ -82,7 +87,9 @@ sub before_build
   }
   
   my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
-  $diag->spew(scalar $source->parent->parent->file('t', '00_diag.t')->absolute->slurp);
+  my $content = $source->parent->parent->file('t', '00_diag.t')->absolute->slurp;
+  $content =~ s{## PREAMBLE ##}{join "\n", map { s/^\| //; $_ } @{ $self->diag_preamble }}e;
+  $diag->spew($content);
 }
 
 # not really an installer, but we have to create a list
@@ -129,42 +136,21 @@ sub setup_installer
     }
   }
   
-  my $content = join "\n", sort keys %list;
-  $content .= "\n";
+  my $code = '';
   
-  $self->zilla->root->file('t', '00_diag.txt')->spew($content);
+  $code = "BEGIN { eval q{ use EV; } }\n" if $list{EV};
+  $code .= '$modules{$_} = $_ for qw(' . "\n";
+  $code .= join "\n", map { "  $_" } sort keys %list;
+  $code .= "\n);\n";
   
-  my($file) = grep { $_->name eq 't/00_diag.txt' } @{ $self->zilla->files };
-  if($file)
-  {
-    $file->content($content);
-  }
-  else
-  {
-    $file = Dist::Zilla::File::InMemory->new({
-      name    => 't/00_diag.txt',
-      content => $content,
-    });
-    $self->add_file($file);
-  }
-  
-  if($list{EV})
-  {
-    $self->zilla->root->file('t', '00_diag.pre.txt')->spew("EV\n");
-    my($file) = grep { $_->name eq 't/00_diag.pre.txt' } @{ $self->zilla->files };
-    if($file)
-    {
-      $file->content("EV\n");
-    }
-    else
-    {
-      $file = Dist::Zilla::File::InMemory->new({
-        name    => '00_diag.pre.txt',
-        content => "EV\n",
-      });
-      $self->add_file($file);
-    }
-  }
+  my($file) = grep { $_->name eq 't/00_diag.t' } @{ $self->zilla->files };
+
+  my $content = $file->content;
+  $content =~ s{## GENERATE ##}{$code};
+  $file->content($content);
+
+  my $diag = $self->zilla->root->file(qw( t 00_diag.t ));
+  $diag->spew($content);
 }
 
 sub test

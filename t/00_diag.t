@@ -2,24 +2,58 @@ use strict;
 use warnings;
 use Config;
 use Test::More tests => 1;
-BEGIN {
-  my @modules;
-  eval q{
-    require FindBin;
-    require File::Spec;
-    1;
-  } || die $@;
-  do {
-    my $fh;
-    if(open($fh, '<', File::Spec->catfile($FindBin::Bin, '00_diag.pre.txt')))
-    {
-      @modules = <$fh>;
-      close $fh;
-      chomp @modules;
-    }
-  };
-  eval qq{ require $_ } for @modules;
-};
+
+# This .t file is generated.
+# make changes instead to dist.ini
+
+my %modules;
+my $post_diag;
+
+$modules{$_} = $_ for qw(
+  Capture::Tiny
+  Dist::Zilla
+  Dist::Zilla::App
+  Dist::Zilla::Plugin::AutoMetaResources
+  Dist::Zilla::Plugin::CopyFilesFromBuild
+  Dist::Zilla::Plugin::InsertExample
+  Dist::Zilla::Plugin::InstallGuide
+  Dist::Zilla::Plugin::MakeMaker
+  Dist::Zilla::Plugin::MinimumPerl
+  Dist::Zilla::Plugin::OurPkgVersion
+  Dist::Zilla::Plugin::PodWeaver
+  Dist::Zilla::Plugin::ReadmeAnyFromPod
+  Dist::Zilla::Plugin::Run::BeforeBuild
+  File::chdir
+  IPC::System::Simple
+  JSON::PP
+  Module::Build
+  Moose
+  Path::Class
+  PerlX::Maybe
+  PerlX::Maybe::XS
+  Pod::Markdown
+  Test::Dir
+  Test::File
+  Test::File::ShareDir
+  Test::Fixme
+  Test::More
+  Test::Pod
+  Test::Pod::Coverage
+  Test::Script
+  Test::Version
+  YAML
+  YAML::XS
+  autodie
+  namespace::autoclean
+);
+
+$modules{$_} = $_ for qw(
+  Dist::Zilla::Plugin::Git
+  Perl::PrereqScanner
+  Term::Encoding
+);
+
+my @modules = sort keys %modules;
 
 sub spacer ()
 {
@@ -29,15 +63,6 @@ sub spacer ()
 }
 
 pass 'okay';
-
-my @modules;
-do {
-  my $fh;
-  open($fh, '<', File::Spec->catfile($FindBin::Bin, '00_diag.txt'));
-  @modules = <$fh>;
-  close $fh;
-  chomp @modules;
-};
 
 my $max = 1;
 $max = $_ > $max ? $_ : $max for map { length $_ } @modules;
@@ -68,10 +93,7 @@ if(@keys > 0)
   spacer;
 }
 
-diag sprintf $format, 'perl ', $^V;
-
-require(File::Spec->catfile($FindBin::Bin, '00_diag.pl'))
-  if -e File::Spec->catfile($FindBin::Bin, '00_diag.pl');
+diag sprintf $format, 'perl ', $];
 
 foreach my $module (@modules)
 {
@@ -85,6 +107,12 @@ foreach my $module (@modules)
   {
     diag sprintf $format, $module, '-';
   }
+}
+
+if($post_diag)
+{
+  spacer;
+  $post_diag->();
 }
 
 spacer;
