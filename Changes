@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.92      2015-12-11 13:02:36 -0500
   - rework t/00_diag.t
 
 1.91      2015-12-09 11:41:11 -0500
