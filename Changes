@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - require Test::Exit 0.11 if used
 
 1.92      2015-12-11 13:02:36 -0500
   - rework t/00_diag.t

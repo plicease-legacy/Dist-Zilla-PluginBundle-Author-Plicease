@@ -78,6 +78,10 @@ Recommended if PerlX::Maybe is required.
 
 Recommended if Mojolicious or AnyEvent modules are required.
 
+=item Test::Exit
+
+Require 0.11 for dealing with C<exit> inside and C<eval>.
+
 =back
 
 =cut
@@ -111,6 +115,7 @@ sub register_prereqs
     Mojolicious                           4.31
     Role::Tiny                            1.003001
     Test::More                            0.94
+    Test::Exit                            0.11
   );
   
   foreach my $upgrade (@{ $self->upgrade })
