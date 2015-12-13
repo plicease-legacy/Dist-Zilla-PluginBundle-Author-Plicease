@@ -129,7 +129,9 @@ sub gather_file_dist_ini
     $content .= "\n";
     
     $content .= "[\@Author::Plicease]\n"
-             .  "release_tests = " . $self->include_tests ."\n"
+             .  (__PACKAGE__->VERSION ? ":version      = @{[ __PACKAGE__->VERSION ]}\n" : '')
+             .  "travis_status = 1\n"
+             .  "release_tests = @{[ $self->include_tests ]}\n"
              .  "installer     = Author::Plicease::MakeMaker\n"
              .  "\n";
     
