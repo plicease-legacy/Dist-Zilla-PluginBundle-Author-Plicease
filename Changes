@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - skip xt/release/pod_coverage.t on 5.8
+    I've been getting false positives on Alien::Base
+    based distros from this test on 5.8 only
 
 1.93      2015-12-13 04:38:01 -0500
   - require Test::Exit 0.11 if used
