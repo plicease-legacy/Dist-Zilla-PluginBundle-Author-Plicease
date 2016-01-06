@@ -83,6 +83,7 @@ sub gather_files
   $self->gather_file_gitignore($arg);
   $self->gather_file_gitattributes($arg);
   $self->gather_file_travis_yml($arg);
+  $self->gather_file_appveyor_yml($arg);
 }
 
 sub gather_file_travis_yml
@@ -109,6 +110,36 @@ sub gather_file_travis_yml
 
   $self->add_file($file);
 
+}
+
+sub gather_file_appveyor_yml
+{
+  my($self, $arg)  =@_;
+  
+  my $file = Dist::Zilla::File::InMemory->new({
+    name    => '.appveyor.yml',
+    content => join("\n",
+      q{install:},
+      q{  - choco install strawberryperl},
+      q{  - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%},
+      q{  - perl -v},
+      q{  - cpanm -n Dist::Zilla},
+      q{  - cpanm - dzil authordeps --missing | cpanm -n},
+      q{  - dzil listdeps --missing | cpanm -n},
+      q{},
+      q{build: off},
+      q{},
+      q{test_script:},
+      q{  - dzil test -v},
+      q{},
+      q{cache:},
+      q{  - local},
+      q{},
+      q{shallow_clone: true},
+    ),
+  });
+  
+  $self->add_file($file); 
 }
 
 sub gather_file_dist_ini
