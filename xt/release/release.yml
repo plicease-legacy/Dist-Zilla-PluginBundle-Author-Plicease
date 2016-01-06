@@ -20,6 +20,7 @@ pod_spelling_system:
     - EV
     - irc
     - OurPkgVersion
+    - appveyor
 
 pod_coverage:
   private:
