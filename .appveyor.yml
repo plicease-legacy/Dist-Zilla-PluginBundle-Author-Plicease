@@ -6,10 +6,10 @@ install:
   - cpanm -n Dist::Zilla
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
+  - cpanm -n Dist::Zilla::Plugin::InsertExample
   - cpanm -n Dist::Zilla::PluginBundle::Git
   - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
   - cpanm -n Path::Class Capture::Tiny
-  - dzil authordeps --missing | cpanm -n
   - dzil listdeps --missing | cpanm -n
 
 build: off
@@ -21,3 +21,4 @@ cache:
   - local
 
 shallow_clone: true
+
