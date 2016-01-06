@@ -6,18 +6,11 @@ install:
   - cpanm -n Dist::Zilla
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
-  - cpanm -n Dist::Zilla::Plugin::InsertExample
-  - cpanm -n Dist::Zilla::PluginBundle::Git
+  - cpanm -n Dist::Zilla::PluginBundle::Git || true
   - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
   - cpanm -n Path::Class Capture::Tiny
-  - cpanm -n PerlX::Maybe
-  - cpanm -n Dist::Zilla::Plugin::Run::BeforeBuild
-  - cpanm -n Dist::Zilla::Plugin::PodWeaver
-  - cpanm -n Dist::Zilla::Plugin::OurPkgVersion
-  - cpanm -n Dist::Zilla::Plugin::InstallGuide
-  - cpanm -n Dist::Zilla::Plugin::MinimumPerl
-  - cpanm -n Dist::Zilla::Plugin::ReadmeAnyFromPod
-  - dzil listdeps --missing | cpanm -n
+  - dzil authordeps --missing | cpanm -n
+  - dzil listdeps   --missing | cpanm -n
 
 build: off
 
