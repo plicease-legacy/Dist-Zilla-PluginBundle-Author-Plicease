@@ -12,6 +12,7 @@ install:
   - cpanm -n Path::Class Capture::Tiny
   - cpanm -n PerlX::Maybe
   - cpanm -n Dist::Zilla::Plugin::Run::BeforeBuild
+  - cpanm -n Dist::Zilla::Plugin::PodWeaver
   - dzil listdeps --missing | cpanm -n
 
 build: off
