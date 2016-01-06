@@ -1,0 +1,18 @@
+---
+
+install:
+  - choco install strawberryperl -version 5.20.1.1
+  - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+  - cpanm -n Dist::Zilla
+  - dzil authordeps --missing | cpanm -n
+  - dzil listdeps --missing | cpanm -n
+
+build: off
+
+test_script:
+  - dzil test -v
+
+cache:
+  - local
+
+shallow_clone: true
