@@ -16,6 +16,7 @@ install:
   - cpanm -n Dist::Zilla::Plugin::OurPkgVersion
   - cpanm -n Dist::Zilla::Plugin::InstallGuide
   - cpanm -n Dist::Zilla::Plugin::MinimumPerl
+  - cpanm -n Dist::Zilla::Plugin::ReadmeAnyFromPod
   - dzil listdeps --missing | cpanm -n
 
 build: off
