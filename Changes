@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+1.95      2016-01-06 14:47:45 -0500
+  - Support for appveyor
+
 1.94      2015-12-20 15:15:03 -0700
   - skip xt/release/pod_coverage.t on 5.8
     I've been getting false positives on Alien::Base
