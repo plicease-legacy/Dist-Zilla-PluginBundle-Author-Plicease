@@ -4,6 +4,7 @@ use Capture::Tiny qw( capture_stdout );
 use Path::Class qw( file );
 
 exit if $ENV{TRAVIS};
+exit if $ENV{APPVEYOR};
 
 my($out ) = capture_stdout {
   system(
