@@ -39,7 +39,7 @@ sub after_build
     
     my $status = '';
     $status .= " [![Build Status](https://secure.travis-ci.org/$user/$name.png)](http://travis-ci.org/$user/$name)" if $self->travis_status;
-    $status .= " [![Build Status](https://ci.appveyor.com/api/projects/status/@{[ $self->appveyor ]}/branch/master)" if $self->appveyor;
+    $status .= " [Build Status](https://ci.appveyor.com/api/projects/status/@{[ $self->appveyor ]}/branch/master)" if $self->appveyor;
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
     $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(\\_\d+|)\s+#}{#};
