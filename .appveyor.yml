@@ -15,6 +15,7 @@ install:
   - cpanm -n Dist::Zilla::Plugin::PodWeaver
   - cpanm -n Dist::Zilla::Plugin::OurPkgVersion
   - cpanm -n Dist::Zilla::Plugin::InstallGuide
+  - cpanm -n Dist::Zilla::Plugin::MinimumPerl
   - dzil listdeps --missing | cpanm -n
 
 build: off
