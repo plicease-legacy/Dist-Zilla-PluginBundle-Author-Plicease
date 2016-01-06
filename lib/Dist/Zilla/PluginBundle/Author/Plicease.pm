@@ -116,6 +116,10 @@ if C<release_tests> is true.
 
 if set to true, then include a link to the travis build page in the readme.
 
+=head2 appveyor
+
+if set to a appveyor id, then include a link to the appveyor build page in the readme.
+
 =head2 mb_class
 
 if builder = ModuleBuild, this is the mb_class passed into the [ModuleBuild]
@@ -334,6 +338,7 @@ sub configure
   $self->add_plugins([
     'Author::Plicease::MarkDownCleanup' => {
             travis_status => int(defined $self->payload->{travis_status} ? $self->payload->{travis_status} : 0),
+      maybe appveyor      => $self->payload->{appveyor},
       maybe travis_user   => $self->payload->{github_user},
     },
   ]);

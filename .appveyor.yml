@@ -1,0 +1,24 @@
+---
+
+install:
+  - choco install strawberryperl -version 5.20.1.1
+  - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+  - cpanm -n Dist::Zilla
+  - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
+  - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
+  - cpanm -n Dist::Zilla::PluginBundle::Git || true
+  - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
+  - cpanm -n Path::Class Capture::Tiny
+  - dzil authordeps --missing | cpanm -n
+  - dzil listdeps   --missing | cpanm -n
+
+build: off
+
+test_script:
+  - dzil test -v
+
+cache:
+  - local
+
+shallow_clone: true
+

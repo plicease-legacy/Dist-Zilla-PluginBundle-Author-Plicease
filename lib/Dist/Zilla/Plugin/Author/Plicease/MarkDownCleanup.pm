@@ -23,6 +23,11 @@ has travis_user => (
   default => 'plicease',
 );
 
+has appveyor => (
+  is  => 'ro',
+  isa => 'Str',
+);
+
 sub after_build
 {
   my($self) = @_;
@@ -31,7 +36,11 @@ sub after_build
   {
     my $name = $self->zilla->root->absolute->basename;
     my $user = $self->travis_user;
-    my $status = $self->travis_status ? " [![Build Status](https://secure.travis-ci.org/$user/$name.png)](http://travis-ci.org/$user/$name)" : "";
+    
+    my $status = '';
+    $status .= " [![Build Status](https://secure.travis-ci.org/$user/$name.png)](http://travis-ci.org/$user/$name)" if $self->travis_status;
+    $status .= " [![Build status](https://ci.appveyor.com/api/projects/status/@{[ $self->appveyor ]}/branch/master?svg=true)](https://ci.appveyor.com/project/$user/$name/branch/master)" if $self->appveyor;
+    
     my $content = $readme->slurp;
     $content =~ s{# NAME\s+(.*?) - (.*?#)}{# $1$status\n\n$2}s;
     $content =~ s{# VERSION\s+version (\d+\.|)\d+\.\d+(\\_\d+|)\s+#}{#};

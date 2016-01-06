@@ -1,4 +1,4 @@
-# Dist::Zilla::PluginBundle::Author::Plicease [![Build Status](https://secure.travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease.png)](http://travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease)
+# Dist::Zilla::PluginBundle::Author::Plicease [![Build Status](https://secure.travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease.png)](http://travis-ci.org/plicease/Dist-Zilla-PluginBundle-Author-Plicease) [![Build status](https://ci.appveyor.com/api/projects/status/bvwpd3ai1s4wb5go/branch/master?svg=true)](https://ci.appveyor.com/project/plicease/Dist-Zilla-PluginBundle-Author-Plicease/branch/master)
 
 Dist::Zilla plugin bundle used by Plicease
 
@@ -161,6 +161,10 @@ if `release_tests` is true.
 ## travis\_status
 
 if set to true, then include a link to the travis build page in the readme.
+
+## appveyor
+
+if set to a appveyor id, then include a link to the appveyor build page in the readme.
 
 ## mb\_class
 
