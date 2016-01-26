@@ -23,6 +23,7 @@ $modules{$_} = $_ for qw(
   Dist::Zilla::Plugin::PodWeaver
   Dist::Zilla::Plugin::ReadmeAnyFromPod
   Dist::Zilla::Plugin::Run::BeforeBuild
+  File::ShareDir
   File::chdir
   IPC::System::Simple
   JSON::PP

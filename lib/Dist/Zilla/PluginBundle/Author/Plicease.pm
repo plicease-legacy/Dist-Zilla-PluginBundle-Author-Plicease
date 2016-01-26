@@ -8,6 +8,7 @@ use Path::Class::File;
 use YAML ();
 use Term::ANSIColor ();
 use Path::Class qw( file dir );
+use File::ShareDir ();
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -411,6 +412,23 @@ sub configure
       print STDERR "\n";
     }
   }
+}
+
+=head1 METHODS
+
+=head2 dist_dir
+
+ my $dir = Dist::Zilla::PluginBundle::Author::Plicease->dist_dir;
+
+Returns this distributions share directory.
+
+=cut
+
+sub dist_dir
+{
+  Path::Class::Dir->new(
+    File::ShareDir::dist_dir('Dist-Zilla-PluginBundle-Author-Plicease')
+  );
 }
 
 __PACKAGE__->meta->make_immutable;

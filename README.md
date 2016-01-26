@@ -204,6 +204,14 @@ Specify an alternative to OurPkgVersion for updating the versions in .pm files.
 
 Specify a minimum Perl version.  If not specified it will be detected.
 
+# METHODS
+
+## dist\_dir
+
+    my $dir = Dist::Zilla::PluginBundle::Author::Plicease->dist_dir;
+
+Returns this distributions share directory.
+
 # SEE ALSO
 
 - [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)

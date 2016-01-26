@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add dictionary for additional correct words
 
 1.96      2016-01-16 16:28:30 -0500
   - Fixes for generated .appveyor.yml
