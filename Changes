@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.97      2016-01-28 12:08:31 -0500
+  - Add [Alien] as a prereq
+  - Add [PkgVersion::Block] as a prereq where available
   - Add dictionary for additional correct words
 
 1.96      2016-01-16 16:28:30 -0500
