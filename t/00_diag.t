@@ -13,6 +13,7 @@ $modules{$_} = $_ for qw(
   Capture::Tiny
   Dist::Zilla
   Dist::Zilla::App
+  Dist::Zilla::Plugin::Alien
   Dist::Zilla::Plugin::AutoMetaResources
   Dist::Zilla::Plugin::CopyFilesFromBuild
   Dist::Zilla::Plugin::InsertExample
@@ -20,6 +21,7 @@ $modules{$_} = $_ for qw(
   Dist::Zilla::Plugin::MakeMaker
   Dist::Zilla::Plugin::MinimumPerl
   Dist::Zilla::Plugin::OurPkgVersion
+  Dist::Zilla::Plugin::PkgVersion::Block
   Dist::Zilla::Plugin::PodWeaver
   Dist::Zilla::Plugin::ReadmeAnyFromPod
   Dist::Zilla::Plugin::Run::BeforeBuild
