@@ -126,6 +126,11 @@ sub setup_installer
     $list{'JSON::XS'}++;
   }
   
+  if(my($alien) = grep { $_->isa('Dist::Zilla::Plugin::Alien') } @{ $self->zilla->plugins })
+  {
+    $list{$_}++ foreach keys %{ $alien->module_build_args->{alien_bin_requires} };
+  }
+  
   foreach my $lib (@{ $self->diag })
   {
     if($lib =~ /^-(.*)$/)

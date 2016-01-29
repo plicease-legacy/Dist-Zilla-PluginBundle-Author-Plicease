@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add alien_bin_requires as diagnostic
 
 1.97      2016-01-28 12:08:31 -0500
   - Add [Alien] as a prereq
