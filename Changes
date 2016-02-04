@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Bump [Alien] prereq to 0.023
 
 1.98      2016-01-29 09:58:40 -0500
   - Add alien_bin_requires as diagnostic
