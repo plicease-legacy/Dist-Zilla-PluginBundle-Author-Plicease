@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require Dist::Zilla::App::Command::aliendeps
 
 1.99      2016-02-04 11:02:04 -0500
   - Bump [Alien] prereq to 0.023

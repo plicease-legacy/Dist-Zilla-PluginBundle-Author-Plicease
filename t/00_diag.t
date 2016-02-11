@@ -13,6 +13,7 @@ $modules{$_} = $_ for qw(
   Capture::Tiny
   Dist::Zilla
   Dist::Zilla::App
+  Dist::Zilla::App::Command::aliendeps
   Dist::Zilla::Plugin::Alien
   Dist::Zilla::Plugin::AutoMetaResources
   Dist::Zilla::Plugin::CopyFilesFromBuild
