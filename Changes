@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Spun off most of the Author::Plicease::* plugins (except Init2.pm)
+    into Dist::Zilla::Plugin::Author::Plicease
 
 2.00      2016-02-11 04:00:00 -0500
   - Require Dist::Zilla::App::Command::aliendeps

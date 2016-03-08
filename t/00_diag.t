@@ -15,11 +15,11 @@ $modules{$_} = $_ for qw(
   Dist::Zilla::App
   Dist::Zilla::App::Command::aliendeps
   Dist::Zilla::Plugin::Alien
+  Dist::Zilla::Plugin::Author::Plicease
   Dist::Zilla::Plugin::AutoMetaResources
   Dist::Zilla::Plugin::CopyFilesFromBuild
   Dist::Zilla::Plugin::InsertExample
   Dist::Zilla::Plugin::InstallGuide
-  Dist::Zilla::Plugin::MakeMaker
   Dist::Zilla::Plugin::MinimumPerl
   Dist::Zilla::Plugin::OurPkgVersion
   Dist::Zilla::Plugin::PkgVersion::Block
@@ -47,8 +47,6 @@ $modules{$_} = $_ for qw(
   Test::Version
   YAML
   YAML::XS
-  autodie
-  namespace::autoclean
 );
 
 $modules{$_} = $_ for qw(
