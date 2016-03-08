@@ -34,6 +34,10 @@ the C<@Author::Plicease> portion of the dist.ini configuration so that you
 can edit it and make your own.  I strongly encourage you to do this, as it
 will help you remove the preferences from the essential items.
 
+Alternatively, you can use the L<dzil bakeini|Dist::Zilla::App::Command::bakeini>
+command to convert a distribution using this (or any) bundle to an
+unbundled version.
+
 =item Want to submit a patch for one of my modules?
 
 Consider using C<prove -l> on the test suite or adding the lib directory

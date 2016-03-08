@@ -21,6 +21,7 @@ pod_spelling_system:
     - irc
     - OurPkgVersion
     - appveyor
+    - bakeini
 
 pod_coverage:
   private:
