@@ -9,6 +9,7 @@ use YAML ();
 use Term::ANSIColor ();
 use Path::Class qw( file dir );
 use File::ShareDir ();
+use Dist::Zilla::Util::CurrentCmd ();
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -370,8 +371,11 @@ sub configure
     ]);
   }
   
-  if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
-  { $self->add_plugins(qw( ACPS::RPM )) }
+  unless('bakeini' eq (Dist::Zilla::Util::CurrentCmd::current_cmd() ||'') )
+  {
+    if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
+    { $self->add_plugins(qw( ACPS::RPM )) }
+  }
   
   if($^O eq 'MSWin32')
   {
