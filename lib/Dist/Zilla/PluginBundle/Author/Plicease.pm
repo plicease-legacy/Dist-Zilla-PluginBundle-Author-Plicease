@@ -196,7 +196,7 @@ my %plugin_versions = qw(
   CopyFilesFromBuild   0.150250
 );
 
-sub my_add_plugin {
+sub _my_add_plugin {
   my($self, @specs) = @_;
 
   foreach my $spec (map { [@$_] } @specs)
@@ -231,25 +231,25 @@ sub configure
     };
   }
 
-  $self->my_add_plugin(['Run::AfterBuild'         => { run => "%x inc/run/after_build.pl      --name %n --version %v --dir %d" }])
+  $self->_my_add_plugin(['Run::AfterBuild'         => { run => "%x inc/run/after_build.pl      --name %n --version %v --dir %d" }])
     if -r "inc/run/after_build.pl";
 
-  $self->my_add_plugin(['Run::AfterRelease'       => { run => "%x inc/run/after_release.pl    --name %n --version %v --dir %d --archive %a" }])
+  $self->_my_add_plugin(['Run::AfterRelease'       => { run => "%x inc/run/after_release.pl    --name %n --version %v --dir %d --archive %a" }])
     if -r "inc/run/after_release.pl";
 
-  $self->my_add_plugin(['Run::BeforeBuild'        => { run => "%x inc/run/before_build.pl     --name %n --version %v" }])
+  $self->_my_add_plugin(['Run::BeforeBuild'        => { run => "%x inc/run/before_build.pl     --name %n --version %v" }])
     if -r "inc/run/before_build.pl";
 
-  $self->my_add_plugin(['Run::BeforeRelease'      => { run => "%x inc/run/before_release.pl   ---name %n --version %v --dir %d --archive %a" }])
+  $self->_my_add_plugin(['Run::BeforeRelease'      => { run => "%x inc/run/before_release.pl   ---name %n --version %v --dir %d --archive %a" }])
     if -r "inc/run/before_release.pl";
 
-  $self->my_add_plugin(['Run::Release'            => { run => "%x inc/run/release.pl          ---name %n --version %v --dir %d --archive %a" }])
+  $self->_my_add_plugin(['Run::Release'            => { run => "%x inc/run/release.pl          ---name %n --version %v --dir %d --archive %a" }])
     if -r "inc/run/release.pl";
 
-  $self->my_add_plugin(['Run::Test'               => { run => "%x inc/run/test.pl             ---name %n --version %v --dir %d" }])
+  $self->_my_add_plugin(['Run::Test'               => { run => "%x inc/run/test.pl             ---name %n --version %v --dir %d" }])
     if -r "inc/run/test.pl";
 
-  $self->my_add_plugin(
+  $self->_my_add_plugin(
     ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile )],
                       exclude_match => '^_build/' }, ],
     [ PruneCruft => { except => '.travis.yml' } ],
@@ -275,42 +275,37 @@ sub configure
         map { $_ => $self->payload->{"alien_$_"} }
         map { s/^alien_//; $_ } 
         grep /^alien_/, keys %{ $self->payload };
-      $self->my_add_plugin([ Alien => { %args, %mb } ]);
+      $self->_my_add_plugin([ Alien => { %args, %mb } ]);
     }
     elsif(defined $installer && $installer eq 'ModuleBuild')
     {
-      $self->my_add_plugin([ ModuleBuild => \%mb ]);
+      $self->_my_add_plugin([ ModuleBuild => \%mb ]);
     }
     else
     {
       $installer ||= 'Author::Plicease::MakeMaker';
-      $self->my_add_plugin([$installer]);
+      $self->_my_add_plugin([$installer]);
     }
   };
   
-  $self->my_add_plugin(map { [$_] } qw(
+  $self->_my_add_plugin(map { [$_] } qw(
     Manifest
     TestRelease
     PodWeaver
   ));
   
-  $self->my_add_plugin([ NextRelease => { format => '%-9v %{yyyy-MM-dd HH:mm:ss Z}d' }]);
+  $self->_my_add_plugin([ NextRelease => { format => '%-9v %{yyyy-MM-dd HH:mm:ss Z}d' }]);
     
-  $self->my_add_plugin(['AutoPrereqs']);
-  $self->my_add_plugin([$self->payload->{version_plugin} || 'OurPkgVersion']);
-  $self->my_add_plugin(['MetaJSON']);
+  $self->_my_add_plugin(['AutoPrereqs']);
+  $self->_my_add_plugin([$self->payload->{version_plugin} || 'OurPkgVersion']);
+  $self->_my_add_plugin(['MetaJSON']);
 
   foreach my $plugin (qw( Git::Check Git::Commit Git::Tag Git::Push ))
   {
-    my %args = (
-      dz_plugin => $plugin,
-      '?'       => q{$] >= 5.010001 && $^O ne 'MSWin32'},
-    );
-    $args{'>'} = 'allow_dirty = dist.ini Changes README.md';
-  
-    $self->my_add_plugin(
-      [ 'if' => "Maybe$plugin", \%args ],
-    );
+    my %args;
+    $args{'allow_dirty'} = [ qw( dist.ini Changes README.md ), @{ $self->payload->{allow_dirty} || [] } ]
+      if $plugin =~ /^Git::(Check|Commit)$/;
+    $self->_my_add_plugin([$plugin, \%args])
   }
   
   do {
@@ -318,7 +313,7 @@ sub configure
     my $user = $self->payload->{github_user} || 'plicease';
     my $repo = $self->payload->{github_repo} || $name;
   
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'MetaResources' => {
         'homepage' => $self->payload->{homepage} || "http://perl.wdlabs.com/$name",
         'bugtracker.web'  => sprintf("https://github.com/%s/%s/issues", $user, $repo),
@@ -332,7 +327,7 @@ sub configure
 
   if($self->payload->{release_tests})
   {
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'Author::Plicease::Tests' => {
         maybe skip          => $self->payload->{release_tests_skip},
         maybe diag          => $self->payload->{diag},
@@ -341,14 +336,14 @@ sub configure
     ]);
   }
     
-  $self->my_add_plugin(map { [$_] } qw(
+  $self->_my_add_plugin(map { [$_] } qw(
 
     InstallGuide
     ConfirmRelease
 
   ));
   
-  $self->my_add_plugin([
+  $self->_my_add_plugin([
     MinimumPerl => {
       maybe perl => $self->payload->{perl},
     },
@@ -356,7 +351,7 @@ sub configure
 
   unless($self->payload->{no_readme})
   {
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'ReadmeAnyFromPod' => {
               type            => 'text',
               filename        => 'README',
@@ -365,7 +360,7 @@ sub configure
       },
     ]);
   
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'ReadmeAnyFromPod' => ReadMePodInRoot => {
         type                  => 'markdown',
         filename              => 'README.md',
@@ -375,7 +370,7 @@ sub configure
    ]);
   }
   
-  $self->my_add_plugin([
+  $self->_my_add_plugin([
     'Author::Plicease::MarkDownCleanup' => {
             travis_status => int(defined $self->payload->{travis_status} ? $self->payload->{travis_status} : 0),
       maybe appveyor      => $self->payload->{appveyor},
@@ -383,18 +378,18 @@ sub configure
     },
   ]);
 
-  $self->my_add_plugin([
+  $self->_my_add_plugin([
     'Author::Plicease::SpecialPrereqs' => {
       maybe upgrade  => $self->payload->{upgrade},
       maybe preamble => $self->payload->{preamble},
     },
   ]);
 
-  $self->my_add_plugin(['CPANFile']);
+  $self->_my_add_plugin(['CPANFile']);
 
   if($self->payload->{copy_mb})
   {
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'CopyFilesFromBuild' => {
         copy => [ 'Build.PL', 'cpanfile' ],
       },
@@ -404,12 +399,12 @@ sub configure
   unless('bakeini' eq (Dist::Zilla::Util::CurrentCmd::current_cmd() ||'') )
   {
     if(eval { require Dist::Zilla::Plugin::ACPS::RPM })
-    { $self->my_add_plugin(['ACPS::RPM']) }
+    { $self->_my_add_plugin(['ACPS::RPM']) }
   }
   
   if($^O eq 'MSWin32')
   {
-    $self->my_add_plugin([
+    $self->_my_add_plugin([
       'Run::AfterBuild' => {
         run => 'dos2unix README.md t/00_diag.*',
       },

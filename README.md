@@ -76,25 +76,18 @@ This plugin bundle is mostly equivalent to
     [OurPkgVersion]
     [MetaJSON]
     
-    [if / MaybeGit::Check]
-    > = allow_dirty = dist.ini Changes README.md
-    ? = $] >= 5.010001 && $^O ne 'MSWin32'
-    dz_plugin = Git::Check
+    [Git::Check]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.md
     
-    [if / MaybeGit::Commit]
-    > = allow_dirty = dist.ini Changes README.md
-    ? = $] >= 5.010001 && $^O ne 'MSWin32'
-    dz_plugin = Git::Commit
+    [Git::Commit]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.md
     
-    [if / MaybeGit::Tag]
-    > = allow_dirty = dist.ini Changes README.md
-    ? = $] >= 5.010001 && $^O ne 'MSWin32'
-    dz_plugin = Git::Tag
-    
-    [if / MaybeGit::Push]
-    > = allow_dirty = dist.ini Changes README.md
-    ? = $] >= 5.010001 && $^O ne 'MSWin32'
-    dz_plugin = Git::Push
+    [Git::Tag]
+    [Git::Push]
     
     [MetaResources]
     bugtracker.web = https://github.com/plicease/My-Dist/issues

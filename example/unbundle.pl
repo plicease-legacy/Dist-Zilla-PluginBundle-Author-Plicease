@@ -37,7 +37,7 @@ package
 
 sub new { bless {} }
 sub payload { $in_config }
-sub my_add_plugin { shift->add_plugins(@_) }
+sub _my_add_plugin { shift->add_plugins(@_) }
 
 sub add_plugins
 {
