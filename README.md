@@ -27,13 +27,13 @@ you have to.  Sorry.
 
 - Want to submit a patch for one of my modules?
 
-    Consider using `prove -l` on the test suite or adding the lib directory
-    to `PERL5LIB`.  Save yourself the hassle of dealing with [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
-    at all.  If there is something wrong with one of the generated files
-    (such as `Makefile.PL` or `Build.PL`) consider opening a support ticket
-    instead.  Most other activities that you relating to the use of [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
-    have to do with release testing and uploading to CPAN which is more
-    my responsibility than yours.
+    Consider using `prove -l` on the test suite or adding the lib directory 
+    to `PERL5LIB`.  Save yourself the hassle of dealing with [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) 
+    at all.  If there is something wrong with one of the generated files 
+    (such as `Makefile.PL` or `Build.PL`) consider opening a support 
+    ticket instead.  Most other activities relating to the use of 
+    [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) have to do with release testing and uploading to CPAN 
+    which is more my responsibility than yours.
 
 - Really need to fix some aspect of the build process?
 
@@ -41,7 +41,9 @@ you have to.  Sorry.
     instead!).  If you really do need to fix some aspect of the build process
     then you probably do need to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and this bundle.
     If you are having trouble figuring out how it works, then try extracting
-    the bundle using the `example/unbundle.pl` script mentioned above.
+    the bundle using the `example/unbundle.pl` script or 
+    [dzil bakeini technique](https://metacpan.org/pod/Dist::Zilla::App::Command::bakeini)
+    mentioned above.
 
 I've only uploaded this to CPAN to assist others who may be working on
 one of my dists.  I don't expect anyone to use it for their own projects.

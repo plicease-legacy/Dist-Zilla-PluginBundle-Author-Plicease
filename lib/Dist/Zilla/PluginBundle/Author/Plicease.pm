@@ -40,13 +40,13 @@ unbundled version.
 
 =item Want to submit a patch for one of my modules?
 
-Consider using C<prove -l> on the test suite or adding the lib directory
-to C<PERL5LIB>.  Save yourself the hassle of dealing with L<Dist::Zilla>
-at all.  If there is something wrong with one of the generated files
-(such as C<Makefile.PL> or C<Build.PL>) consider opening a support ticket
-instead.  Most other activities that you relating to the use of L<Dist::Zilla>
-have to do with release testing and uploading to CPAN which is more
-my responsibility than yours.
+Consider using C<prove -l> on the test suite or adding the lib directory 
+to C<PERL5LIB>.  Save yourself the hassle of dealing with L<Dist::Zilla> 
+at all.  If there is something wrong with one of the generated files 
+(such as C<Makefile.PL> or C<Build.PL>) consider opening a support 
+ticket instead.  Most other activities relating to the use of 
+L<Dist::Zilla> have to do with release testing and uploading to CPAN 
+which is more my responsibility than yours.
 
 =item Really need to fix some aspect of the build process?
 
@@ -54,7 +54,9 @@ Or perhaps the module in question is using XS (hint: convert it to FFI
 instead!).  If you really do need to fix some aspect of the build process
 then you probably do need to install L<Dist::Zilla> and this bundle.
 If you are having trouble figuring out how it works, then try extracting
-the bundle using the C<example/unbundle.pl> script mentioned above.
+the bundle using the C<example/unbundle.pl> script or 
+L<dzil bakeini technique|Dist::Zilla::App::Command::bakeini>
+mentioned above.
 
 =back
 
