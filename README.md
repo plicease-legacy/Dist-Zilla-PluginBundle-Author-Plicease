@@ -76,18 +76,25 @@ This plugin bundle is mostly equivalent to
     [OurPkgVersion]
     [MetaJSON]
     
-    [Git::Check]
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = README.md
+    [if / MaybeGit::Check]
+    > = allow_dirty = dist.ini Changes README.md
+    ? = $] >= 5.010001 && $^O ne 'MSWin32'
+    dz_plugin = Git::Check
     
-    [Git::Commit]
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = README.md
+    [if / MaybeGit::Commit]
+    > = allow_dirty = dist.ini Changes README.md
+    ? = $] >= 5.010001 && $^O ne 'MSWin32'
+    dz_plugin = Git::Commit
     
-    [Git::Tag]
-    [Git::Push]
+    [if / MaybeGit::Tag]
+    > = allow_dirty = dist.ini Changes README.md
+    ? = $] >= 5.010001 && $^O ne 'MSWin32'
+    dz_plugin = Git::Tag
+    
+    [if / MaybeGit::Push]
+    > = allow_dirty = dist.ini Changes README.md
+    ? = $] >= 5.010001 && $^O ne 'MSWin32'
+    dz_plugin = Git::Push
     
     [MetaResources]
     bugtracker.web = https://github.com/plicease/My-Dist/issues
@@ -209,14 +216,6 @@ Specify an alternative to OurPkgVersion for updating the versions in .pm files.
 ## perl
 
 Specify a minimum Perl version.  If not specified it will be detected.
-
-# METHODS
-
-## dist\_dir
-
-    my $dir = Dist::Zilla::PluginBundle::Author::Plicease->dist_dir;
-
-Returns this distributions share directory.
 
 # SEE ALSO
 
