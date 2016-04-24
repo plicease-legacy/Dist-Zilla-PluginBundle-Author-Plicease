@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+2.03      2016-04-24 19:08:40 -0400
+  - Dist::Zilla 6.x compatability
+
 2.02      2016-03-08 09:52:18 -0500
   - Move the mint mechanisms into the non bundle dist
 
