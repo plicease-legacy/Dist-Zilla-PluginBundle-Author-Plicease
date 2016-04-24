@@ -196,6 +196,12 @@ my %plugin_versions = qw(
   CopyFilesFromBuild   0.150250
 );
 
+require Dist::Zilla::Plugin::Author::Plicease;
+unless(Dist::Zilla::Plugin::Author::Plicease->VERSION)
+{
+  delete $plugin_versions{'Author::Plicease.*'};
+}
+    
 sub _my_add_plugin {
   my($self, @specs) = @_;
 
@@ -203,6 +209,7 @@ sub _my_add_plugin {
   {
     my $plugin = $spec->[0];
     my %args = ref $spec->[-1] ? %{ pop @$spec } : ();
+    
     foreach my $key (keys %plugin_versions)
     {
       if($plugin =~ /^$key$/)
