@@ -12,7 +12,6 @@ install:
   - cpanm -n Test::File Test::Dir
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
-  - cpanm -n https://dist.wdlabs.com/Dist-Zilla-Plugin-Author-Plicease-2.02.tar.gz
 
 perl:
   - "5.8"
