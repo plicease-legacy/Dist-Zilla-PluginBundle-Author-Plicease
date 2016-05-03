@@ -185,7 +185,7 @@ sub mvp_multivalue_args { qw(
 
 my %plugin_versions = qw(
   Alien                0.023
-  Author::Plicease.*   2.03
+  Author::Plicease.*   2.04
   OurPkgVersion        0.06
   MinimumPerl          1.006
   InstallGuide         1.200006
