@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require [Author::Plicease] 2.05
 
 2.04      2016-05-03 06:10:01 -0400
   - Require [Author::Plicease] 2.04

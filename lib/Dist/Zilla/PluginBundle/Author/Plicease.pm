@@ -185,7 +185,7 @@ sub mvp_multivalue_args { qw(
 
 my %plugin_versions = qw(
   Alien                0.023
-  Author::Plicease.*   2.04
+  Author::Plicease.*   2.05
   OurPkgVersion        0.06
   MinimumPerl          1.006
   InstallGuide         1.200006
@@ -444,7 +444,7 @@ sub configure
     }
   }
 
-  foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt xt/release/build_environment.t xt/release/unused.t ))
+  foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt ), map { "xt/release/$_.t" } qw( build_environment unused eol no_tabs pod strict))
   {  
     if(-e $name)
     {
