@@ -445,7 +445,7 @@ sub configure
   }
 
   foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt ), 
-                      (map { "xt/release/$_.t" } qw( build_environment unused eol no_tabs pod strict fixme changes ))), 
+                      map { "xt/release/$_.t" } qw( build_environment unused eol no_tabs pod strict fixme changes ))
   {  
     if(-e $name)
     {
