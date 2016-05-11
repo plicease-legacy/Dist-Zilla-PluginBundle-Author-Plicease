@@ -185,7 +185,7 @@ sub mvp_multivalue_args { qw(
 
 my %plugin_versions = qw(
   Alien                0.023
-  Author::Plicease.*   2.05
+  Author::Plicease.*   2.06
   OurPkgVersion        0.06
   MinimumPerl          1.006
   InstallGuide         1.200006
@@ -257,7 +257,7 @@ sub configure
     if -r "inc/run/test.pl";
 
   $self->_my_add_plugin(
-    ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile )],
+    ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile xt/release/changes.t xt/release/fixme.t )],
                       exclude_match => '^_build/' }, ],
     [ PruneCruft => { except => '.travis.yml' } ],
     [ 'ManifestSkip' ],
@@ -445,7 +445,7 @@ sub configure
   }
 
   foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt ), 
-                      map { "xt/release/$_.t" } qw( build_environment unused eol no_tabs pod strict fixme changes ))
+                      map { "xt/release/$_.t" } qw( build_environment unused eol no_tabs pod strict fixme changes pod_coverage pod_spelling_common pod_spelling_system version ))
   {  
     if(-e $name)
     {

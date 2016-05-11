@@ -46,7 +46,6 @@ $modules{$_} = $_ for qw(
   Test::Script
   Test::Version
   YAML
-  YAML::XS
 );
 
 $modules{$_} = $_ for qw(

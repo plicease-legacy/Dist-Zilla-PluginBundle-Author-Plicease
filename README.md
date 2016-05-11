@@ -54,6 +54,8 @@ This plugin bundle is mostly equivalent to
     exclude_filename = Makefile.PL
     exclude_filename = Build.PL
     exclude_filename = cpanfile
+    exclude_filename = xt/release/changes.t
+    exclude_filename = xt/release/fixme.t
     exclude_match = ^_build/
     
     [PruneCruft]
