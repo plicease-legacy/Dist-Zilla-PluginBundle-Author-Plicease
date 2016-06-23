@@ -3,6 +3,7 @@ language: perl
 install:
   - perlbrew list
   - cpanm -n Dist::Zilla
+  - ./travis/install-dzil-plugin-author-plicease.sh
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::ShareDir::Module
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Dist::Zilla::PluginBundle::Git || true
