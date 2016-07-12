@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+2.08      2016-07-12 08:36:33 -0400
+  - Warn when travis is not testing 5.24
+
 2.07      2016-06-23 08:43:39 -0400
   - Fixed bug where minting profile was failing on fresh install
 
