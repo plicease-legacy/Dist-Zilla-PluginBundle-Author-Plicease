@@ -427,10 +427,10 @@ sub configure
       die "travis is trying to test Perl 5.19";
     }
     
-    unless(exists $travis->{perl} && grep /^5\.22$/, @{ $travis->{perl} })
+    unless(exists $travis->{perl} && grep /^5\.24$/, @{ $travis->{perl} })
     {
       print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
-      print STDERR "travis is not testing Perl 5.22";
+      print STDERR "travis is not testing Perl 5.24";
       print STDERR Term::ANSIColor::color('reset') if -t STDERR;
       print STDERR "\n";
     }
