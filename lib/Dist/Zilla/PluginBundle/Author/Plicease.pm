@@ -322,7 +322,7 @@ sub configure
   
     $self->_my_add_plugin([
       'MetaResources' => {
-        'homepage' => $self->payload->{homepage} || "http://perl.wdlabs.com/$name",
+        'homepage' => $self->payload->{homepage} || "https://metacpan.org/pod/@{[ do { my $foo = $name; $foo =~ s/-/::/g; $foo }]}",
         'bugtracker.web'  => sprintf("https://github.com/%s/%s/issues", $user, $repo),
         'repository.url'  => sprintf("git://github.com/%s/%s.git",      $user, $repo),
         'repository.web'  => sprintf("https://github.com/%s/%s",        $user, $repo),

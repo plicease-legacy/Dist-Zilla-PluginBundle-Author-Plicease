@@ -93,7 +93,7 @@ This plugin bundle is mostly equivalent to
     
     [MetaResources]
     bugtracker.web = https://github.com/plicease/My-Dist/issues
-    homepage = http://perl.wdlabs.com/My-Dist
+    homepage = https://metacpan.org/pod/My::Dist
     repository.type = git
     repository.url = git://github.com/plicease/My-Dist.git
     repository.web = https://github.com/plicease/My-Dist
