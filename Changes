@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.10      2016-10-04 12:44:17 -0400
   - Require plicease plugin 2.10
 
 2.09      2016-07-12 08:40:39 -0400
