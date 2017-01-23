@@ -17,6 +17,7 @@ use Test::File::ShareDir
     },
   };
 
+plan skip_all => 'for now';
 plan skip_all => 'test requires Dist::Zilla::Plugin::Git' unless eval qq{ use Dist::Zilla::Plugin::Git; 1 };
 plan skip_all => 'test requires Perl::PrereqScanner' unless eval qq{ use Perl::PrereqScanner; 1; };
 plan skip_all => 'test requires Term::Encoding' unless eval qq{ use Term::Encoding; 1; };
