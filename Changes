@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require plicease plugin 2.12
+  - Do not try to use Git plugins on windows
 
 2.11      2017-01-23 14:01:04 -0500
   - Require plicease plugin 2.11
