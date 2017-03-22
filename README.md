@@ -120,12 +120,6 @@ This plugin bundle is mostly equivalent to
 
 Some exceptions:
 
-- Perl 5.8.x, Perl 5.10.0
-
-    `Dist::Zilla::Plugin::Git::*` does not support Perl 5.8.x or 5.10.0, so it
-    is not a prereq there, and it isn't included in the bundle.  As a result
-    releasing from Perl 5.8 is not allowed.
-
 - MSWin32
 
     Installing [Dist::Zilla::Plugin::Git::\*](https://metacpan.org/pod/Dist::Zilla::Plugin::Git::*) on MSWin32 is a pain
