@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require plicease plugin 2.16
 
 2.15      2017-06-11 21:41:41 -0400
   - Tweaks for Perl 5.26
