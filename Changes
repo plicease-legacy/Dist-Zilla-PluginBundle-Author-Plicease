@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Prereq fix.
 
 2.17      2017-07-11 05:07:07 -0400
   - [OurPkgVersion] use underscore_eval_version
