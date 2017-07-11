@@ -75,7 +75,10 @@ This plugin bundle is mostly equivalent to
     format = %-9v %{yyyy-MM-dd HH:mm:ss Z}d
     
     [AutoPrereqs]
+    
     [OurPkgVersion]
+    underscore_eval_version = 1
+    
     [MetaJSON]
     
     [Git::Check]

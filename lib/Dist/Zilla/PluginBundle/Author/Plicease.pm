@@ -180,7 +180,7 @@ sub mvp_multivalue_args { qw(
 my %plugin_versions = qw(
   Alien                0.023
   Author::Plicease.*   2.16
-  OurPkgVersion        0.06
+  OurPkgVersion        0.12
   MinimumPerl          1.006
   InstallGuide         1.200006
   Run::.*              0.035
@@ -298,7 +298,11 @@ sub configure
   $self->_my_add_plugin([ NextRelease => { format => '%-9v %{yyyy-MM-dd HH:mm:ss Z}d' }]);
     
   $self->_my_add_plugin(['AutoPrereqs']);
-  $self->_my_add_plugin([$self->payload->{version_plugin} || 'OurPkgVersion']);
+  $self->_my_add_plugin([$self->payload->{version_plugin} || (
+    'OurPkgVersion', {
+      underscore_eval_version => 1
+    }
+  )]);
   $self->_my_add_plugin(['MetaJSON']);
 
   if($^O ne 'MSWin32')

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - [OurPkgVersion] use underscore_eval_version
 
 2.16      2017-06-22 12:59:51 -0400
   - Require plicease plugin 2.16
