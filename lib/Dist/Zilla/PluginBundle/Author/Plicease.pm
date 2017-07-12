@@ -340,6 +340,7 @@ sub configure
         maybe skip          => $self->payload->{release_tests_skip},
         maybe diag          => $self->payload->{diag},
         maybe diag_preamble => $self->payload->{diag_preamble},
+        maybe test2_v0      => $self->payload->{test2_v0},
       }
     ]);
   }
