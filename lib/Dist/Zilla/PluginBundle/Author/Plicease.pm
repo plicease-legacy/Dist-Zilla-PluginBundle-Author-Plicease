@@ -10,6 +10,8 @@ use Term::ANSIColor ();
 use Path::Class qw( file dir );
 use File::ShareDir ();
 use Dist::Zilla::Util::CurrentCmd ();
+use Path::Tiny qw( path );
+use File::Glob qw( bsd_glob );
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -444,6 +446,16 @@ sub configure
       print STDERR Term::ANSIColor::color('reset') if -t STDERR;
       print STDERR "\n";
     }
+  }
+  
+  foreach my $test (map { path($_) } bsd_glob ('t/*.t'))
+  {
+    my @lines = grep !/-no_srand => 1/, grep /use Test2::V0/, $test->lines_utf8;
+    next unless @lines;
+    print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
+    print STDERR "$test has Test2::V0 without -no_srand";
+    print STDERR Term::ANSIColor::color('reset') if -t STDERR;
+    print STDERR "\n";    
   }
 
   foreach my $name (qw( t/00_diag.txt t/00_diag.pre.txt ), 
