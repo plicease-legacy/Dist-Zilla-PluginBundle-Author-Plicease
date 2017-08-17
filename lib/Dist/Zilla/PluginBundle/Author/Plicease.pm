@@ -139,7 +139,7 @@ Set the GitHub user name.
 
 =head2 copy_mb
 
-Copy Build.PL and cpanfile from the build into the git repository.
+Copy Build.PL from the build into the git repository.
 Exclude them from gather.
 
 This allows other developers to use the dist from the git checkout, without needing
@@ -253,7 +253,7 @@ sub configure
     if -r "inc/run/test.pl";
 
   $self->_my_add_plugin(
-    ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL cpanfile xt/release/changes.t xt/release/fixme.t )],
+    ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL xt/release/changes.t xt/release/fixme.t )],
                       exclude_match => '^_build/' }, ],
     [ PruneCruft => { except => '.travis.yml' } ],
     [ 'ManifestSkip' ],
@@ -396,13 +396,11 @@ sub configure
     },
   ]);
 
-  $self->_my_add_plugin(['CPANFile']);
-
   if($self->payload->{copy_mb})
   {
     $self->_my_add_plugin([
       'CopyFilesFromBuild' => {
-        copy => [ 'Build.PL', 'cpanfile' ],
+        copy => [ 'Build.PL' ],
       },
     ]);
   }

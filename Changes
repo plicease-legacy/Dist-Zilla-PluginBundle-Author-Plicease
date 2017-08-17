@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Remove CPANFile from the bundle
 
 2.21      2017-07-31 13:53:47 -0400
   - Require plicease plugin 2.21

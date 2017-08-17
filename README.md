@@ -53,7 +53,6 @@ This plugin bundle is mostly equivalent to
     [GatherDir]
     exclude_filename = Makefile.PL
     exclude_filename = Build.PL
-    exclude_filename = cpanfile
     exclude_filename = xt/release/changes.t
     exclude_filename = xt/release/fixme.t
     exclude_match = ^_build/
@@ -119,7 +118,6 @@ This plugin bundle is mostly equivalent to
     travis_status = 0
     
     [Author::Plicease::SpecialPrereqs]
-    [CPANFile]
 
 Some exceptions:
 
@@ -186,7 +184,7 @@ Set the GitHub user name.
 
 ## copy\_mb
 
-Copy Build.PL and cpanfile from the build into the git repository.
+Copy Build.PL from the build into the git repository.
 Exclude them from gather.
 
 This allows other developers to use the dist from the git checkout, without needing
