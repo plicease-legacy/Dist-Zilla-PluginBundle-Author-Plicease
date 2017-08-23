@@ -28,7 +28,6 @@ $modules{$_} = $_ for qw(
   Dist::Zilla::Plugin::Run::BeforeBuild
   Dist::Zilla::Util::CurrentCmd
   File::Glob
-  File::ShareDir
   File::chdir
   IPC::System::Simple
   Module::Build
@@ -40,7 +39,6 @@ $modules{$_} = $_ for qw(
   Pod::Markdown
   Test::Dir
   Test::File
-  Test::File::ShareDir
   Test::Fixme
   Test::More
   Test::Pod

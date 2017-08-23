@@ -8,7 +8,6 @@ use Path::Class::File;
 use YAML ();
 use Term::ANSIColor ();
 use Path::Class qw( file dir );
-use File::ShareDir ();
 use Dist::Zilla::Util::CurrentCmd ();
 use Path::Tiny qw( path );
 use File::Glob qw( bsd_glob );

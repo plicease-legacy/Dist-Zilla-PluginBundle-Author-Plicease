@@ -10,12 +10,6 @@ use Test::File;
 use Test::Dir;
 use YAML ();
 use Path::Class qw( dir );
-use Test::File::ShareDir
-  -share => {
-    -module => {
-      'Dist::Zilla::MintingProfile::Author::Plicease' => dir->subdir('profiles')->stringify,
-    },
-  };
 
 plan skip_all => 'for now';
 plan skip_all => 'test requires Dist::Zilla::Plugin::Git' unless eval qq{ use Dist::Zilla::Plugin::Git; 1 };
