@@ -178,7 +178,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
 
   my %plugin_versions = qw(
     Alien                0.023
-    Author::Plicease.*   2.21
+    Author::Plicease.*   2.22
     OurPkgVersion        0.12
     MinimumPerl          1.006
     InstallGuide         1.200006
