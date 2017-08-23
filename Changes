@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
   - Remove CPANFile from the bundle
+  - Remove dependency on Path::Class
+  - Require Perl 5.14
 
 2.21      2017-07-31 13:53:47 -0400
   - Require plicease plugin 2.21
