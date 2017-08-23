@@ -10,9 +10,7 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
-  Capture::Tiny
   Dist::Zilla
-  Dist::Zilla::App
   Dist::Zilla::App::Command::aliendeps
   Dist::Zilla::Plugin::Alien
   Dist::Zilla::Plugin::Author::Plicease
@@ -28,7 +26,6 @@ $modules{$_} = $_ for qw(
   Dist::Zilla::Plugin::Run::BeforeBuild
   Dist::Zilla::Util::CurrentCmd
   File::Glob
-  File::chdir
   IPC::System::Simple
   Module::Build
   Moose
@@ -37,8 +34,6 @@ $modules{$_} = $_ for qw(
   PerlX::Maybe
   PerlX::Maybe::XS
   Pod::Markdown
-  Test::Dir
-  Test::File
   Test::Fixme
   Test::More
   Test::Pod
