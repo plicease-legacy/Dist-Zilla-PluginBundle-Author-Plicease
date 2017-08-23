@@ -4,13 +4,12 @@ use 5.008001;
 use Moose;
 use Dist::Zilla;
 use PerlX::Maybe qw( maybe );
-use Path::Class::File;
 use YAML ();
 use Term::ANSIColor ();
-use Path::Class qw( file dir );
 use Dist::Zilla::Util::CurrentCmd ();
 use Path::Tiny qw( path );
 use File::Glob qw( bsd_glob );
+use Path::Tiny qw( path );
 
 # ABSTRACT: Dist::Zilla plugin bundle used by Plicease
 # VERSION
@@ -265,7 +264,7 @@ sub configure
   do { # installer stuff
     my $installer = $self->payload->{installer};
     my %mb = map { $_ => $self->payload->{$_} } grep /^mb_/, keys %{ $self->payload };
-    if(-e Path::Class::File->new('inc', 'My', 'ModuleBuild.pm'))
+    if(-e "inc/My/ModuleBuild.pm")
     {
       $installer ||= 'ModuleBuild';
       $mb{mb_class} = 'My::ModuleBuild'
@@ -318,7 +317,7 @@ sub configure
   }
   
   do {
-    my $name = dir->absolute->basename;
+    my $name = path(".")->absolute->basename;
     my $user = $self->payload->{github_user} || 'plicease';
     my $repo = $self->payload->{github_repo} || $name;
   

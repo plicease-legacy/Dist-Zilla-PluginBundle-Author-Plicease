@@ -29,7 +29,6 @@ $modules{$_} = $_ for qw(
   IPC::System::Simple
   Module::Build
   Moose
-  Path::Class
   Path::Tiny
   PerlX::Maybe
   PerlX::Maybe::XS

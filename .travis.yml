@@ -8,7 +8,7 @@ install:
   - cpanm -n Dist::Zilla::Plugin::Bootstrap::lib
   - cpanm -n Dist::Zilla::PluginBundle::Git || true
   - cpanm -n Dist::Zilla::Plugin::Meta::Dynamic::Config
-  - cpanm -n Path::Class Capture::Tiny
+  - cpanm -n Capture::Tiny
   - cpanm -n Dist::Zilla::Util::CurrentCmd
   - cpanm -n Test::File Test::Dir
   - dzil authordeps --missing | cpanm -n
