@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.23      2017-08-31 11:00:16 -0400
   - Migrate to EUMM from MB
   - Require plicease plugin 2.23
 
