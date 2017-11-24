@@ -464,6 +464,11 @@ Specify a minimum Perl version.  If not specified it will be detected.
         print STDERR "\n";
       }
     }
+
+    $self->_my_add_plugin(
+      [ 'Author::Plicease::NoUnsafeInc' ],
+    );
+
   }
 
   __PACKAGE__->meta->make_immutable;

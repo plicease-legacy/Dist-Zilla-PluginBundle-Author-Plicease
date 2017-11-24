@@ -118,6 +118,7 @@ This plugin bundle is mostly equivalent to
     travis_status = 0
     
     [Author::Plicease::SpecialPrereqs]
+    [Author::Plicease::NoUnsafeInc]
 
 Some exceptions:
 
