@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require plicease plugins 2.25
   - Use [Author::Plicease::NoUnsafeInc]
   - Check that PERL_USE_UNSAFE_INC is set correctly in travis.yml
 
