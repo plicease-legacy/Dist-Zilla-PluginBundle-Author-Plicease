@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Allow override of underscore_eval_version on OurPkgVersion
 
 2.25      2017-11-29 14:49:19 -0500
   - Require plicease plugins 2.25
