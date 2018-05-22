@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.26      2018-05-22 13:24:18 -0400
   - Require plicease plugins 2.26
   - Allow override of underscore_eval_version on OurPkgVersion
 
