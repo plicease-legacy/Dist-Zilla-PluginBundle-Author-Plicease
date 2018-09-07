@@ -421,15 +421,18 @@ Specify a minimum Perl version.  If not specified it will be detected.
     {
       my $travis = YAML::LoadFile(".travis.yml");
       
-      if(exists $travis->{perl} && grep /^5\.19$/, @{ $travis->{perl} })
-      {
-        die "travis is trying to test Perl 5.19";
-      }
-      
-      unless(exists $travis->{perl} && grep /^5\.26$/, @{ $travis->{perl} })
+      if(exists $travis->{perl} && grep /^5\.(8|10|12)$/, @{ $travis->{perl} })
       {
         print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
-        print STDERR "travis is not testing Perl 5.26";
+        print STDERR "travis is testing prior to 5.14";
+        print STDERR Term::ANSIColor::color('reset') if -t STDERR;
+        print STDERR "\n";
+      }
+
+      unless(exists $travis->{perl} && grep /^5\.28$/, @{ $travis->{perl} })
+      {
+        print STDERR Term::ANSIColor::color('bold red') if -t STDERR;
+        print STDERR "travis is not testing Perl 5.28";
         print STDERR Term::ANSIColor::color('reset') if -t STDERR;
         print STDERR "\n";
       }
