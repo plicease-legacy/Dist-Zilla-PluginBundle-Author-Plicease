@@ -304,7 +304,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
     )]);
     $self->_my_add_plugin(['MetaJSON']);
 
-    if($^O ne 'MSWin32')
+    if($^O ne 'MSWin32' && !$ENV{PLICEASE_DZIL_NO_GIT})
     {
       foreach my $plugin (qw( Git::Check Git::Commit Git::Tag Git::Push ))
       {
