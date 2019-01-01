@@ -233,12 +233,6 @@ Specify a minimum Perl version.  If not specified it will be detected.
 
     foreach my $prefix (qw( inc/run/ maint/run- ))
     {
-      $self->_my_add_plugin(['Run::AfterBuild'         => { run => "%x ${prefix}after_build.pl      --name %n --version %v --dir %d" }])
-        if -r "${prefix}after_build.pl";
-
-      $self->_my_add_plugin(['Run::AfterRelease'       => { run => "%x ${prefix}after_release.pl    --name %n --version %v --dir %d --archive %a" }])
-        if -r "${prefix}after_release.pl";
-
       $self->_my_add_plugin(['Run::BeforeBuild'        => { run => "%x ${prefix}before_build.pl     --name %n --version %v" }])
         if -r "${prefix}before_build.pl";
 
@@ -496,6 +490,16 @@ Specify a minimum Perl version.  If not specified it will be detected.
     $self->_my_add_plugin(
       [ 'Author::Plicease::NoUnsafeInc' ],
     );
+
+    foreach my $prefix (qw( inc/run/ maint/run- ))
+    {
+      $self->_my_add_plugin(['Run::AfterBuild'         => { run => "%x ${prefix}after_build.pl      --name %n --version %v --dir %d" }])
+        if -r "${prefix}after_build.pl";
+
+      $self->_my_add_plugin(['Run::AfterRelease'       => { run => "%x ${prefix}after_release.pl    --name %n --version %v --dir %d --archive %a" }])
+        if -r "${prefix}after_release.pl";
+
+    }
 
   }
 
