@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add option copy_mm
 
 2.30      2019-01-01 09:49:23 -0500
   - Allow maint/run- in addition to inc/run/

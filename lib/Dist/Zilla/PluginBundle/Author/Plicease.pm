@@ -142,6 +142,10 @@ Exclude them from gather.
 This allows other developers to use the dist from the git checkout, without needing
 to install L<Dist::Zilla> and L<Dist::Zilla::PluginBundle::Author::Plicease>.
 
+=head2 copy_mm
+
+Same as C<copy_mb> but for EUMM.
+
 =head2 allow_dirty
 
 Additional dirty allowed file passed to @Git.
@@ -391,6 +395,15 @@ Specify a minimum Perl version.  If not specified it will be detected.
     ]);
 
     if($self->payload->{copy_mb})
+    {
+      $self->_my_add_plugin([
+        'CopyFilesFromBuild' => {
+          copy => [ 'Build.PL' ],
+        },
+      ]);
+    }
+
+    if($self->payload->{copy_mm})
     {
       $self->_my_add_plugin([
         'CopyFilesFromBuild' => {
