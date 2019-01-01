@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Allow maint/run- in addition to inc/run/
 
 2.29      2018-12-05 16:36:31 -0500
   - Update warnings about versions

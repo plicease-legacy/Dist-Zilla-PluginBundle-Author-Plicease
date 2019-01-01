@@ -231,23 +231,26 @@ Specify a minimum Perl version.  If not specified it will be detected.
       };
     }
 
-    $self->_my_add_plugin(['Run::AfterBuild'         => { run => "%x inc/run/after_build.pl      --name %n --version %v --dir %d" }])
-      if -r "inc/run/after_build.pl";
+    foreach my $prefix (qw( inc/run/ maint/run- ))
+    {
+      $self->_my_add_plugin(['Run::AfterBuild'         => { run => "%x ${prefix}after_build.pl      --name %n --version %v --dir %d" }])
+        if -r "${prefix}after_build.pl";
 
-    $self->_my_add_plugin(['Run::AfterRelease'       => { run => "%x inc/run/after_release.pl    --name %n --version %v --dir %d --archive %a" }])
-      if -r "inc/run/after_release.pl";
+      $self->_my_add_plugin(['Run::AfterRelease'       => { run => "%x ${prefix}after_release.pl    --name %n --version %v --dir %d --archive %a" }])
+        if -r "${prefix}after_release.pl";
 
-    $self->_my_add_plugin(['Run::BeforeBuild'        => { run => "%x inc/run/before_build.pl     --name %n --version %v" }])
-      if -r "inc/run/before_build.pl";
+      $self->_my_add_plugin(['Run::BeforeBuild'        => { run => "%x ${prefix}before_build.pl     --name %n --version %v" }])
+        if -r "${prefix}before_build.pl";
 
-    $self->_my_add_plugin(['Run::BeforeRelease'      => { run => "%x inc/run/before_release.pl   ---name %n --version %v --dir %d --archive %a" }])
-      if -r "inc/run/before_release.pl";
+      $self->_my_add_plugin(['Run::BeforeRelease'      => { run => "%x ${prefix}before_release.pl   ---name %n --version %v --dir %d --archive %a" }])
+        if -r "${prefix}before_release.pl";
 
-    $self->_my_add_plugin(['Run::Release'            => { run => "%x inc/run/release.pl          ---name %n --version %v --dir %d --archive %a" }])
-      if -r "inc/run/release.pl";
+      $self->_my_add_plugin(['Run::Release'            => { run => "%x ${prefix}release.pl          ---name %n --version %v --dir %d --archive %a" }])
+        if -r "${prefix}release.pl";
 
-    $self->_my_add_plugin(['Run::Test'               => { run => "%x inc/run/test.pl             ---name %n --version %v --dir %d" }])
-      if -r "inc/run/test.pl";
+      $self->_my_add_plugin(['Run::Test'               => { run => "%x ${prefix}test.pl             ---name %n --version %v --dir %d" }])
+        if -r "${prefix}test.pl";
+    }
 
     $self->_my_add_plugin(
       ['GatherDir' => { exclude_filename => [qw( Makefile.PL Build.PL xt/release/changes.t xt/release/fixme.t )],
