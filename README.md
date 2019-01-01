@@ -191,6 +191,10 @@ Exclude them from gather.
 This allows other developers to use the dist from the git checkout, without needing
 to install [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) and [Dist::Zilla::PluginBundle::Author::Plicease](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::Plicease).
 
+## copy\_mm
+
+Same as `copy_mb` but for EUMM.
+
 ## allow\_dirty
 
 Additional dirty allowed file passed to @Git.

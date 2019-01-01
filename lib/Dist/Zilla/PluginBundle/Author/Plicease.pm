@@ -407,7 +407,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
     {
       $self->_my_add_plugin([
         'CopyFilesFromBuild' => {
-          copy => [ 'Build.PL' ],
+          copy => [ 'Makefile.PL' ],
         },
       ]);
     }
