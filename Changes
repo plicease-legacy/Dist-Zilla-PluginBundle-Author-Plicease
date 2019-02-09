@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.33      2019-02-09 06:43:48 -0500
   - Require plicease plugsin 2.33
   - Remove .travis.yml checks that don't make sense with cip
 
