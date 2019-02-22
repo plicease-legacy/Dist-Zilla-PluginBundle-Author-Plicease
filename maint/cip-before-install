@@ -3,3 +3,4 @@
 set -ex
 
 cip exec cpanm -n Dist::Zilla::Plugin::Author::Plicease
+cip sudo dzil-cpanm -n Dist::Zilla::Plugin::Author::Plicease
