@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add appveyor_user and travis_user attributes
 
 2.33      2019-02-09 06:43:48 -0500
   - Require plicease plugsin 2.33
