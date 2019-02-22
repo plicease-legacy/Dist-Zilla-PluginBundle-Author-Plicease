@@ -134,6 +134,14 @@ Set the GitHub repo name to something other than the dist name.
 
 Set the GitHub user name.
 
+=head2 travis_user
+
+Set the travis user name (defaults to github_user).
+
+=head2 appveyor_user
+
+Set the appveyor username.
+
 =head2 copy_mb
 
 Copy Build.PL from the build into the git repository.
@@ -383,7 +391,8 @@ Specify a minimum Perl version.  If not specified it will be detected.
       'Author::Plicease::MarkDownCleanup' => {
               travis_status => int(defined $self->payload->{travis_status} ? $self->payload->{travis_status} : 0),
         maybe appveyor      => $self->payload->{appveyor},
-        maybe travis_user   => $self->payload->{github_user},
+        maybe travis_user   => $self->payload->{travis_user} // $self->payload->{github_user},
+        maybe appveyor_user => $self->payload->{appveyor_user},
       },
     ]);
 

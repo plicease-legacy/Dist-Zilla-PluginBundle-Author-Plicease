@@ -183,6 +183,14 @@ Set the GitHub repo name to something other than the dist name.
 
 Set the GitHub user name.
 
+## travis\_user
+
+Set the travis user name (defaults to github\_user).
+
+## appveyor\_user
+
+Set the appveyor username.
+
 ## copy\_mb
 
 Copy Build.PL from the build into the git repository.
