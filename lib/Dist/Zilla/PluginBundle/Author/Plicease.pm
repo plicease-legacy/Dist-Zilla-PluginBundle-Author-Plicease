@@ -140,7 +140,11 @@ Set the travis user name (defaults to github_user).
 
 =head2 appveyor_user
 
-Set the appveyor username.
+Set the appveyor username (defaults to plicease).
+
+=head2 cirrus_user
+
+Set the cirrus-ci user (defaults to same as travis_user, which itself defaults to plicease).
 
 =head2 copy_mb
 
@@ -190,7 +194,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
 
   my %plugin_versions = qw(
     Alien                0.023
-    Author::Plicease.*   2.34
+    Author::Plicease.*   2.35
     OurPkgVersion        0.12
     MinimumPerl          1.006
     InstallGuide         1.200006
@@ -393,6 +397,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
         maybe appveyor      => $self->payload->{appveyor},
         maybe travis_user   => $self->payload->{travis_user} // $self->payload->{github_user},
         maybe appveyor_user => $self->payload->{appveyor_user},
+        maybe cirrus_user   => $self->payload->{cirrus_user},
       },
     ]);
 

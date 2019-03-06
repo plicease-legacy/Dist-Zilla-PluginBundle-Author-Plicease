@@ -189,7 +189,11 @@ Set the travis user name (defaults to github\_user).
 
 ## appveyor\_user
 
-Set the appveyor username.
+Set the appveyor username (defaults to plicease).
+
+## cirrus\_user
+
+Set the cirrus-ci user (defaults to same as travis\_user, which itself defaults to plicease).
 
 ## copy\_mb
 
