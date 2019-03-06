@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.35      2019-03-05 21:48:06 -0500
   - Require plicease plugin 2.35
   - Add cirrus_user attributes
 
