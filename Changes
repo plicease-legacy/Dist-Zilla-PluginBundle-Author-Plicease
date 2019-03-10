@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require plicease plugin 2.35
   - overrides for [MetaResources] now available:
      * homepage
      * bugtracker.web
