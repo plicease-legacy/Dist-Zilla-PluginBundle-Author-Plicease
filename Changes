@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.36      2019-03-10 19:40:18 -0400
   - Require plicease plugin 2.35
   - overrides for [MetaResources] now available:
      * homepage
