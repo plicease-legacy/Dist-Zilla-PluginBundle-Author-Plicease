@@ -1,6 +1,12 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - overrides for [MetaResources] now available:
+     * homepage
+     * bugtracker.web
+     * repository.url
+     * repository.web
+     * repository.type
 
 2.35      2019-03-05 21:48:06 -0500
   - Require plicease plugin 2.35
