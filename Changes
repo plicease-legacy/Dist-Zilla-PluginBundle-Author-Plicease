@@ -1,10 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Require plicease plugin 2.37
   - [OurPkgVersion] uses no_critic option
 
 2.36      2019-03-10 19:40:18 -0400
-  - Require plicease plugin 2.35
+  - Require plicease plugin 2.37
   - overrides for [MetaResources] now available:
      * homepage
      * bugtracker.web
