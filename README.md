@@ -76,6 +76,7 @@ This plugin bundle is mostly equivalent to
     [AutoPrereqs]
     
     [OurPkgVersion]
+    no_critic = 1
     underscore_eval_version = 1
     
     [MetaJSON]

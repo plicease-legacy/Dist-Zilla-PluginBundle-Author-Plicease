@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - [OurPkgVersion] uses no_critic option
 
 2.36      2019-03-10 19:40:18 -0400
   - Require plicease plugin 2.35

@@ -195,7 +195,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
   my %plugin_versions = qw(
     Alien                0.023
     Author::Plicease.*   2.36
-    OurPkgVersion        0.12
+    OurPkgVersion        0.21
     MinimumPerl          1.006
     InstallGuide         1.200006
     Run::.*              0.035
@@ -313,6 +313,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
     $self->_my_add_plugin([$self->payload->{version_plugin} || (
       'OurPkgVersion', {
         underscore_eval_version => $self->{payload}->{underscore_eval_version} // 1,
+        no_critic => 1,
       }
     )]);
     $self->_my_add_plugin(['MetaJSON']);
