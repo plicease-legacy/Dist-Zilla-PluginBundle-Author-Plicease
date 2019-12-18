@@ -6,7 +6,9 @@ Dist::Zilla plugin bundle used by Plicease
 
 In your dist.ini:
 
-    [@Author::Plicease]
+```
+[@Author::Plicease]
+```
 
 # DESCRIPTION
 
@@ -50,76 +52,78 @@ one of my dists.  I don't expect anyone to use it for their own projects.
 
 This plugin bundle is mostly equivalent to
 
-    [GatherDir]
-    exclude_filename = Makefile.PL
-    exclude_filename = Build.PL
-    exclude_filename = xt/release/changes.t
-    exclude_filename = xt/release/fixme.t
-    exclude_match = ^_build/
-    
-    [PruneCruft]
-    except = .travis.yml
-    
-    [ManifestSkip]
-    [MetaYAML]
-    [License]
-    [ExecDir]
-    [ShareDir]
-    [Author::Plicease::MakeMaker]
-    [Manifest]
-    [TestRelease]
-    [PodWeaver]
-    
-    [NextRelease]
-    format = %-9v %{yyyy-MM-dd HH:mm:ss Z}d
-    
-    [AutoPrereqs]
-    
-    [OurPkgVersion]
-    no_critic = 1
-    underscore_eval_version = 1
-    
-    [MetaJSON]
-    
-    [Git::Check]
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = README.md
-    
-    [Git::Commit]
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = README.md
-    
-    [Git::Tag]
-    [Git::Push]
-    
-    [MetaResources]
-    bugtracker.web = https://github.com/plicease/My-Dist/issues
-    homepage = https://metacpan.org/pod/My::Dist
-    repository.type = git
-    repository.url = git://github.com/plicease/My-Dist.git
-    repository.web = https://github.com/plicease/My-Dist
-    
-    [InstallGuide]
-    [ConfirmRelease]
-    [MinimumPerl]
-    
-    [ReadmeAnyFromPod]
-    filename = README
-    location = build
-    type = text
-    
-    [ReadmeAnyFromPod / ReadMePodInRoot]
-    filename = README.md
-    location = root
-    type = markdown
-    
-    [Author::Plicease::MarkDownCleanup]
-    travis_status = 0
-    
-    [Author::Plicease::SpecialPrereqs]
-    [Author::Plicease::NoUnsafeInc]
+```
+[GatherDir]
+exclude_filename = Makefile.PL
+exclude_filename = Build.PL
+exclude_filename = xt/release/changes.t
+exclude_filename = xt/release/fixme.t
+exclude_match = ^_build/
+
+[PruneCruft]
+except = .travis.yml
+
+[ManifestSkip]
+[MetaYAML]
+[License]
+[ExecDir]
+[ShareDir]
+[Author::Plicease::MakeMaker]
+[Manifest]
+[TestRelease]
+[PodWeaver]
+
+[NextRelease]
+format = %-9v %{yyyy-MM-dd HH:mm:ss Z}d
+
+[AutoPrereqs]
+
+[OurPkgVersion]
+no_critic = 1
+underscore_eval_version = 1
+
+[MetaJSON]
+
+[Git::Check]
+allow_dirty = dist.ini
+allow_dirty = Changes
+allow_dirty = README.md
+
+[Git::Commit]
+allow_dirty = dist.ini
+allow_dirty = Changes
+allow_dirty = README.md
+
+[Git::Tag]
+[Git::Push]
+
+[MetaResources]
+bugtracker.web = https://github.com/plicease/My-Dist/issues
+homepage = https://metacpan.org/pod/My::Dist
+repository.type = git
+repository.url = git://github.com/plicease/My-Dist.git
+repository.web = https://github.com/plicease/My-Dist
+
+[InstallGuide]
+[ConfirmRelease]
+[MinimumPerl]
+
+[ReadmeAnyFromPod]
+filename = README
+location = build
+type = text
+
+[ReadmeAnyFromPod / ReadMePodInRoot]
+filename = README.md
+location = root
+type = gfm
+
+[Author::Plicease::MarkDownCleanup]
+travis_status = 0
+
+[Author::Plicease::SpecialPrereqs]
+[Author::Plicease::NoUnsafeInc]
+```
 
 Some exceptions:
 

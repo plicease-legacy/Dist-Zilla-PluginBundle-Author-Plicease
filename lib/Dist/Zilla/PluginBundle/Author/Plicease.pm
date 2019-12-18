@@ -384,7 +384,7 @@ Specify a minimum Perl version.  If not specified it will be detected.
     
       $self->_my_add_plugin([
         'ReadmeAnyFromPod' => ReadMePodInRoot => {
-          type                  => 'markdown',
+          type                  => 'gfm',
           filename              => 'README.md',
           location              => 'root',
           maybe source_filename => $self->payload->{readme_from},
