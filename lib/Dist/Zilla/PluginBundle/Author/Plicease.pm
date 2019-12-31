@@ -433,15 +433,6 @@ Specify a minimum Perl version.  If not specified it will be detected.
       { $self->_my_add_plugin(['ACPS::RPM']) }
     }
     
-    if($^O eq 'MSWin32')
-    {
-      $self->_my_add_plugin([
-        'Run::AfterBuild' => {
-          run => 'dos2unix README.md t/00_diag.*',
-        },
-      ]);
-    }
-    
     foreach my $test (map { path($_) } bsd_glob ('t/*.t'))
     {
       my @lines = grep !/-no_srand => 1/, grep /use Test2::V0/, $test->lines_utf8;
