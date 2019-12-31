@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Handle line endings better on Windows
+  - No longer requires dos2unix on Windows
 
 2.39      2019-12-18 05:39:21 -0700
   - Switch to gfm for README.md since the readme is only
